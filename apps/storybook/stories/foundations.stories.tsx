@@ -32,7 +32,7 @@ function Tokens() {
                 className="mb-2 h-12 rounded-md border"
                 style={{ backgroundColor: 'var(--axion-semantic-' + role + ')' }}
               />
-              <code className="text-xs">{role}</code>
+              <code className="font-sans text-xs">{role}</code>
             </div>
           ))}
         </div>
