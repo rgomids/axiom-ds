@@ -1,5 +1,10 @@
 # Auditoria das issues do axiom-ds
 
+> **SUPERSEDED: auditoria historica, nao representa o estado atual.**
+> Os resultados abaixo descrevem o levantamento anterior a implementacao.
+> Consulte [acceptance.md](acceptance.md) para evidencias atuais e
+> [delivery-sequence.md](delivery-sequence.md) para a separacao das entregas.
+
 Data: 2026-09-27. Resultado: parcialmente alinhado; nao pronto para encerrar as issues.
 
 Fontes:

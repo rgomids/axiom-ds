@@ -11,11 +11,23 @@ for implemented code, but never substitutes for external verification.
   SECURITY.md and Dependabot configuration.
 - Codex and Cloud: one shared AGENTS.md, docs/cloud.md and common npm commands.
 - Portable workspace and CI: package-lock.json, npm workspaces and quality workflow.
-- Notion discovery: pending external URL/access and verified update; see docs/discovery.md.
-- Remote CI result: to be recorded after publication to the authorized branch.
+- Notion discovery: project and direct discovery URLs received, but neither
+  rendered readable content during verification. No update or content evidence
+  is claimed; see docs/discovery.md.
+- Independent bootstrap: [PR #4](https://github.com/rgomids/axiom-ds/pull/4),
+  with its own manifests, lockfile, contribution baseline, workspace skeleton,
+  quality workflow and repository-contract tests. Acceptance remains pending.
+- Implementation CI at commit 012f1da:
+  [quality passed](https://github.com/rgomids/axiom-ds/actions/runs/36294384463)
+  and [bootstrap rules passed](https://github.com/rgomids/axiom-ds/actions/runs/36294384466).
+  These runs establish technical evidence for that commit, not completion of #1.
+  Subsequent review-fix checks are recorded in the PR checks, by commit.
 
 ## Issue 2
 
+- Blocked by acceptance and merge of the independent bootstrap; see
+  [delivery-sequence.md](delivery-sequence.md). The original implementation
+  started before that acceptance; splitting PRs does not erase this fact.
 - Source-of-truth model and stack: ADR 0002, docs/penpot.md and owned component source.
 - DTCG primitives, semantic/component roles and dark override: packages/tokens/src.
 - CSS variables and Tailwind mapping: generated tokens and packages/ui/src/react/theme.css.
@@ -32,7 +44,7 @@ for implemented code, but never substitutes for external verification.
 ## External boundaries
 
 Do not claim both issues closed while Notion or remote CI remains unverified.
-Do not publish via a fork: the user explicitly requested direct access to the
-canonical repository and is arranging contributor permissions.
+Both branches are published directly to the canonical repository using the
+contributor access granted by the maintainer, not through a fork.
 Opening a PR is separate from merging it, enabling repository settings or
 closing issues; those remain under maintainer control.

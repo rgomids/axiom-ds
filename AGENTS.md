@@ -15,6 +15,9 @@ may link here; do not duplicate or weaken these rules.
 
 ## Shared workflow
 
+Issue #2 remains blocked by acceptance of #1. See docs/delivery-sequence.md
+before publishing or merging either delivery; passing CI does not waive that gate.
+
 Use Node 22.16+ and npm. On Windows, Linux and Cloud run the same commands:
 
 1. npm ci

@@ -72,6 +72,12 @@ A grafia AXIOM dos SVGs foi preservada; o namespace @axion permanece por compati
 
 ## Regras e entrega
 
+O [PR de bootstrap #4](https://github.com/rgomids/axiom-ds/pull/4) atende apenas
+a issue #1. O [PR de implementacao #3](https://github.com/rgomids/axiom-ds/pull/3)
+e revisado sobre essa base, mas continua bloqueado pela aceitacao da #1.
+Leia a [ordem de entrega](docs/delivery-sequence.md); nao faca merge da
+implementacao na branch de bootstrap.
+
 Leia [AGENTS.md](AGENTS.md), [contribuicao](CONTRIBUTING.md),
 [governanca](docs/governance.md), [seguranca](SECURITY.md),
 [dependencias](docs/dependencies.md), [temas](docs/themes.md) e
