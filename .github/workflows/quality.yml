@@ -1,0 +1,29 @@
+name: Design system quality
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run validate
+      - run: git diff --exit-code -- styles.css packages/tokens/dist packages/ui/dist docs/site/vendor examples resources.html
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+      - run: npm run test:visual
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: visual-checks
+          path: test-results/
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: storybook
+          path: storybook-static/

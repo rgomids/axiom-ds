@@ -1,0 +1,27 @@
+.terminal {
+  grid-column: 1 / -1;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: #111827;
+  color: #d1d5db;
+  box-shadow: var(--shadow-card);
+}
+.terminal-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 14px;
+  background: #fff;
+  color: var(--ink-900);
+}
+.terminal-head span {
+  color: var(--slate-500);
+  font-size: 12px;
+}
+pre {
+  margin: 0;
+  padding: 18px;
+  overflow: auto;
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.6;
+}

@@ -1,0 +1,15 @@
+{
+  "name": "@axion/tokens",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/tokens.json",
+    "./css": "./dist/tokens.css"
+  }
+}

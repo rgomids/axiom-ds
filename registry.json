@@ -1,0 +1,115 @@
+{
+  "version": "0.2.0",
+  "resources": [
+    {
+      "id": "button",
+      "name": "Botoes",
+      "kind": "components",
+      "summary": "Variantes, foco, pressionado, desabilitado e carregamento.",
+      "source": "packages/ui/src/components/button/markup.html",
+      "documentation": "packages/ui/src/components/button/README.md",
+      "example": "examples/button.html",
+      "status": "beta"
+    },
+    {
+      "id": "field",
+      "name": "Campos",
+      "kind": "components",
+      "summary": "Input, select, checkbox, erro e somente leitura.",
+      "source": "packages/ui/src/components/field/markup.html",
+      "documentation": "packages/ui/src/components/field/README.md",
+      "example": "examples/field.html",
+      "status": "beta"
+    },
+    {
+      "id": "search",
+      "name": "Busca",
+      "kind": "components",
+      "summary": "Busca local com label e resultados anunciados.",
+      "source": "packages/ui/src/components/search/markup.html",
+      "documentation": "packages/ui/src/components/search/README.md",
+      "example": "examples/search.html",
+      "status": "beta"
+    },
+    {
+      "id": "badge",
+      "name": "Status e badges",
+      "kind": "components",
+      "summary": "Sucesso, informacao, alerta, erro e estado neutro.",
+      "source": "packages/ui/src/components/badge/markup.html",
+      "documentation": "packages/ui/src/components/badge/README.md",
+      "example": "examples/badge.html",
+      "status": "beta"
+    },
+    {
+      "id": "navigation",
+      "name": "Navegacao",
+      "kind": "components",
+      "summary": "Sidebar, barra superior e item atual.",
+      "source": "packages/ui/src/components/navigation/markup.html",
+      "documentation": "packages/ui/src/components/navigation/README.md",
+      "example": "examples/navigation.html",
+      "status": "beta"
+    },
+    {
+      "id": "metric-card",
+      "name": "Metricas",
+      "kind": "components",
+      "summary": "Valor, contexto e variacao com sinal textual.",
+      "source": "packages/ui/src/components/metric-card/markup.html",
+      "documentation": "packages/ui/src/components/metric-card/README.md",
+      "example": "examples/metric-card.html",
+      "status": "beta"
+    },
+    {
+      "id": "table",
+      "name": "Tabelas",
+      "kind": "components",
+      "summary": "Dados tabulares com caption e rolagem horizontal.",
+      "source": "packages/ui/src/components/table/markup.html",
+      "documentation": "packages/ui/src/components/table/README.md",
+      "example": "examples/table.html",
+      "status": "beta"
+    },
+    {
+      "id": "terminal",
+      "name": "Terminal",
+      "kind": "components",
+      "summary": "Saida de execucao em texto monoespacado.",
+      "source": "packages/ui/src/components/terminal/markup.html",
+      "documentation": "packages/ui/src/components/terminal/README.md",
+      "example": "examples/terminal.html",
+      "status": "beta"
+    },
+    {
+      "id": "brand",
+      "name": "Marca",
+      "kind": "components",
+      "summary": "Simbolo e assinaturas clara, escura e monocromatica.",
+      "source": "packages/ui/src/components/brand/markup.html",
+      "documentation": "packages/ui/src/components/brand/README.md",
+      "example": "examples/brand.html",
+      "status": "beta"
+    },
+    {
+      "id": "dashboard",
+      "name": "Dashboard",
+      "kind": "patterns",
+      "summary": "Composicao visual de referencia.",
+      "source": "packages/ui/src/patterns/dashboard/markup.html",
+      "documentation": "packages/ui/src/patterns/dashboard/README.md",
+      "example": "examples/dashboard.html",
+      "status": "prototype"
+    },
+    {
+      "id": "landing",
+      "name": "Landing page",
+      "kind": "patterns",
+      "summary": "Composicao visual de referencia.",
+      "source": "packages/ui/src/patterns/landing/markup.html",
+      "documentation": "packages/ui/src/patterns/landing/README.md",
+      "example": "examples/landing.html",
+      "status": "prototype"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+<section id="dashboard" class="section">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">08 Preview</p>
+      <h2>Dashboard Axion</h2>
+    </div>
+    <span class="pill green"><span class="dot success"></span>Live</span>
+  </div>
+
+  <div class="dashboard-grid">
+    <article class="panel project-list">
+      <div class="panel-head">
+        <h3>Projects</h3>
+        <button class="btn ghost" type="button">View all <i data-lucide="arrow-right"></i></button>
+      </div>
+      <div class="project-item">
+        <div class="thumb thumb-one"></div>
+        <div>
+          <strong>Orion</strong>
+          <p>Threat intelligence analysis and report generation</p>
+        </div>
+        <span class="pill green">Active</span>
+      </div>
+      <div class="project-item">
+        <div class="thumb thumb-two"></div>
+        <div>
+          <strong>Helios</strong>
+          <p>Infrastructure assessment and compliance validation</p>
+        </div>
+        <span class="pill green">Active</span>
+      </div>
+      <div class="project-item">
+        <div class="thumb thumb-three"></div>
+        <div>
+          <strong>Catacomb</strong>
+          <p>Adversarial simulation and red team operations</p>
+        </div>
+        <span class="pill red">Running</span>
+      </div>
+    </article>
+
+    <article class="panel topology">
+      <div class="panel-head">
+        <h3>Agent Topology</h3>
+        <span class="pill green"><span class="dot success"></span>8 agents online</span>
+      </div>
+      <div class="topology-map">
+        <div class="core-logo">A<span>Axion</span></div>
+        <div class="node planner"><i data-lucide="settings"></i><strong>Planner</strong></div>
+        <div class="node analysis"><i data-lucide="bar-chart-3"></i><strong>Analysis</strong></div>
+        <div class="node validation">
+          <i data-lucide="shield-check"></i><strong>Validation</strong>
+        </div>
+        <div class="node synthesis"><i data-lucide="git-branch"></i><strong>Synthesis</strong></div>
+        <div class="node execution"><i data-lucide="user-round"></i><strong>Execution</strong></div>
+        <div class="node researcher"><i data-lucide="search"></i><strong>Researcher</strong></div>
+      </div>
+    </article>
+
+    <article class="panel health">
+      <div class="panel-head">
+        <h3>Runtime &amp; Provider Health</h3>
+        <button class="btn ghost" type="button">Manage <i data-lucide="arrow-right"></i></button>
+      </div>
+      <div class="runtime-box">
+        <strong><i data-lucide="layers-3"></i>Axion Runtime</strong>
+        <span class="pill green">Healthy</span>
+      </div>
+      <div class="provider-row"><span>Anthropic</span><b>Healthy</b><small>142ms</small></div>
+      <div class="provider-row"><span>OpenAI</span><b>Healthy</b><small>318ms</small></div>
+      <div class="provider-row"><span>AWS Bedrock</span><b>Healthy</b><small>211ms</small></div>
+      <div class="provider-row"><span>Azure OpenAI</span><b>Healthy</b><small>412ms</small></div>
+    </article>
+
+    <article class="panel table-panel">
+      <div class="panel-head">
+        <h3>Executions</h3>
+        <button class="btn secondary" type="button">
+          All state <i data-lucide="chevron-down"></i>
+        </button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#3847</td>
+            <td>Security assessment</td>
+            <td><span class="status running">Running</span></td>
+            <td>2m 14s</td>
+          </tr>
+          <tr>
+            <td>#3846</td>
+            <td>Generate threat report</td>
+            <td><span class="status complete">Completed</span></td>
+            <td>12m 3s</td>
+          </tr>
+          <tr>
+            <td>#3845</td>
+            <td>Infra compliance scan</td>
+            <td><span class="status complete">Completed</span></td>
+            <td>8m 41s</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <article class="terminal">
+      <div class="terminal-head">
+        <strong>Terminal Output</strong>
+        <span>Execution #3847</span>
+      </div>
+      <pre>
+[22:14:02] Initializing execution environment...
+[22:14:03] Loading project context: Orion
+[22:14:04] Planner agent started
+[22:14:06] Evidence collection running</pre>
+    </article>
+  </div>
+</section>

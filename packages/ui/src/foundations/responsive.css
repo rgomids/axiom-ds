@@ -1,0 +1,73 @@
+@media (max-width: 1180px) {
+  .topbar {
+    position: static;
+    grid-template-columns: 1fr;
+  }
+  .dashboard-grid,
+  .grid.three {
+    grid-template-columns: 1fr 1fr;
+  }
+  .topology {
+    grid-column: 1 / -1;
+  }
+  .landing-preview {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .sidebar {
+    position: static;
+    width: auto;
+    min-height: auto;
+  }
+  .side-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sidebar-note,
+  .version {
+    display: none;
+  }
+  .shell {
+    margin-left: 0;
+    padding: 18px;
+  }
+  .hero,
+  .grid.two,
+  .grid.three,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .swatch-grid,
+  .icon-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .typography > div,
+  .project-item {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .side-nav {
+    grid-template-columns: 1fr;
+  }
+  .hero,
+  .panel,
+  .landing-preview {
+    padding: 16px;
+  }
+  .brand-story {
+    grid-template-columns: 1fr;
+  }
+  .swatch-grid,
+  .icon-grid {
+    grid-template-columns: 1fr;
+  }
+  .metric-card {
+    grid-template-columns: auto 1fr;
+  }
+  .spark {
+    display: none;
+  }
+}

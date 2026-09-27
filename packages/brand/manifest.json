@@ -1,0 +1,62 @@
+{
+  "name": "AXIOM",
+  "product": "Axion",
+  "version": "0.2.0",
+  "source": "Reconstrucao vetorial da referencia aprovada",
+  "assets": [
+    {
+      "file": "svg/axiom-horizontal-dark.svg",
+      "variant": "dark",
+      "background": "dark",
+      "format": "svg"
+    },
+    {
+      "file": "svg/axiom-horizontal-light.svg",
+      "variant": "light",
+      "background": "light",
+      "format": "svg"
+    },
+    {
+      "file": "svg/axiom-horizontal-mono.svg",
+      "variant": "mono",
+      "background": "light",
+      "format": "svg"
+    },
+    {
+      "file": "svg/axiom-logo-dark.svg",
+      "variant": "dark",
+      "background": "dark",
+      "format": "svg"
+    },
+    {
+      "file": "svg/axiom-logo-light.svg",
+      "variant": "light",
+      "background": "light",
+      "format": "svg"
+    },
+    {
+      "file": "svg/axiom-logo-mono.svg",
+      "variant": "mono",
+      "background": "light",
+      "format": "svg"
+    },
+    {
+      "file": "svg/axiom-symbol-dark.svg",
+      "variant": "dark",
+      "background": "dark",
+      "format": "svg"
+    },
+    {
+      "file": "svg/axiom-symbol-light.svg",
+      "variant": "light",
+      "background": "light",
+      "format": "svg"
+    },
+    {
+      "file": "svg/axiom-symbol-mono.svg",
+      "variant": "mono",
+      "background": "light",
+      "format": "svg"
+    }
+  ]
+}

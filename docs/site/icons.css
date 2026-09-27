@@ -1,0 +1,21 @@
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 12px;
+}
+.icon-grid div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 58px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--ink-700);
+  font-weight: 750;
+}
+.icon-grid svg {
+  width: 20px;
+  height: 20px;
+  color: var(--blue);
+}
