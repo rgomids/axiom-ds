@@ -18,14 +18,12 @@ may link here; do not duplicate or weaken these rules.
 Use Node 22.16+ and npm. On Windows, Linux and Cloud run the same commands:
 
 1. npm ci
-2. npx playwright install chromium (Linux CI may use --with-deps)
-3. npm run validate
-4. npm run test:browser
-5. npm run test:visual
+2. npm run validate
 
-For component development run npm run storybook. For production docs run
-npm run build:storybook. Visual baseline updates use npm run test:visual:update;
-inspect images and commit the reviewed baselines with the change.
+This bootstrap validates formatting, lint and repository contracts. It does
+not contain components or claim browser validation. Issue #2 will introduce
+type checking, component tests, Storybook, browser/visual checks and Pages
+with their actual sources. Follow docs/delivery-sequence.md before proceeding.
 
 ## Engineering
 
