@@ -1,0 +1,28 @@
+{
+  "name": "axion-design-system",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Repository bootstrap for the Axiom Design System.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.16"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "test": "node --test tests/*.test.mjs",
+    "validate": "npm run format:check && npm run lint && npm test"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "eslint": "10.11.0",
+    "globals": "17.12.0",
+    "prettier": "3.9.9"
+  }
+}
