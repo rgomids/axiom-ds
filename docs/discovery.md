@@ -1,31 +1,37 @@
-# Axiom discovery record
+# Axiom discovery evidence
 
-Repository: https://github.com/rgomids/axiom-ds
-Product repository: https://github.com/rgomids/axiom
-Decision: docs/adr/0001-repository-boundary.md
+Status: VERIFIED on 2026-09-27. The Notion criterion of issue #1 is satisfied;
+maintainer acceptance and merge of the bootstrap are separate gates.
 
-Text prepared for the existing Axiom Notion discovery:
+## Source and method
 
-> Axiom spans multiple repositories. axiom owns the product; axiom-ds owns the
-> design system, tokens, UI library, brand, Storybook and visual-validation
-> tooling. They share the Axiom project but have independent delivery lifecycles.
-> Technical source of truth: https://github.com/rgomids/axiom-ds.
-
-## Verification evidence
-
-- Discovery URL supplied by the user: https://mrgomides.notion.site/axiom.
-- Direct discovery URL subsequently supplied by the user:
+- Discovery index supplied by the user:
   https://mrgomides.notion.site/3-Discovery-Research-3dee01f2262681b6b247ff55baa0b463.
-- Attempted on 2026-09-27 through the web reader and in-app browser.
-- The web reader could not retrieve the page. The browser remained on a loading
-  screen after a reload, with failed Notion stylesheet/locale-script loads.
-- No discovery text, repository link or repository-boundary decision was visible.
-- No Notion content was edited, and no write permission was established.
-- The direct discovery URL failed in both readers as well, with the same
-  loading screen and failed locale-script/stylesheet resources in the browser.
+- Followed its visible link to the existing page titled
+  "Design System - direcao, repository boundary e bootstrap":
+  https://mrgomides.notion.site/Design-System-dire-o-repository-boundary-e-bootstrap-3e7e01f226268132be8cfa46fe7b104a.
+- Read the rendered public page in the browser. No Notion content was edited;
+  no authenticated or write access was needed to verify the existing record.
 
-Status: URL received, content verification still blocked. This observation
-does not mean the entry is absent. An export or working authenticated page
-access is needed to check its contents; editing also requires authorized access.
-Do not mark the Notion criterion complete until the repository link and boundary
-decision have been read and verified in the actual discovery record.
+## Observed acceptance evidence
+
+- Under "Estado atual - 26/09/2026", the dedicated repository link resolves
+  to https://github.com/rgomids/axiom-ds. Issues #1 and #2 are linked separately.
+- "Decisao de repository boundary" places rgomids/axiom and rgomids/axiom-ds
+  under the same Axiom Project, with the Design System outside the product repo.
+- The rationale assigns tokens, components, Storybook, visual tests and releases
+  an independent lifecycle, avoiding a second build ecosystem in Go/Lingo.
+- "Fases iniciais" separates repository bootstrap from Design System foundations.
+- "Ownership documental" retains technical decisions, implementation, backlog
+  and Evidence in GitHub; the Notion entry records direction and rationale.
+
+This verifies both required facts: a discovery link to the dedicated repository
+and a recorded repository-boundary decision. The corresponding versioned
+decision remains [ADR 0001](adr/0001-repository-boundary.md).
+
+## Previous access limitation
+
+Earlier attempts on 2026-09-27 remained on a loading screen. A subsequent
+browser session loaded Engineering and Discovery successfully, exposing the
+specific Design System subpage above. That successful read supersedes the
+earlier access-blocked observation; it does not assert we created the entry.

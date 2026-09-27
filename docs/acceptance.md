@@ -11,12 +11,14 @@ for implemented code, but never substitutes for external verification.
   SECURITY.md and Dependabot configuration.
 - Codex and Cloud: one shared AGENTS.md, docs/cloud.md and common npm commands.
 - Portable workspace and CI: package-lock.json, npm workspaces and quality workflow.
-- Notion discovery: project and direct discovery URLs received, but neither
-  rendered readable content during verification. No update or content evidence
-  is claimed; see docs/discovery.md.
+- Notion discovery: VERIFIED on 2026-09-27 by following the Discovery index
+  to the existing Design System subpage. It links rgomids/axiom-ds and records
+  the repository boundary and independent lifecycle. Source and observations
+  are recorded in docs/discovery.md; no Notion edit was required.
 - Independent bootstrap: [PR #4](https://github.com/rgomids/axiom-ds/pull/4),
   with its own manifests, lockfile, contribution baseline, workspace skeleton,
-  quality workflow and repository-contract tests. Acceptance remains pending.
+  quality workflow and repository-contract tests. Technical and external
+  evidence are verified; maintainer review and merge remain pending.
 - Implementation CI at commit 012f1da:
   [quality passed](https://github.com/rgomids/axiom-ds/actions/runs/36294384463)
   and [bootstrap rules passed](https://github.com/rgomids/axiom-ds/actions/runs/36294384466).
