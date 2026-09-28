@@ -1,0 +1,92 @@
+.metric-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  min-height: 100px;
+  padding: 18px;
+}
+.metric-card p {
+  color: var(--slate-600);
+  font-size: 13px;
+  font-weight: 650;
+}
+.metric-card strong {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 30px;
+  line-height: 34px;
+  font-weight: 800;
+}
+.trend {
+  margin-left: 8px;
+  font-weight: 750;
+}
+.trend.up {
+  color: var(--axion-color-success-text);
+}
+.trend.flat {
+  color: var(--slate-500);
+}
+.icon-soft {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+}
+.icon-soft svg {
+  width: 28px;
+  height: 28px;
+}
+.icon-soft.blue {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+.icon-soft.green {
+  background: var(--green-soft);
+  color: #087443;
+}
+.icon-soft.amber {
+  background: var(--amber-soft);
+  color: #b54708;
+}
+
+.spark {
+  display: flex;
+  align-items: end;
+  gap: 5px;
+  height: 42px;
+}
+.spark span {
+  width: 6px;
+  border-radius: 999px 999px 0 0;
+  opacity: 0.75;
+}
+.spark span:nth-child(1) {
+  height: 12px;
+}
+.spark span:nth-child(2) {
+  height: 17px;
+}
+.spark span:nth-child(3) {
+  height: 24px;
+}
+.spark span:nth-child(4) {
+  height: 31px;
+}
+.spark span:nth-child(5) {
+  height: 38px;
+}
+.spark span:nth-child(6) {
+  height: 29px;
+}
+.bars-blue span {
+  background: #93c5fd;
+}
+.bars-green span {
+  background: #6ee7b7;
+}
+.bars-gray span {
+  background: #d7dce5;
+}

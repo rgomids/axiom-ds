@@ -1,8 +1,21 @@
 import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
 import globals from 'globals';
 
-export default [
-  { ignores: ['node_modules/**', '.qa/**'] },
+export default tseslint.config(
+  {
+    ignores: [
+      'node_modules/**',
+      '**/dist/**',
+      'storybook-static/**',
+      'test-results/**',
+      'playwright-report/**',
+      'docs/site/vendor/**',
+      '.qa/**',
+    ],
+  },
   js.configs.recommended,
-  { languageOptions: { globals: globals.node } },
-];
+  ...tseslint.configs.recommended,
+  { languageOptions: { globals: { ...globals.node, ...globals.browser } } },
+  { files: ['**/*.ts', '**/*.tsx'], rules: { '@typescript-eslint/no-explicit-any': 'error' } },
+);

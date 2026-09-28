@@ -1,0 +1,16 @@
+.field {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+  color: var(--slate-600);
+  font-weight: 700;
+}
+.field input,
+.field select {
+  min-height: 40px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0 12px;
+  background: #fff;
+  color: var(--ink-700);
+}

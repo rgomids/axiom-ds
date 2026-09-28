@@ -1,29 +1,33 @@
-# Contributing
+# Contribuir
 
-Read AGENTS.md, docs/governance.md and the issue before changing code.
-Codex and Cloud use the same shared rules and commands.
+Para a biblioteca atual, acrescente componentes React/TypeScript em
+packages/ui/src/react, exporte-os no index e adicione stories em apps/storybook.
+Use tokens semanticos e primitivas Radix quando houver comportamento complexo.
+Execute npm run validate, npm run test:browser e npm run test:visual.
+Preserve o aviso MIT nos componentes derivados de shadcn/ui.
 
-## Bootstrap validation
+O fluxo abaixo se aplica ao catalogo HTML de compatibilidade:
 
-Use Node 22.16+ and npm:
+1. Crie packages/ui/src/components/nome/ com CSS, markup.html e README.md.
+2. Documente finalidade, anatomia, variantes, estados, contrato e acessibilidade.
+3. Registre o CSS em packages/ui/sources.json na ordem de cascata apropriada.
+4. Registre o recurso em registry.json.
+5. Reutilize tokens; novos valores devem ter um papel claro.
+6. Execute npm run check e npm run test:browser.
+7. Revise desktop/mobile e atualize CHANGELOG.md.
 
-```sh
-npm ci
-npm run validate
-```
+Gerados acompanham fontes na mesma alteracao. Nunca corrija o bundle diretamente.
 
-Validation checks formatting, JavaScript lint and repository contracts.
-Commit package-lock.json with dependency changes. Never commit secrets.
-Use focused branches and PRs with scope, checks and remaining acceptance evidence.
-Maintainers approve remote changes, releases and merges; green CI is not acceptance.
+## Maturidade
 
-## Delivery boundary
+Prototype: referencia visual sem contrato funcional completo.
+Beta: contrato documentado e testes do exemplo, sujeito a ajustes.
+Stable: uso comprovado em produto, estados completos, revisao manual de
+acessibilidade e compatibilidade definida. Nenhum recurso atual e stable.
 
-Issue #1 owns repository bootstrap only. Empty workspace manifests reserve
-packages/tokens, packages/ui and apps/storybook; no token taxonomy or UI is included.
-Issue #2 stays blocked until #1, including its Notion evidence, is accepted.
-See docs/delivery-sequence.md. No stable package publication is part of bootstrap.
+## Versoes
 
-Type checking, component tests, Storybook, visual tests and Pages will be
-introduced with source code in the separate implementation delivery. They are
-not represented as no-op checks in this bootstrap pipeline.
+Os pacotes seguem versao conjunta. Quebra de classes, tokens ou comportamento
+exige migracao e incremento major. Recursos compativeis incrementam minor;
+correcoes compativeis, patch. Durante 0.x, quebras incrementam minor.
+Nao declare testes de leitor de tela ou de temas que nao foram realizados.

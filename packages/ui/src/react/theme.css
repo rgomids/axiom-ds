@@ -1,0 +1,86 @@
+@import 'tailwindcss';
+@import '../../../tokens/dist/tokens.css';
+@source "./*.tsx";
+@source "../../../../apps/storybook/stories";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+@theme inline {
+  --color-background: var(--axion-semantic-surface-default);
+  --color-foreground: var(--axion-semantic-text-primary);
+  --color-card: var(--axion-semantic-surface-default);
+  --color-card-foreground: var(--axion-semantic-text-primary);
+  --color-popover: var(--axion-semantic-surface-default);
+  --color-popover-foreground: var(--axion-semantic-text-primary);
+  --color-primary: var(--axion-semantic-action-primary);
+  --color-primary-hover: var(--axion-semantic-action-hover);
+  --color-primary-foreground: var(--axion-semantic-action-onPrimary);
+  --color-secondary: var(--axion-semantic-surface-muted);
+  --color-secondary-foreground: var(--axion-semantic-text-primary);
+  --color-muted: var(--axion-semantic-surface-muted);
+  --color-muted-foreground: var(--axion-semantic-text-muted);
+  --color-accent: var(--axion-semantic-surface-muted);
+  --color-accent-foreground: var(--axion-semantic-text-primary);
+  --color-destructive: var(--axion-semantic-status-danger);
+  --color-destructive-foreground: var(--axion-semantic-status-onDanger);
+  --color-border: var(--axion-semantic-border-default);
+  --color-input: var(--axion-semantic-border-control);
+  --color-ring: var(--axion-semantic-focus-ring);
+  --color-overlay: var(--axion-semantic-overlay);
+  --radius-xs: var(--axion-radius-sm);
+  --radius-sm: var(--axion-radius-sm);
+  --radius-md: var(--axion-radius-sm);
+  --radius-lg: var(--axion-radius-md);
+  --radius-xl: var(--axion-radius-md);
+  --spacing: var(--axion-space-4);
+  --font-sans: var(--axion-font-family);
+  --text-xs: var(--axion-font-size-12);
+  --text-sm: var(--axion-font-size-14);
+  --text-base: var(--axion-font-size-16);
+  --text-xl: var(--axion-font-size-20);
+  --text-2xl: var(--axion-font-size-24);
+  --shadow-sm: var(--axion-shadow-soft);
+  --shadow-lg: var(--axion-shadow-card);
+  --default-transition-duration: var(--axion-motion-fast);
+}
+@layer base {
+  * {
+    border-color: var(--axion-semantic-border-default);
+    letter-spacing: 0;
+  }
+  body {
+    margin: 0;
+    background: var(--axion-semantic-surface-canvas);
+    color: var(--axion-semantic-text-primary);
+    font-family: var(--axion-font-family);
+  }
+  :focus-visible {
+    outline: 2px solid var(--axion-semantic-focus-ring);
+    outline-offset: 3px;
+  }
+  [data-slot='button'] {
+    white-space: normal;
+    min-height: var(--axion-component-button-height);
+  }
+  [data-slot='input'] {
+    min-height: var(--axion-component-field-height);
+  }
+  [data-slot='dialog-content'] {
+    color: var(--axion-semantic-text-primary);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media (forced-colors: active) {
+  [data-slot='button'],
+  [data-slot='badge'],
+  [data-slot='tabs-trigger'] {
+    border: 1px solid ButtonText;
+  }
+}

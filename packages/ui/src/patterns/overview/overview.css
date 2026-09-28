@@ -1,0 +1,43 @@
+.hero,
+.section {
+  scroll-margin-top: 86px;
+}
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.7fr);
+  gap: 20px;
+  align-items: stretch;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #ffffff 0%, #f1f7ff 100%);
+  box-shadow: var(--shadow-card);
+}
+.hero-copy {
+  display: grid;
+  align-content: center;
+  gap: 14px;
+  max-width: 760px;
+}
+.hero-copy h2 {
+  max-width: 780px;
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.05;
+}
+.hero-copy p:not(.eyebrow) {
+  max-width: 680px;
+  color: var(--slate-600);
+  font-size: 17px;
+  line-height: 26px;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.hero-panel {
+  display: grid;
+  align-content: center;
+  gap: 12px;
+}

@@ -1,5 +1,16 @@
 node_modules
 .git
 .qa
+storybook-static
+test-results
+playwright-report
+packages/*/dist
+packages/*/LICENSE
+apps/storybook/public/licenses
+docs/site/vendor
+packages/brand/svg
+examples
+resources.html
+styles.css
 package-lock.json
 LICENSE

@@ -1,42 +1,92 @@
-# Axiom Design System: repository bootstrap
+# Axiom Design System
 
-Dedicated public repository for the Axiom Design System, part of the
-[Axiom Project](https://github.com/rgomids/axiom).
-The product remains in rgomids/axiom; this repository owns the future tokens,
-components, brand and Storybook with an independent delivery lifecycle.
-License: Apache-2.0. Git is the technical source of truth.
+Design system do **Axiom Project**, no repositorio dedicado
+[rgomids/axiom-ds](https://github.com/rgomids/axiom-ds).
+[rgomids/axiom](https://github.com/rgomids/axiom) continua responsavel pelo produto.
+Git e a fonte tecnica; Penpot explora decisoes; Storybook documenta codigo executavel.
 
-## Scope
+## Desenvolvimento
 
-This branch delivers issue #1 only: governance, shared agent rules, npm
-workspace skeleton and bootstrap validation. It contains no UI implementation.
-Issue #2 remains blocked until #1 is accepted, including the Notion evidence.
-See [delivery sequence](docs/delivery-sequence.md) and
-[bootstrap acceptance](docs/bootstrap-acceptance.md).
-
-## Local Codex and Cloud
-
-Use Node 22.16+ and npm in either environment:
+Node.js 22.16+ e npm. Os mesmos comandos atendem Codex local e Cloud:
 
 ```sh
 npm ci
-npm run validate
+npx playwright install chromium
+npm run storybook
 ```
 
-The validation command runs formatting, lint and Node repository-contract tests.
-No component build or browser checks are claimed at this stage.
+Storybook: http://localhost:6006. Se essa porta estiver ocupada, execute o CLI
+com outra porta. Para visualizar o build estatico, use npm run serve:storybook
+(http://127.0.0.1:6108).
 
-## Structure
+## Validacao
 
-- packages/tokens: reserved token workspace.
-- packages/ui: reserved component workspace.
-- apps/storybook: reserved executable-documentation workspace.
-- tests/visual: reserved future visual validation.
-- docs: governance, discovery and decisions.
-- .github: CI and dependency-update policy.
+```sh
+npm run validate
+npm run test:browser
+npm run test:visual
+```
 
-Read [AGENTS.md](AGENTS.md), [CONTRIBUTING.md](CONTRIBUTING.md),
-[governance](docs/governance.md), [dependencies](docs/dependencies.md),
-[security](SECURITY.md) and [Cloud setup](docs/cloud.md).
-The [Notion evidence](docs/discovery.md) is an external acceptance requirement,
-not a consequence of passing CI.
+validate inclui formatacao, lint, TypeScript, build, testes de tokens, testes
+de componentes e build Storybook. O teste visual compara baselines versionadas
+nos temas light/dark, desktop/mobile, e executa axe e checks de teclado.
+Atualize baselines apenas apos revisar as imagens: npm run test:visual:update.
+
+## Estrutura
+
+| Caminho                    | Responsabilidade                                          |
+| -------------------------- | --------------------------------------------------------- |
+| packages/tokens/src        | DTCG: primitivos, semanticos, componentes e tema dark     |
+| packages/ui/src/react      | Button, Input, Badge, Card, Dialog, Tooltip e Tabs        |
+| packages/ui/src/lib        | Composicao de classes tipada                              |
+| packages/ui/src/components | Catalogo HTML anterior, mantido como compatibilidade      |
+| packages/brand/svg         | Marca aprovada em SVG, sem alteracao de desenho           |
+| apps/storybook             | Documentacao executavel, fundamentos, variantes e estados |
+| tests/components           | Interacoes e contratos React                              |
+| tests/visual               | Navegador, acessibilidade e baselines de regressao        |
+| docs/adr                   | Decisoes duraveis                                         |
+| .github/workflows          | Validacao e publicacao Pages                              |
+
+## Consumir
+
+A biblioteca React usa codigo shadcn/ui mantido no repositorio, Radix Primitives
+e Tailwind CSS. No consumidor com bundler:
+
+```tsx
+import { Button } from '@axion/ui';
+import '@axion/ui/theme.css';
+
+export function Save() {
+  return <Button type="button">Salvar projeto</Button>;
+}
+```
+
+Defina data-theme="light" ou data-theme="dark" no html para incluir portais.
+A versao e 0.2.0, ainda nao estavel. React 19 e peer dependency.
+npm run build gera JavaScript, declaracoes TypeScript, CSS e tokens.
+npm pack --workspace @axion/ui prepara um pacote local; publicacao npm nao e necessaria.
+
+O catalogo [index.html](index.html) e o [indice HTML](resources.html) preservam
+os modelos aprovados anteriores. Nao substituem o Storybook na aceitacao da issue #2.
+A grafia AXIOM dos SVGs foi preservada; o namespace @axion permanece por compatibilidade.
+
+## Regras e entrega
+
+O [PR de bootstrap #4](https://github.com/rgomids/axiom-ds/pull/4) atende apenas
+a issue #1. O [PR de implementacao #3](https://github.com/rgomids/axiom-ds/pull/3)
+e revisado sobre essa base, mas continua bloqueado pela aceitacao da #1.
+Leia a [ordem de entrega](docs/delivery-sequence.md); nao faca merge da
+implementacao na branch de bootstrap.
+
+Leia [AGENTS.md](AGENTS.md), [contribuicao](CONTRIBUTING.md),
+[governanca](docs/governance.md), [seguranca](SECURITY.md),
+[dependencias](docs/dependencies.md), [temas](docs/themes.md) e
+[publicacao](docs/publication.md).
+
+A publicacao usa GitHub Pages e GitHub Actions, sem SaaS pago obrigatorio.
+PRs de forks nao publicam. O workflow Pages e executado na main canonica
+apos aprovacao do mantenedor. O criterio externo do Notion esta em
+[docs/discovery.md](docs/discovery.md); nao e considerado atendido sem verificacao.
+
+Licenca Apache-2.0; codigo shadcn/ui conserva o aviso MIT. Veja
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

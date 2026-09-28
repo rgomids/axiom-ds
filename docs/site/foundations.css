@@ -1,0 +1,98 @@
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.swatch {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.swatch span {
+  height: 54px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(16, 24, 40, 0.08);
+}
+.swatch small,
+.token-list span,
+.typography code {
+  color: var(--slate-500);
+}
+.swatch.ink span {
+  background: #101828;
+}
+.swatch.slate span {
+  background: #475467;
+}
+.swatch.line span {
+  background: #e4e7ec;
+}
+.swatch.surface span {
+  background: #ffffff;
+}
+.swatch.blue span {
+  background: #2563eb;
+}
+.swatch.green span {
+  background: #12b76a;
+}
+.swatch.amber span {
+  background: #f79009;
+}
+.swatch.red span {
+  background: #f04438;
+}
+
+.token-list {
+  display: grid;
+  margin-top: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.token-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.token-list div:last-child {
+  border-bottom: 0;
+}
+code {
+  color: var(--blue);
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  font-size: 12px;
+}
+
+.typography {
+  display: grid;
+  gap: 18px;
+}
+.typography > div {
+  display: grid;
+  grid-template-columns: 130px 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.typography > div:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.typography span {
+  color: var(--slate-500);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.typography p {
+  color: var(--slate-600);
+  font-size: 14px;
+  line-height: 20px;
+}

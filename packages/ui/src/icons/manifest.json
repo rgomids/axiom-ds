@@ -1,0 +1,20 @@
+{
+  "library": "lucide",
+  "defaultSize": 18,
+  "strokeWidth": 2,
+  "decorative": "aria-hidden=true",
+  "actions": {
+    "dashboard": "layout-dashboard",
+    "projects": "folder",
+    "repositories": "database",
+    "runtime": "cpu",
+    "providers": "box",
+    "agents": "network",
+    "evidence": "file-check-2",
+    "terminal": "terminal",
+    "download": "download",
+    "pause": "pause",
+    "expand": "maximize-2",
+    "search": "search"
+  }
+}

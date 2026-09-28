@@ -5,6 +5,9 @@ Status: technical and Notion evidence verified; awaiting maintainer review and m
 Scope: the issue-1-bootstrap branch and
 [PR #4](https://github.com/rgomids/axiom-ds/pull/4), not the implementation tree.
 
+Scope: the issue-1-bootstrap branch and
+[PR #4](https://github.com/rgomids/axiom-ds/pull/4), not the implementation tree.
+
 - Scope and relationship with rgomids/axiom: README.md and ADR 0001.
 - Governance, contribution, security and dependency policy: versioned documents.
 - Shared Codex/Cloud harness: AGENTS.md and docs/cloud.md.

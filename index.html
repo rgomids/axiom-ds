@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Axion Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="axion">
+    <aside class="sidebar">
+      <a class="brand" href="#overview" aria-label="AXIOM">
+        <img
+          class="brand-signature"
+          src="packages/brand/svg/axiom-horizontal-light.svg"
+          width="360"
+          height="82"
+          alt="AXIOM - Orchestrate Intelligence"
+        />
+      </a>
+
+      <nav class="side-nav" aria-label="Navegacao principal">
+        <a href="resources.html"><i data-lucide="library"></i>Recursos</a>
+        <a class="active" href="#overview"><i data-lucide="layout-dashboard"></i>Overview</a>
+        <a href="#brand-system"><i data-lucide="badge-check"></i>Marca</a>
+        <a href="#tokens"><i data-lucide="palette"></i>Tokens</a>
+        <a href="#typography"><i data-lucide="type"></i>Fontes</a>
+        <a href="#buttons"><i data-lucide="mouse-pointer-click"></i>Botoes</a>
+        <a href="#icons"><i data-lucide="shapes"></i>Icones</a>
+        <a href="#navigation"><i data-lucide="panel-left"></i>Navegacao</a>
+        <a href="#components"><i data-lucide="blocks"></i>Componentes</a>
+        <a href="#dashboard"><i data-lucide="activity"></i>Dashboard</a>
+        <a href="#landing"><i data-lucide="panel-top"></i>Landing</a>
+      </nav>
+
+      <div class="sidebar-note">
+        <span>SECURE</span>
+        <span>ORCHESTRATE</span>
+        <span>VALIDATE</span>
+        <span>AT SCALE</span>
+      </div>
+      <small class="version">v0.1</small>
+    </aside>
+
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Design System</p>
+          <h1>Axion Interface Kit</h1>
+        </div>
+        <label class="search">
+          <i data-lucide="search"></i>
+          <input type="search" placeholder="Buscar tokens, componentes, padroes..." />
+          <kbd>Ctrl K</kbd>
+        </label>
+        <button class="environment" type="button">
+          <span class="dot success"></span>
+          Production
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="user-menu">
+          <span>TR</span>
+          <strong>Taylor R.</strong>
+        </div>
+      </header>
+
+      <section id="overview" class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Sistema visual operacional</p>
+          <h2>
+            Um modelo completo para construir dashboards, paginas e fluxos do Axion com
+            consistencia.
+          </h2>
+          <p>
+            O kit organiza cor, fonte, icones, botoes, navegacao e componentes seguindo o padrao
+            limpo, tecnico e confiavel da referencia enviada.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#components"
+              ><i data-lucide="blocks"></i>Ver componentes</a
+            >
+            <a class="btn ghost" href="#dashboard"
+              ><i data-lucide="layout-dashboard"></i>Preview dashboard</a
+            >
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="Resumo do sistema">
+          <article class="metric-card">
+            <span class="icon-soft blue"><i data-lucide="play"></i></span>
+            <div>
+              <p>Active Executions</p>
+              <strong>12</strong>
+              <span class="trend up">+3</span>
+            </div>
+            <div class="spark bars-blue">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+          <article class="metric-card">
+            <span class="icon-soft green"><i data-lucide="check-circle-2"></i></span>
+            <div>
+              <p>Validation Rate</p>
+              <strong>96%</strong>
+              <span class="trend up">+2%</span>
+            </div>
+            <div class="spark bars-green">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="brand-system" class="section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">01 Brand System</p>
+            <h2>Octopus Orchestrator</h2>
+          </div>
+          <span class="pill amber">AXIOM</span>
+        </div>
+        <div class="brand-sheets">
+          <article class="brand-sheet brand-sheet-light" aria-label="Marca em fundo claro">
+            <header class="brand-sheet-heading">
+              <span class="brand-index">01.</span>
+              <div>
+                <h3>Octopus Orchestrator</h3>
+                <p class="brand-subtitle">Intelligence with reach</p>
+              </div>
+            </header>
+            <p class="brand-description">
+              A refined, geometric octopus-inspired mark that symbolizes orchestration, multi-agent
+              coordination, and intelligence with reach. Calm, precise, and minimal, with clean,
+              symmetrical forms.
+            </p>
+            <img
+              class="brand-primary"
+              src="packages/brand/svg/axiom-logo-light.svg"
+              width="280"
+              height="230"
+              alt="AXIOM - Orchestrate Intelligence"
+            />
+            <div class="brand-apps">
+              <div class="app-icon light">
+                <img
+                  src="packages/brand/svg/axiom-symbol-light.svg"
+                  width="160"
+                  height="140"
+                  alt="Simbolo AXIOM para fundo claro"
+                />
+              </div>
+              <div class="app-icon dark">
+                <img
+                  src="packages/brand/svg/axiom-symbol-dark.svg"
+                  width="160"
+                  height="140"
+                  alt="Simbolo AXIOM para fundo escuro"
+                />
+              </div>
+            </div>
+            <p class="asset-caption">App icon</p>
+            <div class="brand-monochrome">
+              <img
+                src="packages/brand/svg/axiom-horizontal-mono.svg"
+                width="360"
+                height="82"
+                alt="Assinatura horizontal AXIOM"
+              />
+            </div>
+            <p class="asset-caption">Monochrome version</p>
+          </article>
+          <article class="brand-sheet brand-sheet-dark" aria-label="Marca em fundo escuro">
+            <header class="brand-sheet-heading">
+              <span class="brand-index">01.</span>
+              <div>
+                <h3>Octopus Orchestrator</h3>
+                <p class="brand-subtitle">Intelligence with reach</p>
+              </div>
+            </header>
+            <p class="brand-description">
+              A refined, geometric octopus-inspired mark that symbolizes orchestration, multi-agent
+              coordination, and intelligence with reach. Calm, precise, and minimal, with clean,
+              symmetrical forms.
+            </p>
+            <img
+              class="brand-primary"
+              src="packages/brand/svg/axiom-logo-dark.svg"
+              width="280"
+              height="230"
+              alt="AXIOM - Orchestrate Intelligence"
+            />
+            <div class="brand-apps">
+              <div class="app-icon light">
+                <img
+                  src="packages/brand/svg/axiom-symbol-light.svg"
+                  width="160"
+                  height="140"
+                  alt="Simbolo AXIOM para fundo claro"
+                />
+              </div>
+              <div class="app-icon dark">
+                <img
+                  src="packages/brand/svg/axiom-symbol-dark.svg"
+                  width="160"
+                  height="140"
+                  alt="Simbolo AXIOM para fundo escuro"
+                />
+              </div>
+            </div>
+            <p class="asset-caption">App icon</p>
+            <div class="brand-monochrome">
+              <img
+                src="packages/brand/svg/axiom-horizontal-dark.svg"
+                width="360"
+                height="82"
+                alt="Assinatura horizontal AXIOM"
+              />
+            </div>
+            <p class="asset-caption">Reverse version</p>
+          </article>
+        </div>
+        <div class="brand-downloads" aria-label="Arquivos da marca">
+          <a class="btn ghost" href="packages/brand/svg/axiom-logo-light.svg" download
+            ><i data-lucide="download"></i>Logo clara</a
+          >
+          <a class="btn ghost" href="packages/brand/svg/axiom-logo-dark.svg" download
+            ><i data-lucide="download"></i>Logo escura</a
+          >
+          <a class="btn ghost" href="packages/brand/svg/axiom-horizontal-mono.svg" download
+            ><i data-lucide="download"></i>Monocromatica</a
+          >
+          <a class="btn ghost" href="packages/brand/svg/axiom-symbol-light.svg" download
+            ><i data-lucide="download"></i>Simbolo</a
+          >
+        </div>
+      </section>
+
+      <section id="tokens" class="section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">02 Tokens</p>
+            <h2>Cores, raio, sombra e espacamento</h2>
+          </div>
+          <span class="pill neutral">Base para dashboard e landing</span>
+        </div>
+
+        <div class="grid two">
+          <article class="panel">
+            <h3>Paleta Principal</h3>
+            <div class="swatch-grid">
+              <div class="swatch ink">
+                <span></span><strong>Ink 900</strong><small>#101828</small>
+              </div>
+              <div class="swatch slate">
+                <span></span><strong>Slate 600</strong><small>#475467</small>
+              </div>
+              <div class="swatch line">
+                <span></span><strong>Line 200</strong><small>#e4e7ec</small>
+              </div>
+              <div class="swatch surface">
+                <span></span><strong>Surface</strong><small>#ffffff</small>
+              </div>
+              <div class="swatch blue">
+                <span></span><strong>Action Blue</strong><small>#2563eb</small>
+              </div>
+              <div class="swatch green">
+                <span></span><strong>Trust Green</strong><small>#12b76a</small>
+              </div>
+              <div class="swatch amber">
+                <span></span><strong>Signal Amber</strong><small>#f79009</small>
+              </div>
+              <div class="swatch red">
+                <span></span><strong>Risk Red</strong><small>#f04438</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <h3>Escala de Fundos</h3>
+            <div class="token-list">
+              <div><code>--app-bg</code><span>#f7f9fc</span></div>
+              <div><code>--panel</code><span>#ffffff</span></div>
+              <div><code>--panel-muted</code><span>#f2f6fb</span></div>
+              <div><code>--border</code><span>#e6ebf2</span></div>
+              <div><code>--radius-sm</code><span>6px</span></div>
+              <div><code>--radius-md</code><span>8px</span></div>
+              <div><code>--shadow-card</code><span>0 8px 24px rgba(16,24,40,.06)</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="typography" class="section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">03 Fontes</p>
+            <h2>Tipografia</h2>
+          </div>
+          <span class="pill blue">Inter / sistema</span>
+        </div>
+        <article class="panel typography">
+          <div>
+            <span>Display</span>
+            <h2>Orchestrate intelligence.</h2>
+            <code>32px / 40px / 800</code>
+          </div>
+          <div>
+            <span>Section Title</span>
+            <h3>Runtime & Provider Health</h3>
+            <code>18px / 28px / 700</code>
+          </div>
+          <div>
+            <span>Body</span>
+            <p>
+              Interfaces densas devem ser claras, escaneaveis e precisas para operacao recorrente.
+            </p>
+            <code>14px / 20px / 500</code>
+          </div>
+          <div>
+            <span>Meta</span>
+            <small>Updated 3 hours ago</small>
+            <code>12px / 16px / 500</code>
+          </div>
+        </article>
+      </section>
+
+      <section id="buttons" class="section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">04 Botoes</p>
+            <h2>Comandos e estados</h2>
+          </div>
+          <span class="pill green">Raio maximo 8px</span>
+        </div>
+        <article class="panel component-row">
+          <button class="btn primary" type="button"><i data-lucide="play"></i>Executar</button>
+          <button class="btn secondary" type="button">
+            <i data-lucide="settings-2"></i>Configurar
+          </button>
+          <button class="btn ghost" type="button"><i data-lucide="arrow-right"></i>Ver tudo</button>
+          <button class="btn danger" type="button"><i data-lucide="octagon-alert"></i>Falha</button>
+          <button class="icon-btn" type="button" aria-label="Pausar">
+            <i data-lucide="pause"></i>
+          </button>
+          <button class="icon-btn" type="button" aria-label="Expandir">
+            <i data-lucide="maximize-2"></i>
+          </button>
+        </article>
+      </section>
+
+      <section id="icons" class="section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">05 Icones</p>
+            <h2>Padrao de iconografia</h2>
+          </div>
+          <span class="pill neutral">Lucide 18px / stroke 2</span>
+        </div>
+        <article class="panel icon-grid">
+          <div><i data-lucide="layout-dashboard"></i><span>Dashboard</span></div>
+          <div><i data-lucide="folder"></i><span>Projects</span></div>
+          <div><i data-lucide="database"></i><span>Repositories</span></div>
+          <div><i data-lucide="cpu"></i><span>Runtime</span></div>
+          <div><i data-lucide="box"></i><span>Providers</span></div>
+          <div><i data-lucide="network"></i><span>Agents</span></div>
+          <div><i data-lucide="file-check-2"></i><span>Evidence</span></div>
+          <div><i data-lucide="terminal"></i><span>Terminal</span></div>
+        </article>
+      </section>
+
+      <section id="navigation" class="section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">06 Navegacao</p>
+            <h2>Barras laterais e superiores</h2>
+          </div>
+          <span class="pill neutral">Desktop first, responsivo</span>
+        </div>
+        <div class="grid two">
+          <article class="panel nav-demo">
+            <h3>Sidebar</h3>
+            <a class="active" href="#"><i data-lucide="layout-dashboard"></i>Overview</a>
+            <a href="#"><i data-lucide="folder"></i>Projects</a>
+            <a href="#"><i data-lucide="database"></i>Repositories</a>
+            <a href="#"><i data-lucide="shield-check"></i>Validation</a>
+          </article>
+          <article class="panel topbar-demo">
+            <h3>Topbar</h3>
+            <div class="demo-bar">
+              <label class="search compact"
+                ><i data-lucide="search"></i><input placeholder="Search..."
+              /></label>
+              <button class="environment" type="button">
+                <span class="dot success"></span>Production
+              </button>
+              <button class="icon-btn" type="button" aria-label="Mais">
+                <i data-lucide="more-horizontal"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="components" class="section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">07 Componentes</p>
+            <h2>Biblioteca base</h2>
+          </div>
+          <span class="pill blue">Dashboard ready</span>
+        </div>
+
+        <div class="grid three metrics">
+          <article class="metric-card">
+            <span class="icon-soft blue"><i data-lucide="database"></i></span>
+            <div>
+              <p>Connected Repositories</p>
+              <strong>24</strong><span class="trend up">+2</span>
+            </div>
+            <div class="spark bars-blue">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+          <article class="metric-card">
+            <span class="icon-soft amber"><i data-lucide="box"></i></span>
+            <div>
+              <p>Configured Providers</p>
+              <strong>6</strong><span class="trend flat">0</span>
+            </div>
+            <div class="spark bars-gray">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+          <article class="metric-card">
+            <span class="icon-soft green"><i data-lucide="check"></i></span>
+            <div>
+              <p>Healthy Providers</p>
+              <strong>98%</strong><span class="trend up">+4%</span>
+            </div>
+            <div class="spark bars-green">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid two">
+          <article class="panel">
+            <div class="panel-head">
+              <h3>Status e badges</h3>
+              <button class="btn ghost" type="button">
+                Manage <i data-lucide="arrow-right"></i>
+              </button>
+            </div>
+            <div class="status-stack">
+              <span class="pill green"><span class="dot success"></span>Healthy</span>
+              <span class="pill blue"><span class="dot blue-dot"></span>Running</span>
+              <span class="pill amber"><span class="dot warning"></span>Warning</span>
+              <span class="pill red"><span class="dot danger-dot"></span>Failed</span>
+              <span class="pill neutral"><span class="dot muted-dot"></span>Offline</span>
+            </div>
+          </article>
+          <article class="panel">
+            <div class="panel-head">
+              <h3>Campos e filtros</h3>
+              <button class="btn secondary" type="button">
+                <i data-lucide="filter"></i>All state
+              </button>
+            </div>
+            <label class="field"><span>Projeto</span><input value="Orion" /></label>
+            <label class="field"
+              ><span>Ambiente</span
+              ><select>
+                <option>Production</option>
+                <option>Sandbox</option>
+              </select></label
+            >
+          </article>
+        </div>
+      </section>
+
+      <section id="dashboard" class="section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">08 Preview</p>
+            <h2>Dashboard Axion</h2>
+          </div>
+          <span class="pill green"><span class="dot success"></span>Live</span>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel project-list">
+            <div class="panel-head">
+              <h3>Projects</h3>
+              <button class="btn ghost" type="button">
+                View all <i data-lucide="arrow-right"></i>
+              </button>
+            </div>
+            <div class="project-item">
+              <div class="thumb thumb-one"></div>
+              <div>
+                <strong>Orion</strong>
+                <p>Threat intelligence analysis and report generation</p>
+              </div>
+              <span class="pill green">Active</span>
+            </div>
+            <div class="project-item">
+              <div class="thumb thumb-two"></div>
+              <div>
+                <strong>Helios</strong>
+                <p>Infrastructure assessment and compliance validation</p>
+              </div>
+              <span class="pill green">Active</span>
+            </div>
+            <div class="project-item">
+              <div class="thumb thumb-three"></div>
+              <div>
+                <strong>Catacomb</strong>
+                <p>Adversarial simulation and red team operations</p>
+              </div>
+              <span class="pill red">Running</span>
+            </div>
+          </article>
+
+          <article class="panel topology">
+            <div class="panel-head">
+              <h3>Agent Topology</h3>
+              <span class="pill green"><span class="dot success"></span>8 agents online</span>
+            </div>
+            <div class="topology-map">
+              <div class="core-logo">A<span>Axion</span></div>
+              <div class="node planner"><i data-lucide="settings"></i><strong>Planner</strong></div>
+              <div class="node analysis">
+                <i data-lucide="bar-chart-3"></i><strong>Analysis</strong>
+              </div>
+              <div class="node validation">
+                <i data-lucide="shield-check"></i><strong>Validation</strong>
+              </div>
+              <div class="node synthesis">
+                <i data-lucide="git-branch"></i><strong>Synthesis</strong>
+              </div>
+              <div class="node execution">
+                <i data-lucide="user-round"></i><strong>Execution</strong>
+              </div>
+              <div class="node researcher">
+                <i data-lucide="search"></i><strong>Researcher</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel health">
+            <div class="panel-head">
+              <h3>Runtime & Provider Health</h3>
+              <button class="btn ghost" type="button">
+                Manage <i data-lucide="arrow-right"></i>
+              </button>
+            </div>
+            <div class="runtime-box">
+              <strong><i data-lucide="layers-3"></i>Axion Runtime</strong>
+              <span class="pill green">Healthy</span>
+            </div>
+            <div class="provider-row"><span>Anthropic</span><b>Healthy</b><small>142ms</small></div>
+            <div class="provider-row"><span>OpenAI</span><b>Healthy</b><small>318ms</small></div>
+            <div class="provider-row">
+              <span>AWS Bedrock</span><b>Healthy</b><small>211ms</small>
+            </div>
+            <div class="provider-row">
+              <span>Azure OpenAI</span><b>Healthy</b><small>412ms</small>
+            </div>
+          </article>
+
+          <article class="panel table-panel">
+            <div class="panel-head">
+              <h3>Executions</h3>
+              <button class="btn secondary" type="button">
+                All state <i data-lucide="chevron-down"></i>
+              </button>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Status</th>
+                  <th>Duration</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#3847</td>
+                  <td>Security assessment</td>
+                  <td><span class="status running">Running</span></td>
+                  <td>2m 14s</td>
+                </tr>
+                <tr>
+                  <td>#3846</td>
+                  <td>Generate threat report</td>
+                  <td><span class="status complete">Completed</span></td>
+                  <td>12m 3s</td>
+                </tr>
+                <tr>
+                  <td>#3845</td>
+                  <td>Infra compliance scan</td>
+                  <td><span class="status complete">Completed</span></td>
+                  <td>8m 41s</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="terminal">
+            <div class="terminal-head">
+              <strong>Terminal Output</strong>
+              <span>Execution #3847</span>
+            </div>
+            <pre>
+[22:14:02] Initializing execution environment...
+[22:14:03] Loading project context: Orion
+[22:14:04] Planner agent started
+[22:14:06] Evidence collection running</pre>
+          </article>
+        </div>
+      </section>
+
+      <section id="landing" class="section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">09 Landing Page</p>
+            <h2>Blocos reutilizaveis</h2>
+          </div>
+          <span class="pill neutral">Para futura pagina publica</span>
+        </div>
+        <article class="landing-preview">
+          <div>
+            <p class="eyebrow">Axion Orchestrate Trust</p>
+            <h2>Secure AI operations with evidence, runtime health and agent orchestration.</h2>
+            <p>
+              Use os mesmos tokens e componentes do dashboard para manter uma experiencia
+              consistente entre produto e marketing.
+            </p>
+            <a class="btn primary" href="#tokens"
+              ><i data-lucide="arrow-up-right"></i>Explorar sistema</a
+            >
+          </div>
+          <div class="landing-visual"><span></span><span></span><span></span><span></span></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="docs/site/vendor/lucide.js"></script>
+    <script src="docs/site/catalog.js"></script>
+  </body>
+</html>

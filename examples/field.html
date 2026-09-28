@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Campos | Axion Design System</title>
+    <link rel="stylesheet" href="../packages/ui/dist/axion.css" />
+  </head>
+  <body class="axion">
+    <main class="example">
+      <a href="../resources.html">Voltar aos recursos</a>
+      <h1>Campos</h1>
+      <form data-example-form>
+  <label class="field" for="project"
+    >Nome do projeto<input id="project" name="project" required autocomplete="off"
+  /></label>
+  <label class="field" for="email"
+    >E-mail<input id="email" name="email" type="email" required autocomplete="email"
+  /></label>
+  <label class="field" for="environment"
+    >Ambiente<select id="environment" name="environment">
+      <option>Production</option>
+      <option>Staging</option>
+    </select></label
+  >
+  <label class="field-check"><input type="checkbox" name="notify" />Receber notificacoes</label>
+  <label class="field" for="readonly"
+    >Repositorio<input id="readonly" value="axion/core" readonly
+  /></label>
+  <label class="field" for="invalid"
+    >Identificador<input
+      id="invalid"
+      aria-invalid="true"
+      aria-describedby="invalid-help"
+      value="meu projeto"
+  /></label>
+  <p class="field-error" id="invalid-help">Use letras, numeros e hifens.</p>
+  <label class="field" for="locked">Organizacao<input id="locked" disabled value="Axion" /></label>
+  <button class="btn primary" type="submit">Validar formulario</button>
+  <p role="status" data-form-result></p>
+</form>
+
+      <footer><a href="../packages/ui/src/components/field/README.md">Contrato do componente</a></footer>
+    </main>
+    <script src="../docs/site/vendor/lucide.js"></script>
+    <script src="../docs/site/examples.js"></script>
+  </body>
+</html>

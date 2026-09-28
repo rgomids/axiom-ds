@@ -1,0 +1,21 @@
+[
+  "packages/ui/src/foundations/base.css",
+  "packages/ui/src/components/navigation/sidebar.css",
+  "packages/ui/src/components/search/search.css",
+  "packages/ui/src/components/navigation/topbar.css",
+  "packages/ui/src/patterns/overview/overview.css",
+  "packages/ui/src/foundations/layout.css",
+  "packages/ui/src/components/brand/brand.css",
+  "packages/ui/src/components/metric-card/metric-card.css",
+  "docs/site/foundations.css",
+  "packages/ui/src/components/button/button.css",
+  "packages/ui/src/components/badge/badge.css",
+  "docs/site/icons.css",
+  "packages/ui/src/components/navigation/examples.css",
+  "packages/ui/src/components/field/field.css",
+  "packages/ui/src/patterns/dashboard/dashboard.css",
+  "packages/ui/src/components/table/table.css",
+  "packages/ui/src/components/terminal/terminal.css",
+  "packages/ui/src/patterns/landing/landing.css",
+  "packages/ui/src/foundations/responsive.css"
+]

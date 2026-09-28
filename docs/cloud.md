@@ -1,10 +1,18 @@
 # Codex and Cloud
 
-Both environments consume AGENTS.md as the only shared engineering-policy source.
-No runtime-specific rule file is required. Use Node 22.16+, npm ci and
-npm run validate on Windows, Linux or Cloud; CI runs those same commands.
+Both environments read AGENTS.md, use Node 22.16+ and npm ci, and run exactly
+the validation commands in that shared file. CI is the executable reference.
+No machine-specific runtime file contains a second policy.
 
-Bootstrap validation needs no browser, production data or secrets. Network
-access is required for npm installation. Only explicitly authorized remote
-operations need GitHub credentials. Keep all machine-specific configuration
-outside version control.
+Local Windows: install the Playwright Chromium binary with
+npx playwright install chromium.
+Cloud Linux: npx playwright install --with-deps chromium installs browser OS
+dependencies where permitted by the runner.
+
+Network access is needed for dependency installation, not for the built
+Storybook preview. Credentials are only needed for explicitly authorized
+remote work; tests use fixture data and no production secrets.
+
+For headless validation, run npm run validate, npm run test:browser and
+npm run test:visual. Baselines use pinned Chromium and bundled Inter.
+Inspect changed images; never update baselines merely to hide a failure.
