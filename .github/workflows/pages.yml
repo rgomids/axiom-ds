@@ -12,8 +12,15 @@ jobs:
   build:
     if: github.repository == 'rgomids/axiom-ds' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
     steps:
       - uses: actions/checkout@v4
+      - name: Verify GitHub Pages configuration
+        uses: actions/configure-pages@v5
+        with:
+          enablement: false
       - uses: actions/setup-node@v4
         with:
           node-version: 22
