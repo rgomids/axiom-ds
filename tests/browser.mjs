@@ -37,6 +37,18 @@ try {
       }
     }
     await page.goto(url('index.html'));
+    for (const selector of ['.icon-btn', '.icon-soft', '.icon-grid div']) {
+      const radii = await page
+        .locator(selector)
+        .evaluateAll((elements) =>
+          elements.map((element) => getComputedStyle(element).borderRadius),
+        );
+      assert.ok(radii.length > 0, 'Icon examples exist: ' + selector);
+      assert.ok(
+        radii.every((radius) => radius === '0px'),
+        'Square icons: ' + selector,
+      );
+    }
     await page.locator('#brand-system').scrollIntoViewIfNeeded();
     const issues = await page.locator('#brand-system').evaluate((section) => {
       const errors = [];

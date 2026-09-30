@@ -92,6 +92,7 @@ console.log(
 
 const registry = JSON.parse(await readFile('registry.json', 'utf8'));
 const template = await readFile('docs/site/example.template.html', 'utf8');
+const diagramTemplate = await readFile('docs/site/diagram.template.html', 'utf8');
 const escape = (value) =>
   value
     .replaceAll('&', '&amp;')
@@ -102,7 +103,7 @@ for (const resource of registry.resources) {
   const markup = await readFile(resource.source, 'utf8');
   await write(
     resource.example,
-    template
+    (resource.presentation === 'diagram' ? diagramTemplate : template)
       .replaceAll('{{name}}', escape(resource.name))
       .replace('{{markup}}', markup)
       .replace('{{documentation}}', resource.documentation),
@@ -122,3 +123,4 @@ const links = registry.resources
   )
   .join('\n');
 await write('resources.html', resourceTemplate.replace('{{resources}}', links));
+await import('./build-diagrams.mjs');
