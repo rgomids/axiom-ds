@@ -1,0 +1,948 @@
+.dg-app,
+.dg-kit {
+  --dg-canvas: var(--axion-component-diagram-canvas);
+  --dg-panel: var(--axion-component-diagram-panel);
+  --dg-line: var(--axion-component-diagram-line);
+  --dg-text: var(--axion-semantic-text-primary);
+  --dg-muted: var(--axion-semantic-text-secondary);
+  --dg-accent: var(--axion-component-diagram-selection);
+  --dg-subtle: var(--axion-component-diagram-muted);
+  --dg-selected: color-mix(in srgb, var(--dg-accent) 9%, var(--dg-panel));
+  color: var(--dg-text);
+  background: var(--dg-canvas);
+  font: 12px/1.5 var(--axion-font-family);
+  letter-spacing: 0;
+  color-scheme: light;
+}
+.dg-app[data-theme='dark'],
+.dg-kit[data-theme='dark'] {
+  color-scheme: dark;
+}
+.dg-app *,
+.dg-kit * {
+  box-sizing: border-box;
+  letter-spacing: 0;
+}
+.dg-app {
+  height: 100dvh;
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.dg-app button,
+.dg-app input,
+.dg-app select,
+.dg-app textarea,
+.dg-kit button,
+.dg-kit input,
+.dg-kit select {
+  font: inherit;
+  color: inherit;
+}
+.dg-app button,
+.dg-kit button {
+  cursor: pointer;
+}
+.dg-app button:disabled,
+.dg-kit button:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+.dg-app button,
+.dg-kit button,
+.dg-app input,
+.dg-app select {
+  border-radius: var(--axion-component-diagram-radius);
+}
+.dg-app :focus-visible,
+.dg-kit :focus-visible {
+  outline: 2px solid var(--dg-accent);
+  outline-offset: 3px;
+}
+.dg-app a,
+.dg-kit a {
+  color: inherit;
+  text-decoration: none;
+}
+.dg-header {
+  flex: 0 0 66px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--dg-line);
+  background: var(--dg-panel);
+  z-index: 15;
+}
+.dg-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dg-brand img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+.dg-app[data-theme='dark'] .dg-brand img {
+  filter: brightness(0) invert(1);
+}
+.dg-brand span {
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 750;
+}
+.dg-brand small {
+  display: block;
+  margin-top: 3px;
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--dg-muted);
+}
+.dg-header-divider {
+  height: 25px;
+  width: 1px;
+  background: var(--dg-line);
+}
+.dg-document-title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.dg-document-title strong {
+  font-size: 12px;
+  font-weight: 600;
+}
+.dg-document-title span {
+  color: var(--dg-muted);
+  font-size: 10px;
+}
+.dg-header-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dg-catalog-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-right: 12px;
+}
+.dg-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 6px 13px;
+  border: 1px solid var(--dg-line);
+  background: var(--dg-panel);
+  white-space: nowrap;
+  font-weight: 550 !important;
+}
+.dg-button:hover {
+  background: var(--dg-subtle);
+}
+.dg-button.dg-primary {
+  background: var(--dg-accent);
+  color: var(--axion-semantic-action-onPrimary);
+  border-color: transparent;
+}
+.dg-tool {
+  width: var(--axion-component-diagram-controlSize);
+  height: var(--axion-component-diagram-controlSize);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border: 1px solid transparent;
+  padding: 6px;
+  color: var(--dg-muted);
+  background: transparent;
+}
+.dg-tool svg {
+  width: 17px;
+  height: 17px;
+  stroke-width: 1.7;
+}
+.dg-tool:hover:not(:disabled) {
+  color: var(--dg-text);
+  background: var(--dg-subtle);
+}
+.dg-tool[aria-pressed='true'] {
+  color: var(--dg-accent);
+  background: var(--dg-selected);
+  border-color: color-mix(in srgb, var(--dg-accent) 25%, transparent);
+}
+.dg-tooltip {
+  z-index: 200;
+  max-width: 220px;
+  background: var(--axion-color-ink-900);
+  color: var(--axion-color-white);
+  padding: 6px 9px;
+  font: 11px/1.5 var(--axion-font-family);
+  box-shadow: var(--axion-shadow-soft);
+}
+.dg-tooltip svg {
+  fill: var(--axion-color-ink-900);
+}
+.dg-workspace {
+  display: grid;
+  grid-template-columns: 304px minmax(0, 1fr);
+  flex: 1;
+  min-height: 0;
+}
+.dg-workspace[data-panel='false'] {
+  grid-template-columns: minmax(0, 1fr);
+}
+.dg-sidebar {
+  background: var(--dg-panel);
+  border-right: 1px solid var(--dg-line);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  z-index: 12;
+}
+.dg-panel-header {
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 9px;
+  border-bottom: 1px solid var(--dg-line);
+}
+.dg-tabs {
+  align-self: stretch;
+  display: flex;
+  padding-left: 10px;
+}
+.dg-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  padding: 0 12px;
+  color: var(--dg-muted);
+  font-size: 11px;
+}
+.dg-tabs button[aria-selected='true'] {
+  color: var(--dg-accent);
+  border-bottom-color: var(--dg-accent);
+}
+.dg-code-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100px;
+}
+.dg-code-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  font-size: 10px;
+  color: var(--dg-muted);
+}
+.dg-toggle-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 11px;
+  color: var(--dg-muted);
+  cursor: pointer;
+}
+.dg-switch {
+  border: 1px solid var(--axion-semantic-border-control);
+  width: 28px;
+  height: 16px;
+  padding: 2px;
+  background: var(--dg-subtle);
+  flex-shrink: 0;
+}
+.dg-switch-thumb {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: var(--dg-muted);
+  transform: translateX(0);
+  transition: transform 120ms;
+}
+.dg-switch[data-state='checked'] {
+  background: var(--dg-accent);
+  border-color: var(--dg-accent);
+}
+.dg-switch[data-state='checked'] .dg-switch-thumb {
+  transform: translateX(12px);
+  background: var(--axion-semantic-action-onPrimary);
+}
+.dg-code-editor {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+  background: var(--dg-canvas);
+  border-block: 1px solid var(--dg-line);
+  padding-top: 13px;
+}
+.dg-line-numbers {
+  flex: 0 0 36px;
+  overflow: hidden;
+  text-align: right;
+  padding-right: 10px;
+  user-select: none;
+  color: var(--axion-semantic-text-muted);
+  font:
+    10px/20px 'Cascadia Code',
+    Consolas,
+    monospace;
+}
+.dg-code-editor textarea {
+  flex: 1;
+  resize: none;
+  width: 0;
+  min-width: 0;
+  border: 0;
+  padding: 0 10px 20px 0;
+  color: var(--dg-accent);
+  background: transparent;
+  font:
+    10px/20px 'Cascadia Code',
+    Consolas,
+    monospace;
+  white-space: pre;
+  tab-size: 2;
+  outline-offset: -2px;
+}
+.dg-code-footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 14px;
+  height: 34px;
+  flex-shrink: 0;
+  font-size: 10px;
+  color: var(--dg-muted);
+}
+.dg-text-button {
+  margin-left: auto;
+  border: 0;
+  background: none;
+  padding: 4px;
+  color: var(--dg-accent) !important;
+}
+.dg-error {
+  color: var(--axion-semantic-status-danger);
+  margin: 0;
+  padding: 8px 16px;
+  border-top: 1px solid var(--dg-line);
+  font-size: 11px;
+}
+.dg-properties {
+  border-top: 1px solid var(--dg-line);
+  padding: 16px;
+  flex-shrink: 0;
+  max-height: 42%;
+  overflow-y: auto;
+}
+.dg-section-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 9px;
+  color: var(--dg-muted);
+  font-weight: 600;
+}
+.dg-section-label > :last-child {
+  font-weight: 400;
+  text-transform: none;
+}
+.dg-properties label:not(.dg-toggle-label),
+.dg-settings > label:not(.dg-toggle-label) {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 10px;
+  color: var(--dg-muted);
+  margin-bottom: 10px;
+}
+.dg-properties input,
+.dg-properties select,
+.dg-settings select {
+  min-width: 0;
+  width: 100%;
+  min-height: 30px;
+  padding: 5px 8px;
+  border: 1px solid var(--dg-line);
+  background: var(--dg-canvas);
+  color: var(--dg-text);
+  font-size: 11px;
+}
+.dg-properties .dg-row {
+  align-items: end;
+}
+.dg-connect-row {
+  margin-top: 10px;
+}
+.dg-properties .dg-row label {
+  flex: 1;
+  margin: 0;
+}
+.dg-properties .dg-toggle-label {
+  margin-top: 12px;
+}
+.dg-document-stats {
+  display: flex;
+  gap: 28px;
+  color: var(--dg-muted);
+}
+.dg-document-stats strong {
+  font-size: 20px;
+  color: var(--dg-text);
+  font-weight: 550;
+  padding-right: 3px;
+}
+.dg-layer-list {
+  flex: 1;
+  overflow: auto;
+  min-height: 80px;
+  padding: 8px;
+}
+.dg-layer-list > button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+  background: transparent;
+}
+.dg-layer-list > button[aria-pressed='true'] {
+  background: var(--dg-selected);
+  border-color: var(--dg-accent);
+}
+.dg-layer-list small {
+  display: block;
+  color: var(--dg-muted);
+  font-size: 10px;
+}
+.dg-empty {
+  padding: 16px;
+  color: var(--dg-muted);
+}
+.dg-canvas {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+}
+.dg-canvas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 5;
+  height: 48px;
+  padding: 0 18px;
+  background: var(--dg-panel);
+  border-bottom: 1px solid var(--dg-line);
+}
+.dg-canvas-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 500;
+}
+.dg-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dg-inline-select {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--dg-muted);
+}
+.dg-inline-select select {
+  min-height: 30px;
+  background: transparent;
+  color: var(--dg-text);
+  border: 0;
+  font-size: 11px;
+  padding: 3px;
+}
+.dg-inline-select option {
+  background: var(--dg-panel);
+}
+.dg-settings {
+  position: absolute;
+  right: 12px;
+  top: 55px;
+  z-index: 20;
+  width: 222px;
+  border: 1px solid var(--dg-line);
+  background: var(--dg-panel);
+  padding: 12px 16px;
+  box-shadow: var(--axion-shadow-card);
+}
+.dg-settings .dg-row {
+  justify-content: space-between;
+}
+.dg-settings .dg-toggle-label {
+  margin: 14px 0;
+}
+.dg-tool-rail,
+.dg-history-tools,
+.dg-zoom-tools {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  background: var(--dg-panel);
+  border: 1px solid var(--dg-line);
+  box-shadow: var(--axion-shadow-card);
+}
+.dg-tool-rail {
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+  gap: 5px;
+}
+.dg-tool-rail hr {
+  width: 22px;
+  height: 1px;
+  border: 0;
+  background: var(--dg-line);
+  margin: 3px 0;
+}
+.dg-history-tools {
+  left: 16px;
+  bottom: 20px;
+  gap: 2px;
+}
+.dg-zoom-tools {
+  right: 18px;
+  bottom: 20px;
+  gap: 2px;
+}
+.dg-zoom-value {
+  width: 45px;
+  padding: 5px 0;
+  border: 0;
+  background: transparent;
+  font-size: 11px !important;
+  font-variant-numeric: tabular-nums;
+}
+.dg-divider {
+  width: 1px;
+  height: 20px;
+  margin: 0 5px;
+  background: var(--dg-line);
+}
+.dg-node {
+  --node-accent: var(--dg-accent);
+  width: var(--axion-component-diagram-nodeWidth);
+  height: 92px;
+  background: var(--dg-panel);
+  border: 1px solid var(--dg-line);
+  border-top: 2px solid var(--node-accent);
+  padding: 10px 14px;
+  box-shadow: var(--axion-shadow-soft);
+  color: var(--dg-text);
+}
+.dg-node[data-kind='decision'] {
+  --node-accent: var(--axion-color-amber);
+}
+.dg-node[data-kind='database'] {
+  --node-accent: var(--axion-semantic-status-success);
+}
+.dg-node[data-kind='output'] {
+  --node-accent: var(--axion-semantic-status-success);
+}
+.dg-node[data-kind='process'] {
+  --node-accent: var(--axion-semantic-text-muted);
+}
+.dg-node[data-selected='true'] {
+  outline: 2px solid var(--dg-accent);
+  outline-offset: 3px;
+}
+.dg-node-type {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  font-size: 9px;
+  line-height: 1;
+  color: var(--dg-muted);
+}
+.dg-node-type svg {
+  color: var(--node-accent);
+}
+.dg-node strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dg-node small {
+  display: block;
+  font-size: 10px;
+  line-height: 17px;
+  color: var(--dg-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dg-flow-surface { position: absolute; inset: 0 0 0 64px; }
+.dg-app .react-flow {
+  --xy-background-color: var(--dg-canvas);
+  --xy-background-pattern-dots-color: var(--dg-line);
+  --xy-edge-stroke: var(--axion-component-diagram-connector);
+  --xy-edge-stroke-selected: var(--dg-accent);
+  --xy-edge-label-color: var(--dg-muted);
+  --xy-edge-label-background-color: var(--dg-canvas);
+  --xy-minimap-background-color: var(--dg-panel);
+  --xy-minimap-mask-background-color: color-mix(in srgb, var(--dg-canvas) 65%, transparent);
+  --xy-minimap-node-background-color: var(--dg-accent);
+  --xy-selection-background-color: var(--dg-selected);
+  --xy-selection-border: 1px solid var(--dg-accent);
+}
+.dg-app .react-flow__handle {
+  width: 7px;
+  height: 7px;
+  background: var(--dg-panel);
+  border: 1px solid var(--axion-component-diagram-connector);
+  border-radius: 0;
+}
+.dg-app .react-flow__handle:hover {
+  background: var(--dg-accent);
+  border-color: var(--dg-accent);
+}
+.dg-app .react-flow__handle::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+}
+.dg-app .react-flow__node:focus-visible {
+  outline: 2px solid var(--dg-accent);
+  outline-offset: 4px;
+}
+.dg-app .react-flow__edge-path {
+  stroke-width: 1.3;
+}
+.dg-app .react-flow__edge.selected .react-flow__edge-path {
+  stroke-width: 2;
+}
+.dg-app .react-flow__edge-text {
+  font: 9px var(--axion-font-family);
+}
+.dg-app .react-flow__attribution {
+  background: var(--dg-canvas);
+  font-size: 8px;
+  color: var(--dg-muted);
+}
+.dg-app .react-flow__minimap {
+  bottom: 70px;
+  width: 160px;
+  height: 105px;
+  border: 1px solid var(--dg-line);
+}
+.dg-canvas-empty {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.dg-canvas-empty h2 {
+  font-size: 14px;
+  margin: 0;
+}
+.dg-statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 29px;
+  padding: 0 17px;
+  border-top: 1px solid var(--dg-line);
+  background: var(--dg-panel);
+  color: var(--dg-muted);
+  font-size: 10px;
+  z-index: 15;
+}
+.dg-statusbar > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dg-statusbar [role='status'] svg {
+  color: var(--axion-semantic-status-success);
+}
+.dg-status-dot {
+  padding-inline: 5px;
+}
+.dg-hidden {
+  display: none;
+}
+.dg-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.dg-kit {
+  min-height: 100dvh;
+}
+.dg-kit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 32px;
+  background: var(--dg-panel);
+  border-bottom: 1px solid var(--dg-line);
+}
+.dg-kit-header > div {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.dg-kit-header h1 {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0;
+}
+.dg-kit-header p {
+  color: var(--dg-muted);
+  font-size: 11px;
+  margin: 2px 0 0;
+}
+.dg-kit-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 32px 48px;
+}
+.dg-kit-section {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--dg-line);
+}
+.dg-kit-section h2 {
+  font-size: 14px;
+  margin: 0 0 18px;
+  font-weight: 600;
+}
+.dg-kit-section p {
+  color: var(--dg-muted);
+}
+.dg-kit-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.dg-kit-swatch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 155px;
+}
+.dg-kit-swatch i {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--dg-line);
+}
+.dg-kit-controls {
+  display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+  align-items: start;
+}
+.dg-kit-controls > div {
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.dg-kit-preview {
+  width: 100%;
+  height: 280px;
+  background: var(--dg-panel);
+  border: 1px solid var(--dg-line);
+}
+.dg-kit table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.dg-kit th,
+.dg-kit td {
+  padding: 10px;
+  border-bottom: 1px solid var(--dg-line);
+  text-align: left;
+}
+.dg-kit th {
+  color: var(--dg-muted);
+  font-weight: 500;
+}
+.dg-connector-sample {
+  display: block;
+  width: 110px;
+  height: 34px;
+  color: var(--dg-accent);
+}
+@media (min-width: 1700px) {
+  .dg-workspace {
+    grid-template-columns: 340px minmax(0, 1fr);
+  }
+}
+@media (max-width: 1000px) {
+  .dg-workspace {
+    grid-template-columns: 264px minmax(0, 1fr);
+  }
+  .dg-catalog-link {
+    font-size: 0;
+    margin-right: 0;
+  }
+  .dg-header {
+    gap: 16px;
+    padding-inline: 16px;
+  }
+}
+@media (max-width: 700px) {
+  .dg-connector-sample {
+    width: 64px;
+  }
+  .dg-header {
+    padding: 0 10px;
+    gap: 8px;
+    flex-basis: 58px;
+  }
+  .dg-brand span {
+    font-size: 14px;
+  }
+  .dg-brand img {
+    width: 26px;
+    height: 26px;
+  }
+  .dg-brand small {
+    font-size: 8px;
+  }
+  .dg-header-divider,
+  .dg-document-title,
+  .dg-header .dg-catalog-link {
+    display: none;
+  }
+  .dg-header-actions {
+    gap: 3px;
+  }
+  .dg-header .dg-button {
+    padding: 6px 8px;
+  }
+  .dg-workspace {
+    position: relative;
+    display: block;
+  }
+  .dg-canvas {
+    height: 100%;
+  }
+  .dg-sidebar {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: min(292px, calc(100% - 50px));
+    box-shadow: var(--axion-shadow-card);
+  }
+  .dg-canvas-header {
+    padding-inline: 8px;
+    gap: 4px;
+  }
+  .dg-canvas-name {
+    font-size: 10px;
+    gap: 3px;
+  }
+  .dg-canvas-name svg {
+    display: none;
+  }
+  .dg-canvas-options {
+    gap: 0;
+  }
+  .dg-inline-select {
+    gap: 0;
+  }
+  .dg-inline-select select {
+    font-size: 10px;
+    width: 76px;
+  }
+  .dg-tool-rail {
+    left: 8px;
+    gap: 3px;
+  }
+  .dg-history-tools {
+    left: 8px;
+    bottom: 14px;
+    padding: 3px;
+  }
+  .dg-zoom-tools {
+    right: 8px;
+    bottom: 14px;
+    padding: 3px;
+    gap: 0;
+  }
+  .dg-zoom-tools .dg-divider {
+    margin: 0 1px;
+  }
+  .dg-zoom-tools .dg-tool:last-child {
+    display: none;
+  }
+  .dg-zoom-value {
+    width: 35px;
+  }
+  .dg-statusbar {
+    padding: 0 8px;
+    font-size: 9px;
+    gap: 8px;
+  }
+  .dg-statusbar > span:last-child {
+    display: none;
+  }
+  .dg-kit-header {
+    padding: 16px;
+    align-items: flex-start;
+  }
+  .dg-kit-header h1 {
+    font-size: 15px;
+  }
+  .dg-kit-header > div {
+    gap: 8px;
+  }
+  .dg-kit-main {
+    padding-inline: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dg-switch-thumb {
+    transition: none;
+  }
+}

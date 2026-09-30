@@ -719,6 +719,99 @@
       "alpha": 0.65
     }
   },
+  "component.diagram.muted": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.1607843137254902,
+        0.17254901960784313,
+        0.19607843137254902
+      ],
+      "alpha": 1
+    }
+  },
+  "component.diagram.canvas": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.09019607843137255,
+        0.09803921568627451,
+        0.11372549019607843
+      ],
+      "alpha": 1
+    }
+  },
+  "component.diagram.panel": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.12549019607843137,
+        0.13333333333333333,
+        0.15294117647058825
+      ],
+      "alpha": 1
+    }
+  },
+  "component.diagram.line": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.20784313725490197,
+        0.2235294117647059,
+        0.25098039215686274
+      ],
+      "alpha": 1
+    }
+  },
+  "component.diagram.connector": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.6980392156862745,
+        0.7294117647058823,
+        0.7607843137254902
+      ],
+      "alpha": 1
+    }
+  },
+  "component.diagram.selection": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.5686274509803921,
+        0.7372549019607844,
+        1
+      ],
+      "alpha": 1
+    }
+  },
+  "component.diagram.radius": {
+    "$type": "dimension",
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    }
+  },
+  "component.diagram.controlSize": {
+    "$type": "dimension",
+    "$value": {
+      "value": 32,
+      "unit": "px"
+    }
+  },
+  "component.diagram.nodeWidth": {
+    "$type": "dimension",
+    "$value": {
+      "value": 208,
+      "unit": "px"
+    }
+  },
   "component.button.height": {
     "$type": "dimension",
     "$value": {
@@ -775,6 +868,13 @@
     "$type": "dimension",
     "$value": {
       "value": 6,
+      "unit": "px"
+    }
+  },
+  "component.icon.radius": {
+    "$type": "dimension",
+    "$value": {
+      "value": 0,
       "unit": "px"
     }
   },

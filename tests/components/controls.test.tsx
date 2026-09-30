@@ -26,6 +26,16 @@ test('disabled buttons cannot trigger actions', async () => {
   expect(click).not.toHaveBeenCalled();
 });
 
+test.each(['icon', 'icon-xs', 'icon-sm', 'icon-lg'] as const)(
+  '%s buttons use the square icon token',
+  (size) => {
+    render(<Button size={size} aria-label="Pausar" />);
+    const button = screen.getByRole('button', { name: 'Pausar' });
+    expect(button).toHaveClass('rounded-[var(--axion-component-icon-radius)]');
+    expect(button).not.toHaveClass('rounded-md');
+  },
+);
+
 test('input preserves label, error relation and native state', () => {
   render(
     <>

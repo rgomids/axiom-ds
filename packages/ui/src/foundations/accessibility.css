@@ -15,9 +15,14 @@
 .btn,
 .icon-btn {
   min-height: var(--axion-component-button-height);
-  border-radius: var(--axion-component-button-radius);
   gap: var(--axion-component-button-gap);
   transition-duration: var(--axion-motion-fast);
+}
+.btn {
+  border-radius: var(--axion-component-button-radius);
+}
+.icon-btn {
+  border-radius: var(--axion-component-icon-radius);
 }
 .btn.primary {
   background: var(--axion-component-button-background);
