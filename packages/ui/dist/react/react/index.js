@@ -5,3 +5,4 @@ export * from './card';
 export * from './dialog';
 export * from './tooltip';
 export * from './tabs';
+export * from './command-snippet';

@@ -1,0 +1,22 @@
+{
+  "name": "@axion/landing",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "description": "Landing Axiom aprovada: fontes, padr\u00f5es e distribui\u00e7\u00e3o est\u00e1tica port\u00e1til.",
+  "files": [
+    "src",
+    "dist",
+    "assets",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node ../../scripts/build-landing.mjs"
+  },
+  "exports": {
+    "./styles": "./src/style.css",
+    "./workflow-styles": "./src/organic-workflow.css",
+    "./sections/*": "./src/sections/*"
+  }
+}

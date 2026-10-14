@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "resources": [
     {
       "id": "button",
@@ -110,6 +110,16 @@
       "documentation": "packages/ui/src/patterns/landing/README.md",
       "example": "examples/landing.html",
       "status": "prototype"
+    },
+    {
+      "id": "immersive-landing",
+      "name": "Landing imersiva Axiom",
+      "kind": "patterns",
+      "summary": "Marca original, scrollytelling, workflow org\u00e2nico, instala\u00e7\u00e3o e c\u00f3pia individual.",
+      "source": "packages/ui/src/patterns/immersive-landing/markup.html",
+      "documentation": "packages/landing/README.md",
+      "example": "examples/immersive-landing.html",
+      "status": "beta"
     }
   ]
 }

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0 - em revisão
+
+- Landing imersiva beta em pacote est�tico, com dez padr�es documentados no Storybook.
+- Tokens sem�nticos de marketing, Manrope local e mascote original com dourado preservado.
+- CommandSnippet React: copiar por comando, estados de sucesso, erro e desabilitado.
+- Build reproduz�vel para integra��o separada no produto, sem publica��o nesta branch.
+
 ## 0.2.0 - 2026-09-27
 
 - Git local dedicado e tres pacotes npm workspaces.
