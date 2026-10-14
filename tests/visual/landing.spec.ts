@@ -138,6 +138,8 @@ for (const width of [1280, 390]) {
     await page.goto('/landing/index.html?preview=workflow');
     await page.evaluate(() => document.fonts.ready);
     await expect(page.locator('.workflow-node')).toHaveCount(6);
-    await expect(page).toHaveScreenshot('landing-workflow-' + width + '.png', { fullPage: true });
+    const snapshot =
+      width === 390 ? `landing-workflow-390-${process.platform}.png` : 'landing-workflow-1280.png';
+    await expect(page).toHaveScreenshot(snapshot, { fullPage: true });
   });
 }
