@@ -7,7 +7,7 @@ diagram and per-command copying. The design system must own its visual sources
 and executable documentation; the product must own publication and product claims.
 
 Keep one canonical standalone implementation in `packages/landing/src`, assembled
-from ten HTML section templates by `scripts/build-landing.mjs`. Generate a static
+from section templates by `scripts/build-landing.mjs`. Generate a static
 distribution plus an identical Storybook preview. This preserves the approved
 experience without requiring React, a Site account, a server or paid hosting in
 the product. Embedding previews in iframes isolates the intentionally document-wide
@@ -30,3 +30,12 @@ Consequences: portable deployment and faithful previews, but consumers must host
 the full document or intentionally adapt a pattern. Translations, commands and
 browser behavior need regression checks alongside visual baselines. Full-page
 marketing claims must follow current product documentation, not prototype text.
+
+## Storytelling refinement
+
+The maintainer requested the five-scene narrative documented in
+[landing-storytelling](../landing-storytelling.md). The active composition now
+uses a single persistent stage and a pure scroll/viewport state model. Its HTML
+contains all five static illustrated articles for reduced motion and no-JS use.
+This replaces the former logo camera followed by an independent workflow reveal;
+it does not change product-domain contracts or establish human visual acceptance.

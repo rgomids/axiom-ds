@@ -101,7 +101,17 @@
       </div>
       <div class="terminal-body">
         <p class="terminal-comment"># instale a release estável mais recente</p>
-        <div class="command-list" id="commands"></div>
+        <div class="command-list" id="commands">
+          <div class="command-row">
+            <pre><code>curl -fsSL https://raw.githubusercontent.com/rgomids/axiom/main/scripts/install.sh | sh</code></pre>
+            <button class="copy-command" type="button" disabled>Copiar ⧉</button>
+          </div>
+        </div>
+        <noscript
+          ><p class="terminal-comment">
+            Selecione o comando para copiar. Consulte o guia completo para as próximas etapas.
+          </p></noscript
+        >
         <p id="copy-status" role="status"></p>
       </div>
       <div class="terminal-foot">

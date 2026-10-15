@@ -9,18 +9,17 @@ it has no browser baselines or placeholder success command.
 
 ## Landing e marketing
 
-`landing.spec.ts` valida a composição estática em 1280, 390 e 320px: idioma,
-tradução como texto, cópia individual real, erro de clipboard, teclado, motion
-reduzido e axe. Uma execução com movimento valida a passagem amarelo/preto,
-crescimento orgânico e pausa explícita.
+`landing.spec.ts` valida a narrativa contínua de cinco cenas em 1280, 390 e 320px:
+ideia antes do Axiom, seis nós persistentes, progressão reversível sem histórico,
+idioma, tradução como texto, cópia individual, erro de clipboard, teclado,
+movimento reduzido, sequência sem JS e axe.
 
-As sete novas baselines cobrem CommandSnippet nos temas light/dark e nas larguras
-1280/390, mais o workflow orgânico desktop/mobile. Foram inspecionadas antes da
-proposta de revisão; isso não equivale ao aceite visual do mantenedor. O restante
-das baselines continua inalterado. Atualizações devem ser restritas às imagens
-afetadas pela mudança e revisadas visualmente.
+As dez novas baselines mostram S1–S5 em desktop/mobile. As referências anteriores
+do workflow isolado foram substituídas; as baselines dos componentes e dos
+CommandSnippets permanecem. Inspecione imagens antes de atualizar expectativas.
 
-A captura mobile do workflow tem referências separadas `win32` e `linux`,
-inspecionadas nas execuções local e da CI. A rasterização e as métricas das fontes
-do sistema diferem entre esses ambientes; a tolerância de comparação permanece
-inalterada. A captura desktop e as demais imagens são compartilhadas.
+`test-results/storytelling` recebe 20 capturas por viewport (T12/T23/T34/T45,
+p=0/.25/.5/.75/1), além das capturas estáticas e vídeos contínuos desktop/mobile.
+O workflow de CI disponibiliza essas evidências no artefato `visual-checks`.
+Elas documentam a implementação candidata; não substituem aceite visual nem
+teste de compreensão com visitante sem contexto. A tolerância permanece em 1%.

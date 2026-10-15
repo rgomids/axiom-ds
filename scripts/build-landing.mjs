@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { loadTokens, compileTokens } from './tokens.mjs';
 
@@ -6,6 +6,10 @@ import { loadTokens, compileTokens } from './tokens.mjs';
 const base = 'packages/landing';
 const out = base + '/dist';
 await mkdir(out + '/assets', { recursive: true });
+for (const retired of ['organic-workflow.css', 'organic-workflow.js']) {
+  await rm(out + '/' + retired, { force: true });
+  await rm('apps/storybook/public/landing/' + retired, { force: true });
+}
 let html = await readFile(base + '/src/index.html', 'utf8');
 const sections = [...html.matchAll(/\{\{([\w-]+)\}\}/g)].map((match) => match[1]);
 for (const name of sections) {
@@ -19,8 +23,9 @@ for (const file of [
   'preview.js',
   'style.css',
   'app.js',
-  'organic-workflow.css',
-  'organic-workflow.js',
+  'storytelling.css',
+  'storytelling.js',
+  'story-state.js',
 ]) {
   await cp(base + '/src/' + file, out + '/' + file);
 }

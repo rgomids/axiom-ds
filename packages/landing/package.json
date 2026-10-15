@@ -17,6 +17,8 @@
   "exports": {
     "./styles": "./src/style.css",
     "./workflow-styles": "./src/organic-workflow.css",
-    "./sections/*": "./src/sections/*"
+    "./sections/*": "./src/sections/*",
+    "./story-styles": "./src/storytelling.css",
+    "./story-state": "./src/story-state.js"
   }
 }

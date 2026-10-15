@@ -26,9 +26,9 @@
     <link rel="preload" href="assets/Manrope.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="stylesheet" href="tokens.css" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="organic-workflow.css" />
+    <link rel="stylesheet" href="storytelling.css" />
   </head>
-  <body class="gold-start">
+  <body>
     <svg
       width="0"
       height="0"
@@ -55,13 +55,10 @@
       </defs></svg
     ><a class="skip" href="#proposta" data-en="Skip introduction">Pular apresentação</a
     >{{navigation}}
-    <main>
-      {{hero}} {{manifesto}} {{workflow}} {{workflow-transcript}} {{human-authority}}
-      {{installation}} {{product-status}} {{closing}}
-    </main>
+    <main>{{storytelling}} {{product-status}} {{installation}} {{closing}}</main>
     {{footer}}
     <script src="preview.js"></script>
     <script src="app.js"></script>
-    <script src="organic-workflow.js"></script>
+    <script type="module" src="storytelling.js"></script>
   </body>
 </html>
