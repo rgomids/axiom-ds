@@ -22,9 +22,17 @@ screens are not product contracts or evidence of delivered functionality.
 
 All motion uses one sticky stage. One DOM nucleus persists throughout, six card
 nodes retain identity, and connections follow their interpolated coordinates.
-The idea is never replaced by the mascot. Axiom is absent from the large scene
+The idea identity is never replaced by the mascot. Axiom is absent from the large scene
 until fragmentation is established. S5 connects the original idea to results;
 the gate presents two alternatives and never acquires an accepted state by scroll.
+
+The refined opening separates the gold screen from the nucleus: title fades out,
+gold fades completely to black, then a single scroll-driven supernova bloom and
+soft expanding halo settle into the gold idea before the work cards appear.
+There is no repeated flash or autonomous playback. The nucleus fades out before
+the control plane enters, remains hidden throughout S3/S4, and moves to its final
+location while invisible. Only then does it fade in beside the human decision.
+Its identity and textual description persist in the accessible static sequence.
 
 ## Scroll and render model
 

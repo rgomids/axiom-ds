@@ -31,6 +31,26 @@ test('each transition is continuous and independent of previous scroll direction
   assert.deepEqual(storyState(1.75), expected);
 });
 
+test('birth happens after blackout; the idea stays hidden until it reaches the final position', () => {
+  for (let p = 0; p < 4; p += 0.005) {
+    const state = storyState(p);
+    if (state.wash > 0) {
+      assert.equal(state.novaOpacity, 0);
+      assert.equal(state.ideaOpacity, 0);
+    }
+    if (p >= 1.24 && p <= 3.55) assert.equal(state.ideaOpacity, 0);
+  }
+  assert.equal(storyState(0.31).openingCopy, 0);
+  assert.ok(storyState(0.48).novaOpacity > 0.9);
+  assert.equal(storyState(1).ideaOpacity, 1);
+  assert.equal(storyState(2).ideaOpacity, 0);
+  assert.equal(storyState(3).ideaOpacity, 0);
+  for (const narrow of [false, true]) {
+    assert.deepEqual(storyState(3.55, narrow).idea, storyState(4, narrow).idea);
+    assert.equal(storyState(4, narrow).ideaOpacity, 1);
+  }
+});
+
 test('desktop and mobile maintain finite positions within their stage', () => {
   for (const narrow of [false, true])
     for (let p = 0; p <= 4; p += 0.05) {

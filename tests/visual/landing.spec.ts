@@ -29,10 +29,22 @@ test.describe('native scroll storytelling', () => {
         await expect(page.locator('body')).toHaveClass(/gold-start/);
         await expect(page.locator('.header .brand')).toHaveText('');
         const handles = await page.locator('[data-story-idea], [data-story-work]').elementHandles();
+        await progress(page, 0.31);
+        await expect(page.locator('[data-story-copy="0"]')).toHaveCSS('opacity', '0');
+        await expect(page.locator('[data-story-idea]')).toHaveCSS('opacity', '0');
+        await expect(page.locator('.story-supernova')).toHaveCSS('opacity', '0');
+        await progress(page, 0.48);
+        expect(
+          Number(
+            await page.locator('.story-supernova').evaluate((el) => getComputedStyle(el).opacity),
+          ),
+        ).toBeGreaterThan(0.9);
+        await expect(page.locator('[data-story-idea]')).toHaveCSS('opacity', '0');
         await progress(page, 1);
         await expect(page.locator('[data-story-axiom]')).toHaveCSS('opacity', '0');
         await progress(page, 2);
         await expect(page.locator('[data-story-axiom]')).toHaveCSS('opacity', '1');
+        await expect(page.locator('[data-story-idea]')).toHaveCSS('opacity', '0');
         await expect(page.locator('body')).not.toHaveClass(/gold-start/);
         const snapshots = [];
         for (let transition = 0; transition < 4; transition++)
