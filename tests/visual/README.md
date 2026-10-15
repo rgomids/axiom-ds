@@ -14,7 +14,9 @@ ideia antes do Axiom, seis nós persistentes, progressão reversível sem histó
 idioma, tradução como texto, cópia individual, erro de clipboard, teclado,
 movimento reduzido, sequência sem JS e axe.
 
-As dez novas baselines mostram S1–S5 em desktop/mobile. As referências anteriores
+As dez vistas mostram S1–S5 em desktop/mobile. S2–S5 mobile têm referências
+Windows/Linux inspecionadas, devido à rasterização de texto distinta no Chromium;
+a geometria e a tolerância são as mesmas. As referências anteriores
 do workflow isolado foram substituídas; as baselines dos componentes e dos
 CommandSnippets permanecem. Inspecione imagens antes de atualizar expectativas.
 

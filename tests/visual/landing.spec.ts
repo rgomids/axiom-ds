@@ -187,7 +187,9 @@ for (const width of [1280, 390])
         'data-story-progress',
         String(scene - 1) + '.000000',
       );
-      await expect(page).toHaveScreenshot(`story-scene-${scene}-${width}.png`);
+      // Mobile text rasterization differs between Chromium's Linux and Windows builds.
+      const platform = width === 390 && scene > 1 ? `-${process.platform}` : '';
+      await expect(page).toHaveScreenshot(`story-scene-${scene}-${width}${platform}.png`);
     });
 
 for (const width of [1280, 390])
