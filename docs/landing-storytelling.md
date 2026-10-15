@@ -30,8 +30,11 @@ The refined opening separates the gold screen from the nucleus: title fades out,
 gold fades completely to black, then a single scroll-driven supernova bloom and
 soft expanding halo settle into the gold idea before the work cards appear.
 There is no repeated flash or autonomous playback. The nucleus fades out before
-the control plane enters, remains hidden throughout S3/S4, and moves to its final
-location while invisible. Only then does it fade in beside the human decision.
+the control plane enters and remains hidden throughout S3/S4. On the final
+transition, the card and nucleus share one trajectory toward the human decision:
+the card shrinks, rounds and fades as its gold sphere fades in at the same center.
+The crossfade starts with the motion, preserving a visible object throughout
+without passing through the headings.
 Its identity and textual description persist in the accessible static sequence.
 
 ## Scroll and render model
