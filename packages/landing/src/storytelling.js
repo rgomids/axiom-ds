@@ -1,4 +1,4 @@
-import { storyState, connectionPath, clamp } from './story-state.js';
+import { storyState, connectionPath, dependencyPath, clamp } from './story-state.js';
 import { frames, workContent } from './story-frames.js';
 const story = document.querySelector('.storytelling'),
   world = story.querySelector('.live-world');
@@ -121,11 +121,23 @@ function paint() {
       to = [72, 50];
       opacity = i === 0 ? 0.7 : 0;
     }
-    path.setAttribute('d', connectionPath(from, to, i, s.grid));
+    if (s.layout === 'dependencies')
+      to = i === 3 ? [n.x - (n.w / width) * 50 - 1, n.y] : [n.x, n.y - (n.h / height) * 50 - 1];
+    path.setAttribute(
+      'd',
+      s.layout === 'dependencies'
+        ? dependencyPath(from, to, i === 3)
+        : connectionPath(from, to, i, s.grid),
+    );
+    path.setAttribute('marker-end', s.layout === 'dependencies' ? 'url(#story-flow-arrow)' : '');
     path.style.opacity = opacity;
   });
   world.querySelectorAll('.context-link').forEach((path, i) => {
-    path.setAttribute('d', connectionPath([50, 51], [s.contexts[i].x, s.contexts[i].y], i));
+    const origin = s.works[i === 0 ? 1 : 2];
+    path.setAttribute(
+      'd',
+      connectionPath([origin.x, origin.y], [s.contexts[i].x, s.contexts[i].y], i),
+    );
     path.style.opacity = s.contexts[i].opacity;
   });
   alpha('.story-energy', s.energy);

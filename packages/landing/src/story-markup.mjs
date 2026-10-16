@@ -1,5 +1,5 @@
 import { frames, sceneNames, tools, workContent, text } from './story-frames.js';
-import { frameState, connectionPath } from './storyboard-state.js';
+import { frameState, connectionPath, dependencyPath } from './storyboard-state.js';
 const esc = (s) =>
   String(s)
     .replaceAll('&', '&amp;')
@@ -74,7 +74,15 @@ export function relationLines(s) {
       to = [72, 50];
       opacity = i === 0 ? 0.7 : 0;
     }
-    return { d: connectionPath(from, to, i, s.grid), opacity };
+    if (s.layout === 'dependencies')
+      to = i === 3 ? [n.x - (n.w / 360) * 50 - 1, n.y] : [n.x, n.y - (n.h / 520) * 50 - 1];
+    return {
+      d:
+        s.layout === 'dependencies'
+          ? dependencyPath(from, to, i === 3)
+          : connectionPath(from, to, i, s.grid),
+      opacity,
+    };
   });
 }
 export function renderFigure(index, live = false) {

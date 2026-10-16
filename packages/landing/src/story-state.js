@@ -1,1 +1,8 @@
-export { storyState, frameState, connectionPath, clamp, ease } from './storyboard-state.js';
+export {
+  storyState,
+  frameState,
+  connectionPath,
+  dependencyPath,
+  clamp,
+  ease,
+} from './storyboard-state.js';

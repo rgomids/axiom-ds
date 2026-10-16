@@ -278,6 +278,7 @@ export function workContent(index, i) {
     kind: 'front',
     agent: '',
   };
+  if (index === 4 && i === 0) c.title = stages[0];
   if (['fragmentation', 'tension'].includes(layout)) {
     c.title = [
       text('Specification v1 → v2', 'Specification v1 → v2'),

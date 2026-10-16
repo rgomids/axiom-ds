@@ -296,3 +296,10 @@ export function connectionPath(from, to, index = 0, coordination = 1) {
     bend = (index % 2 ? 1 : -1) * (8 + (1 - coordination) * 8);
   return `M ${x} ${y} C ${x + dx * 0.35} ${y - dy * 0.2 + bend}, ${ex - dx * 0.3} ${ey + dy * 0.2 - bend}, ${ex} ${ey}`;
 }
+export function dependencyPath(from, to, side = false) {
+  const [x, y] = from,
+    [ex, ey] = to;
+  return side
+    ? `M ${x} ${y} C ${x + (ex - x) * 0.5} ${y}, ${ex - (ex - x) * 0.2} ${ey}, ${ex} ${ey}`
+    : `M ${x} ${y} C ${x} ${y + (ey - y) * 0.5}, ${ex} ${ey - (ey - y) * 0.5}, ${ex} ${ey}`;
+}
