@@ -7,6 +7,9 @@ import {
   connectionPath,
   storyConnections,
   curvePrefix,
+  frameConnections,
+  originConnection,
+  flowSpineX,
 } from '../packages/landing/src/story-state.js';
 test('all 25 storyboard beats remain ordered in five complete scenes', () => {
   assert.equal(frames.length, 25);
@@ -90,7 +93,7 @@ test('every composition holds for reading before transitioning and connections g
   }
   const growing = storyState((3 + 0.28 + 0.72 * 0.5) / 6);
   assert.ok(growing.reveals[0].line > 0.9);
-  assert.equal(growing.reveals[0].card, 0);
+  assert.ok(growing.reveals[0].card < 1e-12);
   const arriving = storyState((3 + 0.28 + 0.72 * 0.65) / 6);
   assert.equal(arriving.reveals[0].line, 1);
   assert.ok(arriving.reveals[0].card > 0);
@@ -130,5 +133,54 @@ test('upper-left and lower-right tentacles retain curvature rather than flatteni
       .map(Number);
     const cross = (v[2] - v[0]) * (v[7] - v[1]) - (v[3] - v[1]) * (v[6] - v[0]);
     assert.ok(Math.abs(cross) > 100);
+  }
+});
+
+test('review connector attaches to cards and idea remains attached to the flow at every width', () => {
+  for (const [narrow, width] of [
+    [false, 1126],
+    [true, 351],
+    [true, 288],
+  ]) {
+    const gate = frameState(18, narrow, width);
+    const curve = frameConnections(gate, width, 560)[5];
+    const points = curve.d.match(/-?\d+(?:\.\d+)?/g).map(Number);
+    assert.equal(points[0], gate.works[4].x - (gate.works[4].w / width) * 50);
+    assert.equal(points[1], gate.works[4].y);
+    assert.equal(points[6], gate.works[5].x - (gate.works[5].w / width) * 50);
+    assert.equal(points[7], gate.works[5].y);
+    const map = frameState(15, narrow, width),
+      input = originConnection(map, width);
+    assert.equal(input.opacity, 1);
+    const lane = frameState(16, narrow, width);
+    assert.equal(lane.idea.x, flowSpineX(lane, width));
+    assert.equal(lane.idea.y, lane.works[0].y);
+    assert.ok(lane.idea.x < lane.works[0].x - (lane.works[0].w / width) * 50);
+    assert.equal(lane.hub.opacity, 0);
+  }
+});
+
+test('ports, shape and topology fade continuously across each transition midpoint', () => {
+  for (const q of [15.64, 16.64, 17.64, 23.64]) {
+    const before = storyState((q - 1e-6) / 6),
+      after = storyState((q + 1e-6) / 6);
+    for (const field of ['flowPorts', 'ideaCard', 'ideaLink', 'platform'])
+      assert.ok(Math.abs(before[field] - after[field]) < 1e-4);
+    assert.ok(before.routingFade < 1e-8 && after.routingFade < 1e-8);
+  }
+});
+
+test('the returning idea fades before relocation and reappears attached to its workflow port', () => {
+  for (const width of [1126, 351, 288]) {
+    const narrow = width < 760;
+    const midpoint = storyState(15.64 / 6, narrow, width);
+    assert.ok(midpoint.idea.opacity < 1e-12);
+    for (const q of [15.83, 15.9, 15.99, 16]) {
+      const s = storyState(q / 6, narrow, width);
+      assert.ok(s.idea.opacity > 0);
+      assert.equal(s.idea.x, flowSpineX(s, width));
+      assert.equal(s.idea.y, s.works[0].y);
+      assert.ok(s.hub.opacity < 0.001);
+    }
   }
 });

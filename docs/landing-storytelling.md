@@ -55,6 +55,12 @@ this ambient zoom does not move or interrupt readable content cards.
 Diagonal energy lines carry staggered light pulses. The upper-left and lower-right
 connections use a perpendicular bend so their curves cannot flatten into straight
 segments.
+The idea connects explicitly to the control plane in the intention map and
+fades during relocation and reappears on the workflow's first port, whose position follows card width and the
+actual viewport. The human gate connector touches review/delivery card edges.
+Routing families and auxiliary ports cross-fade through changes, card reveals
+use longer envelopes, and the globe-to-card silhouette and perspective grid
+interpolate continuously rather than toggling CSS layouts.
 Ambient motion never advances a scene. Pause and reduced motion stop these loops;
 fixed-frame previews remain deterministic. No automatic execution or approval is
 added.

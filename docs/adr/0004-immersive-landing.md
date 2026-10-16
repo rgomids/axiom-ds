@@ -58,3 +58,9 @@ globe rotation, light pulses, energy waves and staggered decorative square zooms
 are explicitly authorized in this review. The two radial connections called out
 as too straight use perpendicular cubic bends; diagonal lines carry light pulses. They are independent of narrative progress and disabled by pause/reduced
 motion and fixed-frame previews. No timed scene advancement or scroll capture.
+
+Connector endpoints follow card edges and the measured viewport. Static and live
+figures share the routing model. The returning idea fades during relocation and
+reappears on the first workflow port; routing auxiliaries cross-fade, and the
+idea-to-card silhouette and perspective interpolate numerically. This preserves
+continuity without exposing disconnected intermediate geometry.

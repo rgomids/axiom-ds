@@ -1,5 +1,11 @@
 import { frames, sceneNames, tools, workContent, text } from './story-frames.js';
-import { frameState, connectionPath, dependencyPath } from './storyboard-state.js';
+import {
+  frameState,
+  connectionPath,
+  frameConnections,
+  originConnection,
+  flowSpineX,
+} from './storyboard-state.js';
 const esc = (s) =>
   String(s)
     .replaceAll('&', '&amp;')
@@ -112,46 +118,7 @@ function transcript(index) {
   );
 }
 export function relationLines(s) {
-  const center = s.hub.opacity > 0.3 ? [s.hub.x, s.hub.y] : [s.idea.x, s.idea.y];
-  return s.works.map((n, i) => {
-    let from = center,
-      to = [n.x, n.y],
-      opacity = s.connections * n.opacity;
-    if (s.layout === 'convergence') {
-      from = [n.x, n.y];
-      to = [s.works[5].x, s.works[5].y];
-      if (i === 5) opacity = 0;
-    }
-    if (s.layout === 'lanes') {
-      from = [s.works[0].x - 29, i ? s.works[i - 1].y : s.works[0].y];
-      to = [s.works[i].x - 29, n.y];
-      if (i === 5) opacity = 0;
-    }
-    if (s.layout === 'dependencies') {
-      const prev = { 1: 0, 2: 1, 4: 2, 5: 4, 3: 2 }[i];
-      if (prev === undefined) opacity = 0;
-      else from = [s.works[prev].x, s.works[prev].y];
-    }
-    if (s.layout === 'human-gate') {
-      from = [s.works[4].x - 44, s.works[4].y];
-      to = [n.x - 44, n.y];
-      opacity = i === 5 ? 0.6 : 0;
-    }
-    if (s.layout === 'continuity') {
-      from = [s.idea.x, s.idea.y];
-      to = [72, 50];
-      opacity = i === 0 ? 0.7 : 0;
-    }
-    if (s.layout === 'dependencies')
-      to = i === 3 ? [n.x - (n.w / 360) * 50 - 1, n.y] : [n.x, n.y - (n.h / 520) * 50 - 1];
-    return {
-      d:
-        s.layout === 'dependencies'
-          ? dependencyPath(from, to, i === 3)
-          : connectionPath(from, to, i, s.grid),
-      opacity,
-    };
-  });
+  return frameConnections(s, 360, 520);
 }
 export function renderFigure(index, live = false) {
   const s = frameState(index, true),
@@ -164,7 +131,7 @@ export function renderFigure(index, live = false) {
     })
     .join('');
   return `<div class="story-world ${live ? 'live-world' : 'scene-static'}" aria-hidden="true" data-layout="${s.layout}">
-  <div class="story-grid" style="opacity:${s.grid}"></div><div class="story-beam" style="opacity:${s.beam}"></div>
+  <div class="story-grid" style="opacity:${s.grid};--platform:${s.platform}"></div><div class="story-beam" style="opacity:${s.beam}"></div>
   <svg class="story-energy" viewBox="0 0 100 100" preserveAspectRatio="none" style="opacity:${s.energy}">${Array.from(
     { length: 12 },
     (_, i) => {
@@ -172,21 +139,21 @@ export function renderFigure(index, live = false) {
       return `<path d="${d}" />${live ? `<path class="energy-impulse" d="${d}" />` : ''}`;
     },
   ).join('')}</svg>
-  <svg class="flow-ports" viewBox="0 0 100 100" preserveAspectRatio="none" style="opacity:${s.layout === 'lanes' ? 1 : 0}">${s.works
+  <svg class="flow-ports" viewBox="0 0 100 100" preserveAspectRatio="none" style="opacity:${s.flowPorts}">${s.works
     .slice(0, 5)
     .map(
       (n) =>
-        `<path class="flow-fork" d="M ${s.works[0].x - 29} ${n.y} H ${s.works[0].x - 22} H ${n.x}" marker-mid="url(#story-flow-arrow)" /><ellipse class="flow-port" cx="${s.works[0].x - 29}" cy="${n.y}" rx="1" ry="0.8" />`,
+        `<path class="flow-fork" d="M ${flowSpineX(s, 360)} ${n.y} H ${flowSpineX(s, 360) + 7} H ${n.x}" marker-mid="url(#story-flow-arrow)" /><ellipse class="flow-port" cx="${flowSpineX(s, 360)}" cy="${n.y}" rx="1" ry="0.8" />`,
     )
     .join('')}</svg>
 <div class="story-ground" style="opacity:${s.ground}"><i></i><i></i><i></i></div>
   <div class="story-supernova" style="opacity:0"><i></i><i></i></div>
   <div class="execution-shell" style="opacity:${s.execution}">${t(text('Execução em andamento', 'Execution in progress'), 'strong', 'class="execution-title"')}<span>3 / 6</span><div class="execution-progress"></div><div class="runtime-activity"><p>Claude <small>Sonnet 4</small> <span>● ${t(text('Ativo · 1 tarefa', 'Active · 1 task'))}</span></p><p>Codex <small>o4-mini</small> <span>● ${t(text('Ativo · 2 tarefas', 'Active · 2 tasks'))}</span></p></div></div>
-  <svg class="story-links" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none">${lines.map((l, i) => `<path ${attr(live, 'path', i)} d="${l.d}" style="opacity:${l.opacity}" />`).join('')}${live ? Array.from({ length: 6 }, () => '<path class="signal-trail" /><ellipse class="connection-signal" />').join('') : ''}${s.contexts.map((n, i) => `<path class="context-link" d="${connectionPath([50, 51], [n.x, n.y], i)}" style="opacity:${n.opacity}" />`).join('')}</svg>
+  <svg class="story-links" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none">${lines.map((l, i) => `<path ${attr(live, 'path', i)} d="${l.d}" style="opacity:${l.opacity}" />`).join('')}<path class="idea-link" d="${originConnection(s, 360).d}" style="opacity:${originConnection(s, 360).opacity}" />${live ? Array.from({ length: 6 }, () => '<path class="signal-trail" /><ellipse class="connection-signal" />').join('') : ''}${s.contexts.map((n, i) => `<path class="context-link" d="${connectionPath([50, 51], [n.x, n.y], i)}" style="opacity:${n.opacity}" />`).join('')}</svg>
   ${s.ghosts.map((n, i) => `<span class="story-ghost entity" ${attr(live, 'ghost', i)} style="${position(n)}"><i class="ghost-light"></i></span>`).join('')}
   ${s.tools.map((n, i) => `<div class="story-tool entity" ${attr(live, 'tool', i)} style="${position(n)}"><b>${['N', '✶', '⌘', '◉', '▤', '◇', '>_', '☷', '…'][i]}</b>${t(i === 5 ? text('Decisões', 'Decisions') : text(tools[i], tools[i]))}</div>`).join('')}
   ${s.contexts.map((n, i) => `<div class="story-context entity" ${attr(live, 'context', i)} style="${position(n)}">${icon(i ? 'database' : 'spec')}${t(i ? text('Integrações', 'Integrations') : text('Docs de referência', 'Reference docs'))}</div>`).join('')}
-  <div class="idea-core entity" ${attr(live, 'idea')} style="${position(s.idea)}" data-card="${s.ideaCard}"><div class="orb-surface"><i></i></div><div class="orb-ring" style="opacity:${s.orbRing}"></div>${t(text('Ideia', 'Idea'), 'span', 'class="idea-label"')}</div>
+  <div class="idea-core entity" ${attr(live, 'idea')} style="${position(s.idea)};--idea-card:${s.ideaCard}" data-card="${s.ideaCard}"><div class="orb-surface"><i></i></div><div class="orb-ring" style="opacity:${s.orbRing}"></div>${t(text('Ideia', 'Idea'), 'span', 'class="idea-label"')}</div>
   <div class="axiom-core entity" ${attr(live, 'axiom')} style="${position(s.hub)};border-radius:${s.hubRound ? 50 : 14}%">${mascot(id)}<span>AXIOM<br /><small>CONTROL PLANE</small></span></div>
   ${works}
   <div class="story-decision" ${attr(live, 'decision')} style="opacity:${s.decision}"><header>${icon('person')}<span>Code Review<br />${t(text('Exemplo de revisão', 'Illustrative review'), 'small')}</span>${t(text('Aprovado · exemplo', 'Approved · example'), 'b')}</header><ul>${[text('Testes passando', 'Tests passing'), text('Diff revisado', 'Diff reviewed'), text('Evidence completa', 'Complete Evidence'), text('Alinhado à Specification', 'Aligned with Specification'), text('Pronto para merge', 'Ready for merge')].map((v) => `<li><span>✓</span>${t(v)}</li>`).join('')}</ul><div class="decision-choices">${t(text('✓ Aceitar e seguir', '✓ Accept and continue'), 'span')}${t(text('↻ Solicitar retrabalho', '↻ Request rework'), 'span')}</div></div>
