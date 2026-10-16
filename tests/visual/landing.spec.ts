@@ -9,11 +9,13 @@ async function progress(page: Page, p: number) {
       p,
     );
   await page.evaluate((value) => window.scrollTo({ top: value, behavior: 'instant' }), y);
-  await expect
-    .poll(async () =>
-      Number(await page.locator('.storytelling').getAttribute('data-story-progress')),
-    )
-    .toBeCloseTo(p, 3);
+  await page.waitForFunction((value) => {
+    const story = document.querySelector<HTMLElement>('.storytelling')!;
+    return (
+      story.dataset.storySettled === 'true' &&
+      Math.abs(Number(story.dataset.storyProgress) - value) < 0.0005
+    );
+  }, p);
 }
 test.describe('native scroll storytelling', () => {
   test.use({ reducedMotion: 'no-preference' });
@@ -21,6 +23,7 @@ test.describe('native scroll storytelling', () => {
     test(
       'all 25 storyboard beats, persistent identities and reversible transitions ' + width,
       async ({ page }) => {
+        test.setTimeout(120000);
         await page.setViewportSize({ width, height: width === 1280 ? 900 : 844 });
         await page.goto('/landing/index.html');
         await expect(page.locator('body')).toHaveClass(/story-motion/);
@@ -248,6 +251,7 @@ for (const width of [1280, 390])
       viewport: { width, height },
     });
     test('native wheel forward and back', async ({ browser }) => {
+      test.setTimeout(90000);
       const context = await browser.newContext({
         reducedMotion: 'no-preference',
         viewport: { width, height },

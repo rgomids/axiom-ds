@@ -1,7 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { frames, workContent } from '../packages/landing/src/story-frames.js';
-import { storyState, frameState, connectionPath } from '../packages/landing/src/story-state.js';
+import {
+  storyState,
+  frameState,
+  connectionPath,
+  storyConnections,
+  curvePrefix,
+} from '../packages/landing/src/story-state.js';
 test('all 25 storyboard beats remain ordered in five complete scenes', () => {
   assert.equal(frames.length, 25);
   for (let scene = 1; scene <= 5; scene++) {
@@ -72,4 +78,57 @@ test('curved connectors finish at the destination', () => {
       assert.ok(d.endsWith(`${p.x} ${p.y}`));
       assert.ok(!d.includes('NaN'));
     }
+});
+
+test('every composition holds for reading before transitioning and connections grow before cards', () => {
+  for (let i = 1; i < 24; i++) {
+    const held = storyState((i + 0.27) / 6);
+    assert.equal(held.transition, 0);
+    assert.equal(held.index, i);
+    assert.equal(held.copy[i], 1);
+    assert.deepEqual(held.works, frameState(i).works);
+  }
+  const growing = storyState((3 + 0.28 + 0.72 * 0.5) / 6);
+  assert.ok(growing.reveals[0].line > 0.9);
+  assert.equal(growing.reveals[0].card, 0);
+  const arriving = storyState((3 + 0.28 + 0.72 * 0.65) / 6);
+  assert.equal(arriving.reveals[0].line, 1);
+  assert.ok(arriving.reveals[0].card > 0);
+  assert.ok(arriving.reveals[0].bloom > 0);
+  assert.ok(arriving.reveals[0].card > arriving.reveals[5].card);
+});
+
+test('connector curves and the hub stay continuous through layout changes', () => {
+  for (const q of [4, 8, 11, 15.64, 16, 17.64, 18.64, 20.64, 24]) {
+    const a = storyState((q - 0.000001) / 6),
+      b = storyState((q + 0.000001) / 6);
+    for (const prop of a.hub.opacity > 0.001 && b.hub.opacity > 0.001
+      ? ['x', 'y', 'opacity']
+      : ['opacity'])
+      assert.ok(Math.abs(a.hub[prop] - b.hub[prop]) < 0.001);
+    const before = storyConnections(a, 1000, 560),
+      after = storyConnections(b, 1000, 560);
+    before.forEach((c, i) => {
+      assert.ok(Math.abs(c.opacity - after[i].opacity) < 0.001);
+      if (c.opacity < 0.001 && after[i].opacity < 0.001) return;
+      assert.ok(Math.abs(c.end[0] - after[i].end[0]) < 0.001);
+      assert.ok(Math.abs(c.end[1] - after[i].end[1]) < 0.001);
+    });
+  }
+  const points = [0, 0, 20, 40, 60, 20, 100, 100];
+  assert.deepEqual(curvePrefix(points, 0).end, [0, 0]);
+  assert.deepEqual(curvePrefix(points, 1).end, [100, 100]);
+});
+
+test('upper-left and lower-right tentacles retain curvature rather than flattening', () => {
+  for (const [i, to] of [
+    [0, [30, 18]],
+    [5, [66, 82]],
+  ]) {
+    const v = connectionPath([50, 50], to, i)
+      .match(/-?\d+(?:\.\d+)?/g)
+      .map(Number);
+    const cross = (v[2] - v[0]) * (v[7] - v[1]) - (v[3] - v[1]) * (v[6] - v[0]);
+    assert.ok(Math.abs(cross) > 100);
+  }
 });

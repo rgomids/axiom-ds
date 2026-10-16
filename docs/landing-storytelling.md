@@ -39,8 +39,25 @@ The original mascot remains unchanged. Source: `packages/landing/src/story-frame
 Scroll is native, deterministic and reversible. The public progress range remains
 0–4, with the 25 beats at `index / 6`. Every beat has a native anchor
 `#quadro-<scene>-<beat>`. The five scene anchors, installation links, keyboard,
-PT/EN and individual command copy remain available. No scroll interception,
-perpetual animation loop, automatic execution or automatic approval is added.
+PT/EN and individual command copy remain available. Each beat now spans 200svh
+(twice the previous scroll distance), with the first 28% reserved for reading and
+a quintic transition over the remaining 72%. A short, time-based scroll follower
+softens wheel input without intercepting it. Captions and object roles follow the
+same eased transition. Cubic connectors interpolate across layouts instead of
+switching their geometry at the midpoint.
+
+A signal extends along each connection before a new card opens, with staggered
+arrival and a local halo bloom. Existing connections carry a fresh impulse as the
+story evolves. The idea texture rotates slowly; energy waves, lights and particles
+breathe independently of narrative progress, as requested in the pacing review.
+The eight decorative squares appear, enlarge and recede on staggered cycles;
+this ambient zoom does not move or interrupt readable content cards.
+Diagonal energy lines carry staggered light pulses. The upper-left and lower-right
+connections use a perpendicular bend so their curves cannot flatten into straight
+segments.
+Ambient motion never advances a scene. Pause and reduced motion stop these loops;
+fixed-frame previews remain deterministic. No automatic execution or approval is
+added.
 
 The previously requested gold-to-black supernova remains in the opening. The
 control plane contracts into the workflow's luminous origin as the staged flow

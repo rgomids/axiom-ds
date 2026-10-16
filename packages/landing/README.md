@@ -57,7 +57,9 @@ Percentages, viewport breakpoints and Bezier points express layout/geometry.
 Manrope is bundled locally with its OFL notice. Native scrolling drives the
 hero and the organic paths. Reduced motion and the explicit pause control
 show all 25 illustrated beats in five scenes without the scroll sequence. Narration also has a
-permanent transcript. No autoplay, scroll interception or mandatory animation.
+permanent transcript. Beats use 200svh with a reading hold and continuous transitions.
+Optional ambient globe rotation, light pulses and waves never advance the story;
+pause/reduced motion disable them. No narrative autoplay or scroll interception.
 
 ## States and review
 

@@ -25,3 +25,9 @@ p=índice/6), além das capturas estáticas e vídeos contínuos desktop/mobile.
 O workflow de CI disponibiliza essas evidências no artefato `visual-checks`.
 Elas documentam a implementação candidata; não substituem aceite visual nem
 teste de compreensão com visitante sem contexto. A tolerância permanece em 1%.
+
+`story-motion.spec.ts` verifica em desktop/mobile a pausa de leitura, o sinal
+chegando antes da abertura do card, o halo de chegada, a rotação do globo,
+as ondas de energia, os pulsos diagonais e o zoom dos quadrados decorativos.
+Pausa/movimento reduzido desativam os ciclos. Os testes de ida e volta aguardam
+a suavização da rolagem se estabilizar; os vídeos registram a interação nativa.

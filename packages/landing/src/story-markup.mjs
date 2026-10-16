@@ -160,12 +160,18 @@ export function renderFigure(index, live = false) {
   const works = s.works
     .map((n, i) => {
       const c = workContent(index, i);
-      return `<div class="story-work entity" data-kind="${c.kind}" ${attr(live, 'work', i)} style="${position(n)}">${icon(c.icon)}<div class="work-body">${t(c.title, 'strong', 'class="work-title"')}${t(c.detail, 'small', 'class="work-detail"')}<span class="work-agent">${esc(c.agent)}</span></div>${t(c.metric, 'span', 'class="work-metric"')}${i === 4 ? humanChecks() : ''}</div>`;
+      return `<div class="story-work entity" data-kind="${c.kind}" ${attr(live, 'work', i)} style="${position(n)}">${icon(c.icon)}<div class="work-body">${t(c.title, 'strong', 'class="work-title"')}${t(c.detail, 'small', 'class="work-detail"')}<span class="work-agent">${esc(c.agent)}</span></div>${t(c.metric, 'span', 'class="work-metric"')}${i === 4 ? humanChecks() : ''}<i class="card-bloom"></i></div>`;
     })
     .join('');
   return `<div class="story-world ${live ? 'live-world' : 'scene-static'}" aria-hidden="true" data-layout="${s.layout}">
   <div class="story-grid" style="opacity:${s.grid}"></div><div class="story-beam" style="opacity:${s.beam}"></div>
-  <svg class="story-energy" viewBox="0 0 100 100" preserveAspectRatio="none" style="opacity:${s.energy}">${Array.from({ length: 12 }, (_, i) => `<path d="${connectionPath([i % 2 ? -12 : 112, i * 8], [50, 50], i, 0)}" />`).join('')}</svg>
+  <svg class="story-energy" viewBox="0 0 100 100" preserveAspectRatio="none" style="opacity:${s.energy}">${Array.from(
+    { length: 12 },
+    (_, i) => {
+      const d = connectionPath([i % 2 ? -12 : 112, i * 8], [50, 50], i, 0);
+      return `<path d="${d}" />${live ? `<path class="energy-impulse" d="${d}" />` : ''}`;
+    },
+  ).join('')}</svg>
   <svg class="flow-ports" viewBox="0 0 100 100" preserveAspectRatio="none" style="opacity:${s.layout === 'lanes' ? 1 : 0}">${s.works
     .slice(0, 5)
     .map(
@@ -176,8 +182,8 @@ export function renderFigure(index, live = false) {
 <div class="story-ground" style="opacity:${s.ground}"><i></i><i></i><i></i></div>
   <div class="story-supernova" style="opacity:0"><i></i><i></i></div>
   <div class="execution-shell" style="opacity:${s.execution}">${t(text('Execução em andamento', 'Execution in progress'), 'strong', 'class="execution-title"')}<span>3 / 6</span><div class="execution-progress"></div><div class="runtime-activity"><p>Claude <small>Sonnet 4</small> <span>● ${t(text('Ativo · 1 tarefa', 'Active · 1 task'))}</span></p><p>Codex <small>o4-mini</small> <span>● ${t(text('Ativo · 2 tarefas', 'Active · 2 tasks'))}</span></p></div></div>
-  <svg class="story-links" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none">${lines.map((l, i) => `<path ${attr(live, 'path', i)} d="${l.d}" style="opacity:${l.opacity}" />`).join('')}${s.contexts.map((n, i) => `<path class="context-link" d="${connectionPath([50, 51], [n.x, n.y], i)}" style="opacity:${n.opacity}" />`).join('')}</svg>
-  ${s.ghosts.map((n, i) => `<span class="story-ghost entity" ${attr(live, 'ghost', i)} style="${position(n)}"></span>`).join('')}
+  <svg class="story-links" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none">${lines.map((l, i) => `<path ${attr(live, 'path', i)} d="${l.d}" style="opacity:${l.opacity}" />`).join('')}${live ? Array.from({ length: 6 }, () => '<path class="signal-trail" /><ellipse class="connection-signal" />').join('') : ''}${s.contexts.map((n, i) => `<path class="context-link" d="${connectionPath([50, 51], [n.x, n.y], i)}" style="opacity:${n.opacity}" />`).join('')}</svg>
+  ${s.ghosts.map((n, i) => `<span class="story-ghost entity" ${attr(live, 'ghost', i)} style="${position(n)}"><i class="ghost-light"></i></span>`).join('')}
   ${s.tools.map((n, i) => `<div class="story-tool entity" ${attr(live, 'tool', i)} style="${position(n)}"><b>${['N', '✶', '⌘', '◉', '▤', '◇', '>_', '☷', '…'][i]}</b>${t(i === 5 ? text('Decisões', 'Decisions') : text(tools[i], tools[i]))}</div>`).join('')}
   ${s.contexts.map((n, i) => `<div class="story-context entity" ${attr(live, 'context', i)} style="${position(n)}">${icon(i ? 'database' : 'spec')}${t(i ? text('Integrações', 'Integrations') : text('Docs de referência', 'Reference docs'))}</div>`).join('')}
   <div class="idea-core entity" ${attr(live, 'idea')} style="${position(s.idea)}" data-card="${s.ideaCard}"><div class="orb-surface"><i></i></div><div class="orb-ring" style="opacity:${s.orbRing}"></div>${t(text('Ideia', 'Idea'), 'span', 'class="idea-label"')}</div>

@@ -47,3 +47,14 @@ contains the same complete sequence. Configuration, dependencies, human gates,
 execution, artifacts, review, delivery and continuity remain distinct compositions.
 Sample metrics and model assignments are explicitly illustrative. This refinement
 supersedes earlier compressed five-frame staging, without accepting a product GUI.
+
+### Pacing refinement
+
+Preserve all 25 storyboard compositions while doubling the native scroll distance
+per beat to 200svh. Hold each complete composition for reading, then interpolate
+geometry with quintic easing and a short scroll follower. Connection curves morph
+continuously; signals reach the cards before their staggered bloom. Slow ambient
+globe rotation, light pulses, energy waves and staggered decorative square zooms
+are explicitly authorized in this review. The two radial connections called out
+as too straight use perpendicular cubic bends; diagonal lines carry light pulses. They are independent of narrative progress and disabled by pause/reduced
+motion and fixed-frame previews. No timed scene advancement or scroll capture.
