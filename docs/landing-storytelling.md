@@ -1,91 +1,78 @@
-# Storyboard fidelity: five scenes, twenty-five beats
+# Storytelling: five chapters, eighteen distinct beats
 
-The five supplied storyboards are the composition and narrative contract. Read
-frames left to right. This implementation retains all 25 beats instead of
-compressing each scene into one generic diagram. Primary objects are counted
-below; the small particles, energy filaments and background outlines are scenery.
-The original mascot remains unchanged. Source: `packages/landing/src/story-frames.js`.
+The five supplied storyboards establish the journey. The latest maintainer review
+consolidates seven repeated compositions, retains the full concept-to-delivery
+story, and replaces radial connections with an orthogonal flowchart. Source:
+`packages/landing/src/story-frames.js`. Chapter lengths are 4, 3, 2, 4 and 5.
 
-| Beat | Composition and primary objects                                                  | Narrative / caption                                   |
-| ---- | -------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| 1.1  | Gold canvas; centered headline; original navigation                              | Uma ideia. Infinitas possibilidades.                  |
-| 1.2  | One luminous nucleus; horizontal energy filaments                                | Uma intenção. O ponto de partida de tudo.             |
-| 1.3  | Same nucleus, orbit and particles                                                | Uma ideia. Uma necessidade, problema ou oportunidade. |
-| 1.4  | Nucleus with eight emerging outline panels                                       | Cada ideia se desdobra em muitas partes.              |
-| 1.5  | Nucleus with six named work fronts                                               | Mais elementos. Mais decisões. Mais contextos.        |
-| 2.1  | Return focus to the same idea and energy                                         | Tudo começa com uma intenção.                         |
-| 2.2  | Six fronts: requisitos, arquitetura, código, testes, revisão, entrega            | Rapidamente surgem várias frentes.                    |
-| 2.3  | Nine tool/context tiles around the nucleus                                       | Múltiplas ferramentas. Múltiplos agentes.             |
-| 2.4  | Six artifact surfaces; tool/context tiles recede behind them                     | O trabalho se dispersa.                               |
-| 2.5  | Dense, rotated artifacts and tool/context tiles; smaller nucleus                 | Agentes aceleram tarefas. Quem mantém tudo conectado? |
-| 3.1  | Same six fronts and nucleus, still dispersed                                     | O que estava disperso começa a se conectar.           |
-| 3.2  | Axiom emerges at the center; six fronts converge                                 | O Axiom emerge.                                       |
-| 3.3  | Central control plane with six connected fronts                                  | O Axiom conecta o que estava disperso.                |
-| 3.4  | Connections stabilize against a shared grid                                      | Um fluxo coerente, com controle humano.               |
-| 3.5  | Six connected fronts, luminous pedestal, vertical energy                         | Pronto para orquestração.                             |
-| 4.1  | Idea, Axiom and six workflow fronts                                              | Da intenção ao fluxo.                                 |
-| 4.2  | Five ordered stage cards; three Claude and two Codex example assignments         | Você define agentes, modelos e responsabilidades.     |
-| 4.3  | Five main dependency stages, plus docs, integrations and tests (eight nodes)     | O resultado de cada etapa alimenta a próxima.         |
-| 4.4  | Two completed-stage cards, one human gate with four checks, one pending delivery | Você revisa e decide quando avançar.                  |
-| 4.5  | Six execution rows, progress 3/6, two Runtime activity rows                      | Uma visão da execução.                                |
-| 5.1  | Five contributors converge into one result cube                                  | O fluxo converge.                                     |
-| 5.2  | Five artifact rows: código/PR, testes, diff, artefatos, Evidence                 | Trabalho verificável.                                 |
-| 5.3  | Review panel with five checks and two human alternatives                         | Aceitar e seguir / solicitar retrabalho.              |
-| 5.4  | One delivered result, layered plates, pedestal and five artifact icons           | Entregue. Com evidências.                             |
-| 5.5  | Idea linked to a layered next-possibilities card                                 | O contexto permanece. Você segue em frente.           |
+| Beat | Composition                                                          | Narrative                                             |
+| ---- | -------------------------------------------------------------------- | ----------------------------------------------------- |
+| 1.1  | Gold opening                                                         | Uma ideia. Infinitas possibilidades.                  |
+| 1.2  | One rotating luminous nucleus                                        | Uma intenção.                                         |
+| 1.3  | Eight emerging panels                                                | Cada ideia se desdobra em muitas partes.              |
+| 1.4  | Six work fronts, no connections                                      | Mais elementos. Mais decisões. Mais contextos.        |
+| 2.1  | Same six fronts plus four tool/context tiles                         | Múltiplas ferramentas. Múltiplos agentes.             |
+| 2.2  | Persistent cards at different depths, seven tool tiles               | O trabalho se dispersa.                               |
+| 2.3  | Dense field with nine tool tiles, still disconnected                 | Agentes aceleram tarefas. Quem mantém tudo conectado? |
+| 3.1  | Original octopus emerges; cards remain                               | O Axiom emerge.                                       |
+| 3.2  | Straight connections organize the existing cards                     | O Axiom conecta o que estava disperso.                |
+| 4.1  | Five configurable stages, with Claude/Codex example assignments      | Um processo configurável.                             |
+| 4.2  | Five main stages, tests, documentation and integrations              | Dependências e contexto.                              |
+| 4.3  | Two completed stages, review gate with four checks, pending delivery | Com controle humano.                                  |
+| 4.4  | Six execution rows, progress 3/6 and two Runtime activity rows       | Uma visão da execução.                                |
+| 5.1  | Five contributors converge into one result                           | O fluxo converge.                                     |
+| 5.2  | Code/PR, tests, diff, artifacts and Evidence                         | Trabalho verificável.                                 |
+| 5.3  | Five review checks and two human choices                             | Aceitar e seguir / solicitar retrabalho.              |
+| 5.4  | Delivered result and five artifact icons                             | Entregue. Com evidências.                             |
+| 5.5  | Idea linked to next possibilities                                    | O contexto permanece. Você segue em frente.           |
 
-## Motion, accessibility and meaning
+## Geometry and motion
 
-Scroll is native, deterministic and reversible. The public progress range remains
-0–4, with the 25 beats at `index / 6`. Every beat has a native anchor
-`#quadro-<scene>-<beat>`. The five scene anchors, installation links, keyboard,
-PT/EN and individual command copy remain available. Each beat now spans 200svh
-(twice the previous scroll distance), with the first 28% reserved for reading and
-a quintic transition over the remaining 72%. A short, time-based scroll follower
-softens wheel input without intercepting it. Captions and object roles follow the
-same eased transition. Cubic connectors interpolate across layouts instead of
-switching their geometry at the midpoint.
+Scroll is native, deterministic and reversible. Public progress remains 0–4;
+beat anchors use `index * 4 / (frames.length - 1)`. Scene anchors derive from the
+actual chapter boundaries, including variable chapter lengths. Every beat has
+an anchor `#quadro-<scene>-<beat>`. Each transition spans 200svh, with the first
+28% reserved for reading, quintic easing and a short scroll follower.
 
-A signal extends along each connection before a new card opens, with staggered
-arrival and a local halo bloom. Existing connections carry a fresh impulse as the
-story evolves. The idea texture rotates slowly; energy waves, lights and particles
-breathe independently of narrative progress, as requested in the pacing review.
-The eight decorative squares appear, enlarge and recede on staggered cycles;
-this ambient zoom does not move or interrupt readable content cards.
-Diagonal energy lines carry staggered light pulses. The upper-left and lower-right
-connections use a perpendicular bend so their curves cannot flatten into straight
-segments.
-The idea connects explicitly to the control plane in the intention map and
-fades during relocation and reappears on the workflow's first port, whose position follows card width and the
-actual viewport. The human gate connector touches review/delivery card edges.
-Routing families and auxiliary ports cross-fade through changes, card reveals
-use longer envelopes, and the globe-to-card silhouette and perspective grid
-interpolate continuously rather than toggling CSS layouts.
-Ambient motion never advances a scene. Pause and reduced motion stop these loops;
-fixed-frame previews remain deterministic. No automatic execution or approval is
-added.
+The six fronts retain their titles, identity and visibility through complexity
+and Axiom's arrival. Tool tiles accumulate in groups of four, seven and nine before Axiom appears. Scale, rotation and
+position give depth without hiding the work fronts. No card connections appear
+before the mascot is fully present. Only then do straight segments grow into an
+orthogonal graph with two shared lateral spines and six short branches. The nine tool tiles converge into subordinate badges beneath their owning fronts, preserving identity while keeping the six main components in focus. Secondary badges have no separate wires; the wave dims during this organization. Routing changes cross-fade through an invisible midpoint;
+coordinates are never interpolated into temporary curves or diagonal edges.
 
-The previously requested gold-to-black supernova remains in the opening. The
-control plane contracts into the workflow's luminous origin as the staged flow
-forms. The delivery closes with the original idea connected to what comes next.
-The latest storyboard takes precedence over previous simplified staging.
+The dependency graph follows the maintainer's reference: Specification to
+Architecture and directly to Implementation; Architecture to Implementation;
+reference docs and integrations into Implementation; Implementation to Tests and
+Review; Review to Delivery. Arrowheads end at card edges. Stage cards use a
+horizontal icon/title layout, and Tests uses a flask icon.
 
-Reduced motion, pause and no JavaScript show **all 25 illustrated beats**, grouped
-into the five scenes. The animated duplicate is decorative. Full descriptions
-and captions remain in HTML. Original mascot pixels and local font licenses are
-preserved. Illustrations use owned HTML/CSS/SVG rather than flattened screenshots.
+Only the original octopus is visible in the central Axiom card. Its gold detail
+and original asset bytes are preserved; no wordmark or Control Plane subtitle
+appears below it. Claude and OpenAI marks identify the Claude and Codex Runtime
+examples. The OpenAI mark is not a claim of a separate ChatGPT integration.
+Asset provenance and trademark attribution are included in the bundle NOTICE.
 
-Model assignments, PR #123, +247/−12, 12/12 tests, progress 3/6, statuses and
-review outcomes reproduce the storyboard's examples. A visible conceptual/sample
-label distinguishes them from actual capabilities, CI evidence or approval. The
-illustration never changes a Work Item, accepts a delivery, merges or deploys.
+Broad wave fronts replace the old rays, particles and grid background. They
+move inward toward the center on staggered 16-second cycles. Globe rotation,
+light breathing and decorative panel zoom are independent of story progress.
+Gold-to-black supernova remains in the opening. The globe reappears already
+attached to the first workflow port after the mascot fades. Shape changes and
+captions use continuous fades. Ambient motion never advances a scene.
 
-## Evidence and remaining review
+## Accessibility and evidence
 
-Tests check all 25 beats at desktop, 390px and 320px, primary-object counts,
-identity continuity, reverse scroll, complete static/no-JS content, keyboard,
-localization, clipboard/storage failures and XSS. QA captures every beat; ten
-representative regression views cover the five scenes in desktop/mobile.
-Human comparison of the compositions, pacing and visitor comprehension remains
-necessary. Technical checks do not establish editorial acceptance or real-device
-Safari behavior. The product imports an exact Git revision and per-file hashes.
+Pause, reduced motion and no JavaScript show all eighteen illustrated beats,
+grouped into five chapters. The animated duplicate is decorative; captions and
+full descriptions remain in HTML. PT/EN, keyboard navigation, individual command
+copy, original mascot and local font licenses remain available. Fixed-frame
+previews are deterministic. Build revisions invalidate stale JS/CSS imports.
+
+Model assignments, PR #123, diff counts, test totals, progress and review outcomes
+are conceptual examples, explicitly labeled. The illustration never executes a
+Work Item, approves, merges or deploys. Tests cover desktop, 390px and 320px,
+ordered compositions, persistent objects, reverse scroll, orthogonal routing,
+no premature connections, accessible fallbacks, translations and clipboard.
+Human review remains necessary for pacing and comprehension; Chromium checks do
+not establish Safari or real-device acceptance. Product imports pin the source
+Git revision and per-file hashes.

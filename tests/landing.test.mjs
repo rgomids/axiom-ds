@@ -17,7 +17,7 @@ test('landing is assembled, portable and preserves the exact approved mascot', a
         seen.add(attr.value);
       }
       if (['src', 'href'].includes(attr.name) && !/^(#|https:|mailto:)/.test(attr.value)) {
-        await readFile('packages/landing/dist/' + attr.value);
+        await readFile('packages/landing/dist/' + attr.value.split('?')[0]);
       }
     }
     for (const child of node.childNodes ?? []) await visit(child);

@@ -64,3 +64,25 @@ figures share the routing model. The returning idea fades during relocation and
 reappears on the first workflow port; routing auxiliaries cross-fade, and the
 idea-to-card silhouette and perspective interpolate numerically. This preserves
 continuity without exposing disconnected intermediate geometry.
+
+### Consolidation and orthogonal flow refinement
+
+The latest maintainer instruction supersedes the earlier requirement to repeat
+all 25 compositions. Consolidate seven redundant views into eighteen beats with
+chapter lengths 4/3/2/4/5. Keep cards and titles visible as complexity accumulates,
+and introduce connections only after the original octopus is fully present.
+Use orthogonal segments and directional dependencies following the supplied
+flowchart reference. Remove the central wordmark/subtitle; preserve the mascot.
+
+Replace the old ray/particle/grid background with inward-moving wave fronts.
+Include Claude and OpenAI marks in agent cards, identifying the actual Claude
+and Codex integrations rather than claiming a separate ChatGPT adapter. Bundle
+provenance/attribution and use local assets. Content-derived JS/CSS revisions
+prevent cached modules from mixing versions during preview or publication.
+The full five-chapter journey and all evidence/human-control beats remain.
+
+The subsequent clutter review groups secondary tools beneath their owning fronts
+and replaces nine additional tool wires with two shared lateral spines. All six
+main fronts stay in focus. Grouping coordinates, badge dimensions/type and wave
+intensity interpolate numerically; the tools remain part of the story rather
+than disappearing when Axiom organizes them.

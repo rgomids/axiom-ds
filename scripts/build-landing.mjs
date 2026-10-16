@@ -14,6 +14,15 @@ for (const retired of ['organic-workflow.css', 'organic-workflow.js']) {
 let html = await readFile(base + '/src/index.html', 'utf8');
 const sections = [...html.matchAll(/\{\{([\w-]+)\}\}/g)].map((match) => match[1]);
 const storyboardContent = renderStorytelling();
+const revision = createHash('sha256')
+  .update(storyboardContent)
+  .update(await readFile(base + '/src/storyboard-state.js'))
+  .update(await readFile(base + '/src/storytelling.js'))
+  .update(await readFile(base + '/src/story-frames.js'))
+  .update(await readFile(base + '/src/storytelling.css'))
+  .digest('hex')
+  .slice(0, 12);
+html = html.replace(/((?:src|href)=")(storytelling\.(?:js|css))(")/g, `$1$2?v=${revision}$3`);
 for (const name of sections) {
   html = html.replace(
     '{{' + name + '}}',
@@ -37,7 +46,13 @@ for (const file of [
   'storyboard-state.js',
   'story-frames.js',
 ]) {
-  await cp(base + '/src/' + file, out + '/' + file);
+  if (file.endsWith('.js')) {
+    const source = await readFile(base + '/src/' + file, 'utf8');
+    await writeFile(
+      out + '/' + file,
+      source.replace(/(from\s+'\.\/[^']+\.js)(')/g, `$1?v=${revision}$2`),
+    );
+  } else await cp(base + '/src/' + file, out + '/' + file);
 }
 const all = await loadTokens();
 const marketing = Object.fromEntries(
@@ -56,7 +71,7 @@ await writeFile(
   out + '/NOTICE.txt',
   'Axiom landing page — Apache-2.0.\nManrope — SIL Open Font License 1.1 (assets/Manrope-OFL.txt).\nOriginal Axiom mascot preserved, SHA256: ' +
     createHash('sha256').update(logo).digest('hex') +
-    '\n',
+    '\nOpenAI mark: official white Blossom, https://openai.com/brand/ (trademark, usage terms apply).\nClaude mark: Simple Icons, CC0, https://github.com/simple-icons/simple-icons/blob/develop/icons/claude.svg (Anthropic trademark). Marks identify the Claude and Codex integrations; no endorsement is implied.\n',
 );
 await cp(out, 'apps/storybook/public/landing', { recursive: true });
 console.log('Built portable Axiom landing with ' + sections.length + ' reusable sections.');

@@ -26,14 +26,14 @@ and publication. A design-system PR is not permission to publish the product.
 | Source                                                    | Pattern / contract                                                                |
 | --------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | `src/sections/navigation.html`                            | Fixed navigation, progress, language and motion controls                          |
-| `src/sections/storytelling.html`, `src/story-markup.mjs`  | Five scenes with all 25 illustrated storyboard beats, generated from owned source |
+| `src/sections/storytelling.html`, `src/story-markup.mjs`  | Five scenes with all 18 illustrated storyboard beats, generated from owned source |
 | `src/sections/installation.html`                          | Keyboard tabs, terminal shell and individual command copying                      |
 | `src/sections/product-status.html`                        | Available / in delivery / discovery cards                                         |
 | `src/sections/closing.html`                               | Closing statement and primary/secondary calls to action                           |
 | `src/sections/footer.html`                                | Mascot, links and back-to-top navigation                                          |
 | `src/style.css`, `src/storytelling.css`                   | Presentation and responsive geometry                                              |
 | `src/app.js`, `src/storytelling.js`, `src/story-state.js` | Native scroll, settings, narration and terminal behavior                          |
-| `src/story-frames.js`, `src/storyboard-state.js`          | 25 bilingual beats, object inventories and pure reversible geometry               |
+| `src/story-frames.js`, `src/storyboard-state.js`          | 18 bilingual beats, object inventories and pure reversible geometry               |
 
 The templates compose once per document, with stable section IDs. The CSS and
 controllers target a standalone document: do not inject them into an existing
@@ -56,7 +56,7 @@ Percentages, viewport breakpoints and Bezier points express layout/geometry.
 
 Manrope is bundled locally with its OFL notice. Native scrolling drives the
 hero and the organic paths. Reduced motion and the explicit pause control
-show all 25 illustrated beats in five scenes without the scroll sequence. Narration also has a
+show all 18 illustrated beats in five scenes without the scroll sequence. Narration also has a
 permanent transcript. Beats use 200svh with a reading hold and continuous transitions.
 Optional ambient globe rotation, light pulses and waves never advance the story;
 pause/reduced motion disable them. No narrative autoplay or scroll interception.
@@ -82,9 +82,9 @@ See [the implementation contract](../../docs/landing-storytelling.md) for scene 
 
 One idea and six work nodes persist through fragmentation, organization, workflow
 and inspectable results. The large mascot appears only in S3. Ordinary scene
-anchors, the installation CTAs and all 25 static beats remain available.
+anchors, the installation CTAs and all 18 static beats remain available.
 `?scene=1` through `?scene=5` are isolated fixed-frame documentation views, not
 production controls. `?preview=story` shows the full static sequence in Storybook.
-`?frame=1` through `?frame=25` isolate each storyboard beat for visual comparison.
+`?frame=1` through `?frame=18` isolate each storyboard beat for visual comparison.
 Legacy hero/workflow/editorial templates remain as prior references, but are no
 longer composed into the active landing. Original brand assets are unchanged.

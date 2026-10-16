@@ -21,7 +21,7 @@ test.describe('native scroll storytelling', () => {
   test.use({ reducedMotion: 'no-preference' });
   for (const width of [1280, 390, 320])
     test(
-      'all 25 storyboard beats, persistent identities and reversible transitions ' + width,
+      'all 18 distinct beats, persistent identities and reversible transitions ' + width,
       async ({ page }) => {
         test.setTimeout(120000);
         await page.setViewportSize({ width, height: width === 1280 ? 900 : 844 });
@@ -31,12 +31,10 @@ test.describe('native scroll storytelling', () => {
         const handles = await page
           .locator('[data-story-idea],[data-story-work],[data-story-tool]')
           .elementHandles();
-        const visibleWorks = [
-            0, 0, 0, 0, 6, 0, 6, 0, 6, 6, 6, 6, 6, 6, 6, 6, 5, 6, 4, 6, 6, 5, 0, 1, 0,
-          ],
+        const visibleWorks = [0, 0, 0, 6, 6, 6, 6, 6, 6, 5, 6, 4, 6, 6, 5, 0, 1, 0],
           snapshots = [];
-        for (let index = 0; index < 25; index++) {
-          await progress(page, index / 6);
+        for (let index = 0; index < 18; index++) {
+          await progress(page, (index * 4) / 17);
           await expect(page.locator('.storytelling')).toHaveAttribute(
             'data-story-frame',
             String(index + 1),
@@ -47,8 +45,7 @@ test.describe('native scroll storytelling', () => {
               (els) => els.filter((el) => Number(getComputedStyle(el).opacity) > 0.8).length,
             ),
           ).toBe(visibleWorks[index]);
-          if (index < 11)
-            await expect(page.locator('[data-story-axiom]')).toHaveCSS('opacity', '0');
+          if (index < 7) await expect(page.locator('[data-story-axiom]')).toHaveCSS('opacity', '0');
           const state = await page
             .locator('[data-story-idea],[data-story-work],[data-story-axiom],[data-story-path]')
             .evaluateAll((els) =>
@@ -60,7 +57,7 @@ test.describe('native scroll storytelling', () => {
                 el.getAttribute('d'),
               ]),
             );
-          snapshots.push({ p: index / 6, state });
+          snapshots.push({ p: (index * 4) / 17, state });
           await page.screenshot({
             path: `test-results/storytelling/${width}-frame-${String(index + 1).padStart(2, '0')}.png`,
           });
@@ -83,10 +80,10 @@ test.describe('native scroll storytelling', () => {
         }
         for (const handle of handles)
           expect(await handle.evaluate((el) => el.isConnected)).toBe(true);
-        await progress(page, 16 / 6);
+        await progress(page, (9 * 4) / 17);
         expect(
           await page
-            .locator('[data-story-work] .work-agent')
+            .locator('[data-story-work] .work-agent > span')
             .evaluateAll((els) =>
               els
                 .filter(
@@ -101,7 +98,7 @@ test.describe('native scroll storytelling', () => {
           'Codex · o4-mini',
           'Claude · Sonnet 4',
         ]);
-        await progress(page, 17 / 6);
+        await progress(page, (10 * 4) / 17);
         expect(
           await page
             .locator('[data-story-context]')
@@ -109,12 +106,12 @@ test.describe('native scroll storytelling', () => {
               (els) => els.filter((el) => Number(getComputedStyle(el).opacity) > 0.8).length,
             ),
         ).toBe(2);
-        await progress(page, 19 / 6);
+        await progress(page, (12 * 4) / 17);
         await expect(page.locator('.live-world .runtime-activity p')).toHaveCount(2);
         await expect(page.locator('.live-world .execution-title')).toHaveText(
           'Execução em andamento',
         );
-        await progress(page, 22 / 6);
+        await progress(page, (15 * 4) / 17);
         await expect(page.locator('[data-story-decision]')).toHaveCSS('opacity', '1');
         await expect(page.locator('[data-story-decision] li')).toHaveCount(5);
         await expect(page.locator('[data-story-decision] .decision-choices>span')).toHaveCount(2);
@@ -126,7 +123,7 @@ test.describe('native scroll storytelling', () => {
         );
         await page.locator('#motion').click();
         await expect(page.locator('body')).toHaveClass(/static-motion/);
-        await expect(page.locator('.story-beat')).toHaveCount(25);
+        await expect(page.locator('.story-beat')).toHaveCount(18);
       },
     );
 });
@@ -236,7 +233,7 @@ for (const width of [1280, 390])
       await page.evaluate(() => document.fonts.ready);
       await expect(page.locator('.storytelling')).toHaveAttribute(
         'data-story-progress',
-        ([0, 9, 12, 19, 24][scene - 1] / 6).toFixed(6),
+        (([0, 6, 8, 12, 17][scene - 1] * 4) / 17).toFixed(6),
       );
       // Mobile text rasterization differs between Chromium's Linux and Windows builds.
       const platform = width === 390 && scene > 1 ? `-${process.platform}` : '';

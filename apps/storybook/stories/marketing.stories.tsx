@@ -33,7 +33,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Implementação candidata dos 25 quadros do storyboard, agrupados em cinco cenas. A sequência inclui ideia, fragmentação de ferramentas e artefatos, Axiom, configuração por etapa, dependências, gate humano, execução, evidências, revisão, entrega e continuidade. O mesmo bundle estático é consumido pelo produto. A página completa permite validar scroll, PT/EN e movimento reduzido; a sequência estática contém todos os 25 quadros. Exemplos de agentes, modelos, métricas e resultados são ilustrativos. Consulte docs/landing-storytelling.md para o inventário quadro a quadro.',
+          'Implementação candidata dos 18 quadros do storyboard, agrupados em cinco cenas. A sequência inclui ideia, fragmentação de ferramentas e artefatos, Axiom, configuração por etapa, dependências, gate humano, execução, evidências, revisão, entrega e continuidade. O mesmo bundle estático é consumido pelo produto. A página completa permite validar scroll, PT/EN e movimento reduzido; a sequência estática contém todos os 18 quadros. Exemplos de agentes, modelos, métricas e resultados são ilustrativos. Consulte docs/landing-storytelling.md para o inventário quadro a quadro.',
       },
     },
   },
