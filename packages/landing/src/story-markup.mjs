@@ -43,6 +43,74 @@ const checks = [
 ];
 const humanChecks = () =>
   `<ul class="human-checks">${checks.map((c, i) => `<li>${t(c)}<span>${i === 0 ? '✓' : '○'}</span></li>`).join('')}</ul>`;
+function transcript(index) {
+  const s = frameState(index, true);
+  return text(
+    ...['pt', 'en'].map((lang) => {
+      const parts = [];
+      if (s.idea.opacity > 0.8)
+        parts.push(
+          lang === 'pt'
+            ? 'A ideia permanece como núcleo luminoso.'
+            : 'The idea remains a luminous nucleus.',
+        );
+      if (s.hub.opacity > 0.8) parts.push('Axiom · Control Plane.');
+      if (s.ghosts.filter((n) => n.opacity > 0.5).length === 8)
+        parts.push(lang === 'pt' ? 'Oito painéis emergentes.' : 'Eight emerging panels.');
+      s.works.forEach((n, i) => {
+        if (n.opacity > 0.8) {
+          const c = workContent(index, i);
+          parts.push(
+            [c.title[lang], c.detail[lang], c.metric[lang], c.agent].filter(Boolean).join(' · '),
+          );
+        }
+      });
+      if (s.tools.some((n) => n.opacity > 0.8))
+        parts.push(
+          tools.map((name, i) => (i === 5 && lang === 'en' ? 'Decisions' : name)).join(', ') + '.',
+        );
+      if (s.contexts.some((n) => n.opacity > 0.8))
+        parts.push(
+          lang === 'pt'
+            ? 'Contexto: docs de referência e integrações.'
+            : 'Context: reference docs and integrations.',
+        );
+      if (index === 18) parts.push(checks.map((c) => c[lang]).join('; ') + '.');
+      if (index === 19)
+        parts.push(
+          lang === 'pt'
+            ? 'Exemplo: progresso 3/6; Claude/Sonnet 4 com 1 tarefa, Codex/o4-mini com 2 tarefas.'
+            : 'Example: progress 3/6; Claude/Sonnet 4 with 1 task, Codex/o4-mini with 2 tasks.',
+        );
+      if (index === 22)
+        parts.push(
+          lang === 'pt'
+            ? 'Exemplo de Code Review: testes passando, diff revisado, Evidence completa, alinhado à Specification e pronto para merge. Duas alternativas humanas: aceitar e seguir ou solicitar retrabalho.'
+            : 'Illustrative Code Review: tests passing, diff reviewed, complete Evidence, aligned with Specification and ready for merge. Two human alternatives: accept and continue or request rework.',
+        );
+      if (s.chips)
+        parts.push(
+          lang === 'pt'
+            ? 'Cinco ícones: código, arquitetura, artefatos, documentação e contexto.'
+            : 'Five icons: code, architecture, artifacts, documentation and context.',
+        );
+      if (s.continuity)
+        parts.push(
+          lang === 'pt'
+            ? 'A ideia se conecta ao card de próximas possibilidades, em três camadas.'
+            : 'The idea connects to the next-possibilities card, in three layers.',
+        );
+      if (index === 0) parts.push(frames[0].title[lang].replaceAll('\n', ' '));
+      if (index >= 16)
+        parts.push(
+          lang === 'pt'
+            ? 'Exemplo conceitual. Agentes, modelos, métricas e resultados são ilustrativos.'
+            : 'Conceptual example. Agents, models, metrics and results are illustrative.',
+        );
+      return parts.join(' ');
+    }),
+  );
+}
 export function relationLines(s) {
   const center = s.hub.opacity > 0.3 ? [s.hub.x, s.hub.y] : [s.idea.x, s.idea.y];
   return s.works.map((n, i) => {
@@ -95,7 +163,7 @@ export function renderFigure(index, live = false) {
       return `<div class="story-work entity" data-kind="${c.kind}" ${attr(live, 'work', i)} style="${position(n)}">${icon(c.icon)}<div class="work-body">${t(c.title, 'strong', 'class="work-title"')}${t(c.detail, 'small', 'class="work-detail"')}<span class="work-agent">${esc(c.agent)}</span></div>${t(c.metric, 'span', 'class="work-metric"')}${i === 4 ? humanChecks() : ''}</div>`;
     })
     .join('');
-  return `<div class="story-world ${live ? 'live-world' : 'scene-static'}" data-layout="${s.layout}">
+  return `<div class="story-world ${live ? 'live-world' : 'scene-static'}" aria-hidden="true" data-layout="${s.layout}">
   <div class="story-grid" style="opacity:${s.grid}"></div><div class="story-beam" style="opacity:${s.beam}"></div>
   <svg class="story-energy" viewBox="0 0 100 100" preserveAspectRatio="none" style="opacity:${s.energy}">${Array.from({ length: 12 }, (_, i) => `<path d="${connectionPath([i % 2 ? -12 : 112, i * 8], [50, 50], i, 0)}" />`).join('')}</svg>
   <svg class="flow-ports" viewBox="0 0 100 100" preserveAspectRatio="none" style="opacity:${s.layout === 'lanes' ? 1 : 0}">${s.works
@@ -110,7 +178,7 @@ export function renderFigure(index, live = false) {
   <div class="execution-shell" style="opacity:${s.execution}">${t(text('Execução em andamento', 'Execution in progress'), 'strong', 'class="execution-title"')}<span>3 / 6</span><div class="execution-progress"></div><div class="runtime-activity"><p>Claude <small>Sonnet 4</small> <span>● ${t(text('Ativo · 1 tarefa', 'Active · 1 task'))}</span></p><p>Codex <small>o4-mini</small> <span>● ${t(text('Ativo · 2 tarefas', 'Active · 2 tasks'))}</span></p></div></div>
   <svg class="story-links" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none">${lines.map((l, i) => `<path ${attr(live, 'path', i)} d="${l.d}" style="opacity:${l.opacity}" />`).join('')}${s.contexts.map((n, i) => `<path class="context-link" d="${connectionPath([50, 51], [n.x, n.y], i)}" style="opacity:${n.opacity}" />`).join('')}</svg>
   ${s.ghosts.map((n, i) => `<span class="story-ghost entity" ${attr(live, 'ghost', i)} style="${position(n)}"></span>`).join('')}
-  ${s.tools.map((n, i) => `<div class="story-tool entity" ${attr(live, 'tool', i)} style="${position(n)}"><b>${['N', '✶', '⌘', '◉', '▤', '◇', '>_', '☷', '…'][i]}</b><span>${tools[i]}</span></div>`).join('')}
+  ${s.tools.map((n, i) => `<div class="story-tool entity" ${attr(live, 'tool', i)} style="${position(n)}"><b>${['N', '✶', '⌘', '◉', '▤', '◇', '>_', '☷', '…'][i]}</b>${t(i === 5 ? text('Decisões', 'Decisions') : text(tools[i], tools[i]))}</div>`).join('')}
   ${s.contexts.map((n, i) => `<div class="story-context entity" ${attr(live, 'context', i)} style="${position(n)}">${icon(i ? 'database' : 'spec')}${t(i ? text('Integrações', 'Integrations') : text('Docs de referência', 'Reference docs'))}</div>`).join('')}
   <div class="idea-core entity" ${attr(live, 'idea')} style="${position(s.idea)}" data-card="${s.ideaCard}"><div class="orb-surface"><i></i></div><div class="orb-ring" style="opacity:${s.orbRing}"></div>${t(text('Ideia', 'Idea'), 'span', 'class="idea-label"')}</div>
   <div class="axiom-core entity" ${attr(live, 'axiom')} style="${position(s.hub)};border-radius:${s.hubRound ? 50 : 14}%">${mascot(id)}<span>AXIOM<br /><small>CONTROL PLANE</small></span></div>
@@ -125,14 +193,14 @@ export function renderFigure(index, live = false) {
 export function renderStorytelling() {
   return `${defs}<nav class="story-navigation" aria-label="Cenas da história" data-en-aria="Story scenes">${sceneNames.map((n, i) => `<a href="#cena-${i + 1}"><span>0${i + 1}</span>${t(n)}</a>`).join('')}<span class="story-counter">01 — 05 · 01 / 05</span></nav>
  <div class="story-stage" aria-hidden="true"><div class="story-wash"></div><div class="story-ambient"></div>${renderFigure(0, true)}${frames.map((f, i) => `<div class="story-copy" data-story-copy="${i}" ${i === 0 ? 'data-opening="true"' : ''}>${t(f.title, i === 0 ? 'h1' : 'h2')}${t(f.lead, 'p', 'class="story-lead"')}</div>`).join('')}<p class="story-disclaimer" data-en="Conceptual illustration · sample agents, models and results">Ilustração conceitual · agentes, modelos e resultados ilustrativos</p><p class="story-scroll" data-en="SCROLL TO CONTINUE ↓">ROLE PARA CONTINUAR ↓</p></div>
- <div class="story-scenes">${sceneNames
+ ${t(text('Da ideia à entrega verificável', 'From idea to verifiable delivery'), 'h1', 'class="story-transcript-title"')}<div class="story-scenes">${sceneNames
    .map(
      (name, scene) =>
        `<article data-story-scene="${scene + 1}" id="cena-${scene + 1}" style="--scene-index:${scene}">${scene === 2 ? '<span id="proposta" class="scene-anchor"></span>' : scene === 3 ? '<span id="fluxo" class="scene-anchor"></span>' : ''}${t(name, 'h2', 'class="scene-heading"')}${frames
          .filter((f) => f.scene === scene + 1)
          .map((f) => {
            const i = scene * 5 + f.beat - 1;
-           return `<section class="story-beat" id="quadro-${f.scene}-${f.beat}" style="--beat-index:${f.beat - 1}"><p class="beat-number">0${f.scene} / 0${f.beat}</p>${t(f.title, 'h3')}${t(f.lead, 'p', 'class="static-lead"')}<figure aria-label="${esc(f.title.pt.replaceAll('\n', ' '))}" data-en-aria="${esc(f.title.en.replaceAll('\n', ' '))}">${renderFigure(i)}${i >= 16 ? t(text('Exemplo conceitual. Agentes, modelos, métricas e resultados são ilustrativos.', 'Conceptual example. Agents, models, metrics and results are illustrative.'), 'figcaption') : ''}</figure></section>`;
+           return `<section class="story-beat" id="quadro-${f.scene}-${f.beat}" style="--beat-index:${f.beat - 1}"><p class="beat-number">0${f.scene} / 0${f.beat}</p>${t(f.title, 'h3')}${t(f.lead, 'p', 'class="static-lead"')}<figure aria-label="${esc(f.title.pt.replaceAll('\n', ' '))}" data-en-aria="${esc(f.title.en.replaceAll('\n', ' '))}">${renderFigure(i)}${t(transcript(i), 'figcaption', 'class="static-transcript"')}</figure></section>`;
          })
          .join('')}</article>`,
    )
