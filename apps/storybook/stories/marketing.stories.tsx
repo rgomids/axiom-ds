@@ -33,7 +33,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Padrões da landing aprovada. Fonte: packages/landing/src/sections. As cinco cenas seguem a ideia, a fragmentação, a entrada do Axiom, o workflow e a entrega verificável. Cada preview usa o mesmo build estático que o produto, isolado por iframe; amarelo/preto são a direção de arte de marketing em ambos os temas do aplicativo. As prévias por seção exibem o estado completo sem movimento. A página completa permite validar o scroll, PT/EN e o controle de movimento. Consulte packages/landing/README.md para anatomia, integração e estados.',
+          'Implementação candidata dos 25 quadros do storyboard, agrupados em cinco cenas. A sequência inclui ideia, fragmentação de ferramentas e artefatos, Axiom, configuração por etapa, dependências, gate humano, execução, evidências, revisão, entrega e continuidade. O mesmo bundle estático é consumido pelo produto. A página completa permite validar scroll, PT/EN e movimento reduzido; a sequência estática contém todos os 25 quadros. Exemplos de agentes, modelos, métricas e resultados são ilustrativos. Consulte docs/landing-storytelling.md para o inventário quadro a quadro.',
       },
     },
   },

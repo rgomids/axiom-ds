@@ -1,6 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-
 async function progress(page: Page, p: number) {
   const y = await page
     .locator('.storytelling')
@@ -16,78 +15,115 @@ async function progress(page: Page, p: number) {
     )
     .toBeCloseTo(p, 3);
 }
-
 test.describe('native scroll storytelling', () => {
   test.use({ reducedMotion: 'no-preference' });
   for (const width of [1280, 390, 320])
     test(
-      'persistent identities, reversible transitions and keyframes ' + width,
+      'all 25 storyboard beats, persistent identities and reversible transitions ' + width,
       async ({ page }) => {
         await page.setViewportSize({ width, height: width === 1280 ? 900 : 844 });
         await page.goto('/landing/index.html');
         await expect(page.locator('body')).toHaveClass(/story-motion/);
         await expect(page.locator('body')).toHaveClass(/gold-start/);
-        await expect(page.locator('.header .brand')).toHaveText('');
-        const handles = await page.locator('[data-story-idea], [data-story-work]').elementHandles();
-        await progress(page, 0.31);
-        await expect(page.locator('[data-story-copy="0"]')).toHaveCSS('opacity', '0');
-        await expect(page.locator('[data-story-idea]')).toHaveCSS('opacity', '0');
-        await expect(page.locator('.story-supernova')).toHaveCSS('opacity', '0');
-        await progress(page, 0.48);
-        expect(
-          Number(
-            await page.locator('.story-supernova').evaluate((el) => getComputedStyle(el).opacity),
-          ),
-        ).toBeGreaterThan(0.9);
-        await expect(page.locator('[data-story-idea]')).toHaveCSS('opacity', '0');
-        await progress(page, 1);
-        await expect(page.locator('[data-story-axiom]')).toHaveCSS('opacity', '0');
-        await progress(page, 2);
-        await expect(page.locator('[data-story-axiom]')).toHaveCSS('opacity', '1');
-        await expect(page.locator('[data-story-idea]')).toHaveCSS('opacity', '0');
-        await expect(page.locator('body')).not.toHaveClass(/gold-start/);
-        const snapshots = [];
-        for (let transition = 0; transition < 4; transition++)
-          for (const q of [0, 0.25, 0.5, 0.75, 1]) {
-            const p = transition + q;
-            await progress(page, p);
-            const state = await page
-              .locator(
-                '[data-story-idea], [data-story-work], [data-story-axiom], [data-story-path]',
-              )
-              .evaluateAll((elements) =>
-                elements.map((el) => [el.getAttribute('style'), el.getAttribute('d')]),
-              );
-            snapshots.push({ p, state });
-            await page.screenshot({
-              path: `test-results/storytelling/${width}-T${transition + 1}${transition + 2}-${q}.png`,
-            });
-          }
+        const handles = await page
+          .locator('[data-story-idea],[data-story-work],[data-story-tool]')
+          .elementHandles();
+        const visibleWorks = [
+            0, 0, 0, 0, 6, 0, 6, 0, 6, 6, 6, 6, 6, 6, 6, 6, 5, 6, 4, 6, 6, 5, 0, 1, 0,
+          ],
+          snapshots = [];
+        for (let index = 0; index < 25; index++) {
+          await progress(page, index / 6);
+          await expect(page.locator('.storytelling')).toHaveAttribute(
+            'data-story-frame',
+            String(index + 1),
+          );
+          const nodes = page.locator('[data-story-work]');
+          expect(
+            await nodes.evaluateAll(
+              (els) => els.filter((el) => Number(getComputedStyle(el).opacity) > 0.8).length,
+            ),
+          ).toBe(visibleWorks[index]);
+          if (index < 11)
+            await expect(page.locator('[data-story-axiom]')).toHaveCSS('opacity', '0');
+          const state = await page
+            .locator('[data-story-idea],[data-story-work],[data-story-axiom],[data-story-path]')
+            .evaluateAll((els) =>
+              els.map((el) => [
+                getComputedStyle(el).transform,
+                getComputedStyle(el).opacity,
+                getComputedStyle(el).width,
+                getComputedStyle(el).height,
+                el.getAttribute('d'),
+              ]),
+            );
+          snapshots.push({ p: index / 6, state });
+          await page.screenshot({
+            path: `test-results/storytelling/${width}-frame-${String(index + 1).padStart(2, '0')}.png`,
+          });
+        }
         for (const sample of snapshots.reverse()) {
           await progress(page, sample.p);
           expect(
             await page
-              .locator(
-                '[data-story-idea], [data-story-work], [data-story-axiom], [data-story-path]',
-              )
-              .evaluateAll((elements) =>
-                elements.map((el) => [el.getAttribute('style'), el.getAttribute('d')]),
+              .locator('[data-story-idea],[data-story-work],[data-story-axiom],[data-story-path]')
+              .evaluateAll((els) =>
+                els.map((el) => [
+                  getComputedStyle(el).transform,
+                  getComputedStyle(el).opacity,
+                  getComputedStyle(el).width,
+                  getComputedStyle(el).height,
+                  el.getAttribute('d'),
+                ]),
               ),
           ).toEqual(sample.state);
         }
         for (const handle of handles)
           expect(await handle.evaluate((el) => el.isConnected)).toBe(true);
-        await progress(page, 4);
-        await expect(page.locator('[data-story-idea]')).toHaveCSS('opacity', '1');
+        await progress(page, 16 / 6);
+        expect(
+          await page
+            .locator('[data-story-work] .work-agent')
+            .evaluateAll((els) =>
+              els
+                .filter(
+                  (el) => Number(getComputedStyle(el.closest('[data-story-work]')!).opacity) > 0.8,
+                )
+                .map((el) => el.textContent),
+            ),
+        ).toEqual([
+          'Claude · Sonnet 4',
+          'Claude · Sonnet 4',
+          'Codex · o4-mini',
+          'Codex · o4-mini',
+          'Claude · Sonnet 4',
+        ]);
+        await progress(page, 17 / 6);
+        expect(
+          await page
+            .locator('[data-story-context]')
+            .evaluateAll(
+              (els) => els.filter((el) => Number(getComputedStyle(el).opacity) > 0.8).length,
+            ),
+        ).toBe(2);
+        await progress(page, 19 / 6);
+        await expect(page.locator('.live-world .runtime-activity p')).toHaveCount(2);
+        await expect(page.locator('.live-world .execution-title')).toHaveText(
+          'Execução em andamento',
+        );
+        await progress(page, 22 / 6);
         await expect(page.locator('[data-story-decision]')).toHaveCSS('opacity', '1');
-        await expect(page.locator('[data-story-decision]')).toContainText('Solicitar retrabalho');
+        await expect(page.locator('[data-story-decision] li')).toHaveCount(5);
+        await expect(page.locator('[data-story-decision] .decision-choices>span')).toHaveCount(2);
+        await progress(page, 4);
+        await expect(page.locator('.live-world .story-continuity')).toHaveCSS('opacity', '1');
+        await expect(page.locator('[data-story-idea]')).toHaveCSS('opacity', '1');
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
           true,
         );
         await page.locator('#motion').click();
         await expect(page.locator('body')).toHaveClass(/static-motion/);
-        for (const scene of await page.locator('article[data-story-scene]').all())
-          await expect(scene).toBeVisible();
+        await expect(page.locator('.story-beat')).toHaveCount(25);
       },
     );
 });
@@ -128,7 +164,7 @@ for (const width of [1280, 390, 320])
       await expect(page.locator('.copy-command').first()).toHaveText('Copy ⧉');
       await page.locator('#setup-0').click();
       await expect(page.locator('.terminal-platform')).toContainText('Supported hosts:');
-      await expect(page.locator('article[data-story-scene="5"]')).toContainText('request rework');
+      await expect(page.locator('article[data-story-scene="5"]')).toContainText('Request rework');
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
         true,
       );
@@ -197,7 +233,7 @@ for (const width of [1280, 390])
       await page.evaluate(() => document.fonts.ready);
       await expect(page.locator('.storytelling')).toHaveAttribute(
         'data-story-progress',
-        String(scene - 1) + '.000000',
+        ([0, 9, 12, 19, 24][scene - 1] / 6).toFixed(6),
       );
       // Mobile text rasterization differs between Chromium's Linux and Windows builds.
       const platform = width === 390 && scene > 1 ? `-${process.platform}` : '';

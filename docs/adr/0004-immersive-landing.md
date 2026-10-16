@@ -39,3 +39,11 @@ uses a single persistent stage and a pure scroll/viewport state model. Its HTML
 contains all five static illustrated articles for reduced motion and no-JS use.
 This replaces the former logo camera followed by an independent workflow reveal;
 it does not change product-domain contracts or establish human visual acceptance.
+
+The subsequent storyboard comparison retains all five beats within each scene,
+for 25 compositions in total. A bilingual beat inventory and pure geometry module
+drive the live stage and build-time static illustrations. The accessible fallback
+contains the same complete sequence. Configuration, dependencies, human gates,
+execution, artifacts, review, delivery and continuity remain distinct compositions.
+Sample metrics and model assignments are explicitly illustrative. This refinement
+supersedes earlier compressed five-frame staging, without accepting a product GUI.

@@ -352,6 +352,10 @@
         }
       },
       "status": {
+        "success": {
+          "$type": "color",
+          "$value": { "colorSpace": "srgb", "components": [0.49, 0.78, 0.43], "alpha": 1 }
+        },
         "available": {
           "$type": "color",
           "$value": {

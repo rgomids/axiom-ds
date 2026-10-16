@@ -1,83 +1,68 @@
-# Landing storytelling: implementation candidate
+# Storyboard fidelity: five scenes, twenty-five beats
 
-Status: implemented prototype for visual review; no narrative acceptance, product
-capability acceptance, merge or publication is claimed.
+The five supplied storyboards are the composition and narrative contract. Read
+frames left to right. This implementation retains all 25 beats instead of
+compressing each scene into one generic diagram. Primary objects are counted
+below; the small particles, energy filaments and background outlines are scenery.
+The original mascot remains unchanged. Source: `packages/landing/src/story-frames.js`.
 
-The maintainer's current request authorizes implementing the complete experience
-described in the [review](https://github.com/rgomids/axiom/pull/317#pullrequestreview-5512493953),
-[five illustrated storyboards](https://github.com/rgomids/axiom/pull/317#issuecomment-6159957944)
-and [four motion documents](https://github.com/rgomids/axiom/pull/317#issuecomment-6160104548).
-Those comments remain design references; suggested percentages and conceptual
-screens are not product contracts or evidence of delivered functionality.
+| Beat | Composition and primary objects                                                  | Narrative / caption                                   |
+| ---- | -------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| 1.1  | Gold canvas; centered headline; original navigation                              | Uma ideia. Infinitas possibilidades.                  |
+| 1.2  | One luminous nucleus; horizontal energy filaments                                | Uma intenção. O ponto de partida de tudo.             |
+| 1.3  | Same nucleus, orbit and particles                                                | Uma ideia. Uma necessidade, problema ou oportunidade. |
+| 1.4  | Nucleus with eight emerging outline panels                                       | Cada ideia se desdobra em muitas partes.              |
+| 1.5  | Nucleus with six named work fronts                                               | Mais elementos. Mais decisões. Mais contextos.        |
+| 2.1  | Return focus to the same idea and energy                                         | Tudo começa com uma intenção.                         |
+| 2.2  | Six fronts: requisitos, arquitetura, código, testes, revisão, entrega            | Rapidamente surgem várias frentes.                    |
+| 2.3  | Nine tool/context tiles around the nucleus                                       | Múltiplas ferramentas. Múltiplos agentes.             |
+| 2.4  | Six artifact surfaces; tool/context tiles recede behind them                     | O trabalho se dispersa.                               |
+| 2.5  | Dense, rotated artifacts and tool/context tiles; smaller nucleus                 | Agentes aceleram tarefas. Quem mantém tudo conectado? |
+| 3.1  | Same six fronts and nucleus, still dispersed                                     | O que estava disperso começa a se conectar.           |
+| 3.2  | Axiom emerges at the center; six fronts converge                                 | O Axiom emerge.                                       |
+| 3.3  | Central control plane with six connected fronts                                  | O Axiom conecta o que estava disperso.                |
+| 3.4  | Connections stabilize against a shared grid                                      | Um fluxo coerente, com controle humano.               |
+| 3.5  | Six connected fronts, luminous pedestal, vertical energy                         | Pronto para orquestração.                             |
+| 4.1  | Idea, Axiom and six workflow fronts                                              | Da intenção ao fluxo.                                 |
+| 4.2  | Five ordered stage cards; three Claude and two Codex example assignments         | Você define agentes, modelos e responsabilidades.     |
+| 4.3  | Five main dependency stages, plus docs, integrations and tests (eight nodes)     | O resultado de cada etapa alimenta a próxima.         |
+| 4.4  | Two completed-stage cards, one human gate with four checks, one pending delivery | Você revisa e decide quando avançar.                  |
+| 4.5  | Six execution rows, progress 3/6, two Runtime activity rows                      | Uma visão da execução.                                |
+| 5.1  | Five contributors converge into one result cube                                  | O fluxo converge.                                     |
+| 5.2  | Five artifact rows: código/PR, testes, diff, artefatos, Evidence                 | Trabalho verificável.                                 |
+| 5.3  | Review panel with five checks and two human alternatives                         | Aceitar e seguir / solicitar retrabalho.              |
+| 5.4  | One delivered result, layered plates, pedestal and five artifact icons           | Entregue. Com evidências.                             |
+| 5.5  | Idea linked to a layered next-possibilities card                                 | O contexto permanece. Você segue em frente.           |
 
-## Scene and continuity contract
+## Motion, accessibility and meaning
 
-| Scene            | Entry → exit                                                | Persistent elements                                        | Static fallback                                    |
-| ---------------- | ----------------------------------------------------------- | ---------------------------------------------------------- | -------------------------------------------------- |
-| S1: idea         | Gold typography → gold core on dark                         | One idea identity                                          | Title, nucleus illustration and intent description |
-| S2: complexity   | Core → scattered work and incomplete links                  | Same idea; six work cards; context/Runtime distinctions    | Fragmented composition and explanation             |
-| S3: Axiom        | Existing scattered cards → connected structure              | Same cards and idea; control plane emerges separately      | Connected composition with original mascot         |
-| S4: coordination | Connected structure → six-stage workflow                    | Same six cards and curved links; Runtime/agent/human roles | Full six-stage map and textual sequence            |
-| S5: verification | Workflow → scope, ADRs, PR, tests, diff/Evidence and choice | Same work identities, origin and human gate                | Inspectable results and accept/rework alternatives |
+Scroll is native, deterministic and reversible. The public progress range remains
+0–4, with the 25 beats at `index / 6`. Every beat has a native anchor
+`#quadro-<scene>-<beat>`. The five scene anchors, installation links, keyboard,
+PT/EN and individual command copy remain available. No scroll interception,
+perpetual animation loop, automatic execution or automatic approval is added.
 
-All motion uses one sticky stage. One DOM nucleus persists throughout, six card
-nodes retain identity, and connections follow their interpolated coordinates.
-The idea identity is never replaced by the mascot. Axiom is absent from the large scene
-until fragmentation is established. S5 connects the original idea to results;
-the gate presents two alternatives and never acquires an accepted state by scroll.
+The previously requested gold-to-black supernova remains in the opening. The
+control plane contracts into the workflow's luminous origin as the staged flow
+forms. The delivery closes with the original idea connected to what comes next.
+The latest storyboard takes precedence over previous simplified staging.
 
-The refined opening separates the gold screen from the nucleus: title fades out,
-gold fades completely to black, then a single scroll-driven supernova bloom and
-soft expanding halo settle into the gold idea before the work cards appear.
-There is no repeated flash or autonomous playback. The nucleus fades out before
-the control plane enters and remains hidden throughout S3/S4. On the final
-transition, the card and nucleus share one trajectory toward the human decision:
-the card shrinks, rounds and fades as its gold sphere fades in at the same center.
-The crossfade starts with the motion, preserving a visible object throughout
-without passing through the headings.
-Its identity and textual description persist in the accessible static sequence.
+Reduced motion, pause and no JavaScript show **all 25 illustrated beats**, grouped
+into the five scenes. The animated duplicate is decorative. Full descriptions
+and captions remain in HTML. Original mascot pixels and local font licenses are
+preserved. Illustrations use owned HTML/CSS/SVG rather than flattened screenshots.
 
-## Scroll and render model
+Model assignments, PR #123, +247/−12, 12/12 tests, progress 3/6, statuses and
+review outcomes reproduce the storyboard's examples. A visible conceptual/sample
+label distinguishes them from actual capabilities, CI evidence or approval. The
+illustration never changes a Work Item, accepts a delivery, merges or deploys.
 
-`story-state.js` is a pure function of normalized progress 0–4 and viewport mode.
-T12, T23, T34 and T45 each occupy one unit. Endpoints coincide; sampling a point
-does not depend on playback history. Positions are interpolated with bounded
-smoothstep. These are adjustable prototype choices, not fixed timings inferred
-from the reference images.
+## Evidence and remaining review
 
-`storytelling.js` schedules one RAF on scroll, resize, fonts-ready, settings or
-geometry changes. It animates transforms/opacity, derives curved path endpoints
-from the same coordinates and has no perpetual timer, scroll interception,
-automatic execution, fake test results or fabricated approval. The existing
-gold/black palette, Manrope, original brand pixels and per-command terminal remain.
-
-Desktop uses a wide composition. Mobile reorders the same six nodes into paired
-rows, limits auxiliary context and arranges results above the human choice.
-No horizontal panorama is required. Navigation is centered independently from
-brand and tools. Five ordinary anchor links allow native keyboard/hash navigation.
-
-## Accessibility and resilience
-
-HTML always contains five complete scene articles with illustrations and prose.
-Without JS, with system reduced motion or with the pause control, the articles
-remain a readable sequence rather than skipping to the last frame. The animated
-duplicate is decorative (`aria-hidden`); essential content is in the articles.
-The installer has an HTML command available for manual copying without JS.
-The installation/documentation CTAs do not require completion of the narrative.
-
-PT-BR and EN share structure and translations use `textContent`; no HTML parsing
-sink was introduced. Header focus remains visible on gold and dark backgrounds.
-Motion and language controls remain accessible while the stage is sticky.
-
-## Evidence and pending human review
-
-Tests sample all four transitions at p={0,.25,.5,.75,1}, including reverse/fast
-scroll and identity/geometry assertions. Generated QA images and desktop/mobile
-videos are uploaded with CI artifacts rather than committed as dozens of binaries.
-Scene baselines cover desktop/mobile, while static fallback checks include 320px,
-keyboard, localization, clipboard/storage failure and no-JS rendering.
-
-Automated evidence does not establish visitor comprehension, real-device Safari
-behavior or human approval. The maintainer still reviews the composition, timing,
-storyboard interpretation and conceptual/available distinction. The design system
-owns these sources; the product PR imports a pinned snapshot with hashes.
+Tests check all 25 beats at desktop, 390px and 320px, primary-object counts,
+identity continuity, reverse scroll, complete static/no-JS content, keyboard,
+localization, clipboard/storage failures and XSS. QA captures every beat; ten
+representative regression views cover the five scenes in desktop/mobile.
+Human comparison of the compositions, pacing and visitor comprehension remains
+necessary. Technical checks do not establish editorial acceptance or real-device
+Safari behavior. The product imports an exact Git revision and per-file hashes.
