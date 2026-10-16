@@ -1,6 +1,6 @@
 {
   "name": "axion-design-system",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "description": "Design system independente do Axion: tokens, componentes, marca e padroes.",
   "license": "Apache-2.0",
@@ -13,7 +13,7 @@
     "apps/*"
   ],
   "scripts": {
-    "build": "node scripts/build.mjs && tsc -p packages/ui/tsconfig.build.json && tailwindcss -i packages/ui/src/react/theme.css -o packages/ui/dist/theme.css --minify",
+    "build": "node scripts/build.mjs && tsc -p packages/ui/tsconfig.build.json && tailwindcss -i packages/ui/src/react/theme.css -o packages/ui/dist/theme.css --minify && npm run build:landing",
     "test": "node --test tests/*.test.mjs",
     "test:browser": "node tests/browser.mjs",
     "check": "npm run build && npm test",
@@ -28,7 +28,8 @@
     "serve:storybook": "node scripts/serve-storybook.mjs",
     "test:visual": "playwright test",
     "test:visual:update": "playwright test --update-snapshots",
-    "validate": "npm run format:check && npm run lint && npm run typecheck && npm run check && npm run test:unit && npm run build:storybook"
+    "validate": "npm run format:check && npm run lint && npm run typecheck && npm run check && npm run test:unit && npm run build:storybook",
+    "build:landing": "node scripts/build-landing.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",

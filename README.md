@@ -62,13 +62,21 @@ export function Save() {
 ```
 
 Defina data-theme="light" ou data-theme="dark" no html para incluir portais.
-A versao e 0.2.0, ainda nao estavel. React 19 e peer dependency.
+A versao e 0.3.0, ainda nao estavel. React 19 e peer dependency.
 npm run build gera JavaScript, declaracoes TypeScript, CSS e tokens.
 npm pack --workspace @axion/ui prepara um pacote local; publicacao npm nao e necessaria.
 
 O catalogo [index.html](index.html) e o [indice HTML](resources.html) preservam
 os modelos aprovados anteriores. Nao substituem o Storybook na aceitacao da issue #2.
 A grafia AXIOM dos SVGs foi preservada; o namespace @axion permanece por compatibilidade.
+
+## Landing page imersiva
+
+A nova landing est� em [packages/landing](packages/landing/README.md), com fontes
+por se��o, tokens de marketing e documenta��o execut�vel em Marketing no Storybook.
+`npm run build:landing` gera o site completo em `packages/landing/dist`.
+O reposit�rio do produto integra o snapshot em um PR separado; esta branch n�o publica.
+O cat�logo anterior continua dispon�vel para compatibilidade.
 
 ## Regras e entrega
 

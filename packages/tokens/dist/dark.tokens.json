@@ -788,5 +788,702 @@
   "component.icon.stroke": {
     "$type": "number",
     "$value": 2
+  },
+  "semantic.marketing.surface.canvas": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0,
+        0,
+        0
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.surface.panel": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.06274509803921569,
+        0.06274509803921569,
+        0.06666666666666667
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.surface.inverseAction": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.12941176470588237,
+        0.10196078431372549,
+        0.06274509803921569
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.surface.card": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.050980392156862744,
+        0.050980392156862744,
+        0.058823529411764705
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.surface.terminalStart": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.12549019607843137,
+        0.12549019607843137,
+        0.13725490196078433
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.surface.terminalEnd": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.06666666666666667,
+        0.06666666666666667,
+        0.07058823529411765
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.surface.white": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        1,
+        1,
+        1
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.surface.map": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.023529411764705882,
+        0.023529411764705882,
+        0.027450980392156862
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.surface.core": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.10980392156862745,
+        0.10588235294117647,
+        0.11372549019607843
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.surface.nodeStart": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.09803921568627451,
+        0.09411764705882353,
+        0.10588235294117647
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.surface.nodeEnd": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.054901960784313725,
+        0.054901960784313725,
+        0.06274509803921569
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.primary": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.9607843137254902,
+        0.9607843137254902,
+        0.9686274509803922
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.secondary": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.5725490196078431,
+        0.5725490196078431,
+        0.592156862745098
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.navigation": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.7529411764705882,
+        0.7529411764705882,
+        0.7764705882352941
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.onAccent": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.08627450980392157,
+        0.06666666666666667,
+        0.0392156862745098
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.onIntro": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.1411764705882353,
+        0.09803921568627451,
+        0.027450980392156862
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.navigationOnIntro": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.28627450980392155,
+        0.21176470588235294,
+        0.0784313725490196
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.inverseAction": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        1,
+        0.8627450980392157,
+        0.592156862745098
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.intro": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.1450980392156863,
+        0.10196078431372549,
+        0.0392156862745098
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.progress": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.6901960784313725,
+        0.6274509803921569,
+        0.5411764705882353
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.progressOnIntro": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.3607843137254902,
+        0.2627450980392157,
+        0.11372549019607843
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.gradientStart": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        1,
+        0.8705882352941177,
+        0.6274509803921569
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.gradientEnd": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.7568627450980392,
+        0.5411764705882353,
+        0.23137254901960785
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.terminalChrome": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.5725490196078431,
+        0.5725490196078431,
+        0.592156862745098
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.terminalComment": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.5725490196078431,
+        0.5725490196078431,
+        0.611764705882353
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.command": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.9372549019607843,
+        0.788235294117647,
+        0.5372549019607843
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.terminalFoot": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.5725490196078431,
+        0.5725490196078431,
+        0.592156862745098
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.note": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.5725490196078431,
+        0.5725490196078431,
+        0.592156862745098
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.copy": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.9058823529411765,
+        0.9058823529411765,
+        0.9254901960784314
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.coreRole": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.6666666666666666,
+        0.6470588235294118,
+        0.6274509803921569
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.coreContext": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.6666666666666666,
+        0.6509803921568628,
+        0.6274509803921569
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.nodeNumber": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.5686274509803921,
+        0.5450980392156862,
+        0.5568627450980392
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.nodeIcon": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.7686274509803922,
+        0.6431372549019608,
+        0.4196078431372549
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.nodeNote": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.5725490196078431,
+        0.5725490196078431,
+        0.592156862745098
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.mapNote": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.5725490196078431,
+        0.5725490196078431,
+        0.592156862745098
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.narrativeCount": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.6,
+        0.5803921568627451,
+        0.611764705882353
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.narrativeHint": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.5725490196078431,
+        0.5725490196078431,
+        0.592156862745098
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.narrativeLink": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.7450980392156863,
+        0.7098039215686275,
+        0.6392156862745098
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.pathIndex": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.5725490196078431,
+        0.5725490196078431,
+        0.592156862745098
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.text.pathIndexActive": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.7647058823529411,
+        0.7294117647058823,
+        0.6588235294117647
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.action.accent": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.9294117647058824,
+        0.7019607843137254,
+        0.3176470588235294
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.action.hover": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        1,
+        0.8313725490196079,
+        0.5450980392156862
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.action.linkHover": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        1,
+        0.8666666666666667,
+        0.6078431372549019
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.status.success": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.49,
+        0.78,
+        0.43
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.status.available": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.5686274509803921,
+        0.7372549019607844,
+        1
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.decoration.terminalDot": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.403921568627451,
+        0.403921568627451,
+        0.4235294117647059
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.decoration.terminalAccent": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.6901960784313725,
+        0.5294117647058824,
+        0.29411764705882354
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.decoration.mapGlow": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.7764705882352941,
+        0.6078431372549019,
+        0.28627450980392155
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.decoration.pathRing": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.7764705882352941,
+        0.6352941176470588,
+        0.396078431372549
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.decoration.pathSecondary": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.7529411764705882,
+        0.6274509803921569,
+        0.41568627450980394
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.decoration.pathStart": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.6588235294117647,
+        0.4588235294117647,
+        0.21176470588235294
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.decoration.pathMiddle": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.9372549019607843,
+        0.7843137254901961,
+        0.5254901960784314
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.decoration.pathEnd": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.6745098039215687,
+        0.49019607843137253,
+        0.26666666666666666
+      ],
+      "alpha": 1
+    }
+  },
+  "semantic.marketing.typography.family": {
+    "$type": "fontFamily",
+    "$value": [
+      "Manrope",
+      "-apple-system",
+      "BlinkMacSystemFont",
+      "Segoe UI",
+      "sans-serif"
+    ]
+  },
+  "semantic.marketing.typography.mono": {
+    "$type": "fontFamily",
+    "$value": [
+      "ui-monospace",
+      "SFMono-Regular",
+      "Consolas",
+      "monospace"
+    ]
+  },
+  "semantic.marketing.radius.terminal": {
+    "$type": "dimension",
+    "$value": {
+      "value": 20,
+      "unit": "px"
+    }
+  },
+  "semantic.marketing.radius.command": {
+    "$type": "dimension",
+    "$value": {
+      "value": 10,
+      "unit": "px"
+    }
+  },
+  "semantic.marketing.radius.copy": {
+    "$type": "dimension",
+    "$value": {
+      "value": 7,
+      "unit": "px"
+    }
+  },
+  "semantic.marketing.radius.pill": {
+    "$type": "dimension",
+    "$value": {
+      "value": 30,
+      "unit": "px"
+    }
+  },
+  "semantic.marketing.radius.mobileTerminal": {
+    "$type": "dimension",
+    "$value": {
+      "value": 15,
+      "unit": "px"
+    }
+  },
+  "semantic.marketing.motion.theme": {
+    "$type": "duration",
+    "$value": {
+      "value": 200,
+      "unit": "ms"
+    }
   }
 }

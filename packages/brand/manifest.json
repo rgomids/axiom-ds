@@ -1,7 +1,7 @@
 {
   "name": "AXIOM",
   "product": "Axion",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "source": "Reconstrucao vetorial da referencia aprovada",
   "assets": [
     {
@@ -57,6 +57,12 @@
       "variant": "mono",
       "background": "light",
       "format": "svg"
+    },
+    {
+      "file": "raster/axiom-mascot-source.png",
+      "variant": "original",
+      "background": "transparent",
+      "format": "png"
     }
   ]
 }
