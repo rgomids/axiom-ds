@@ -14,12 +14,14 @@ for (const retired of ['organic-workflow.css', 'organic-workflow.js']) {
 let html = await readFile(base + '/src/index.html', 'utf8');
 const sections = [...html.matchAll(/\{\{([\w-]+)\}\}/g)].map((match) => match[1]);
 const storyboardContent = renderStorytelling();
+const canonicalSource = async (file) =>
+  (await readFile(base + '/src/' + file, 'utf8')).replaceAll('\r\n', '\n');
 const revision = createHash('sha256')
   .update(storyboardContent)
-  .update(await readFile(base + '/src/storyboard-state.js'))
-  .update(await readFile(base + '/src/storytelling.js'))
-  .update(await readFile(base + '/src/story-frames.js'))
-  .update(await readFile(base + '/src/storytelling.css'))
+  .update(await canonicalSource('storyboard-state.js'))
+  .update(await canonicalSource('storytelling.js'))
+  .update(await canonicalSource('story-frames.js'))
+  .update(await canonicalSource('storytelling.css'))
   .digest('hex')
   .slice(0, 12);
 html = html.replace(/((?:src|href)=")(storytelling\.(?:js|css))(")/g, `$1$2?v=${revision}$3`);
