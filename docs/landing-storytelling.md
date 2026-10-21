@@ -92,3 +92,10 @@ Registry patterns and Marketing stories expose the orb, C4, Execution Graph, cha
 ## Local verification — 2026-10-21
 
 Node/npm installation and Chromium setup completed. npm run validate passed formatting, lint, types, build, 27 Node contracts, seven React tests and Storybook. npm run test:browser passed four viewports and nine component audits. The complete visual/navigation suite passed 75 tests while recording reviewed Windows references; after the title-handoff refinement, all 11 affected marketing/motion checks passed again, including the additional caption regression. Linux references and CI are verified separately. The lockfile is unchanged; npm ci reported six existing high-severity dependency advisories. The staged sensitive-file scanner passed. Human editorial acceptance, real-device Safari and production deployment are not established by these checks.
+
+Linux run 39541821723 passed validation, generated-artifact parity, browser checks
+and 70 visual/navigation tests. Its only six visual failures were four changed
+mobile story references and two missing footer references. Their actual images
+were inspected at native resolution and promoted to the Linux baselines, without
+changing screenshot tolerance or skipping tests. The full suite is rerun on the
+resulting commit before CI acceptance is claimed.
