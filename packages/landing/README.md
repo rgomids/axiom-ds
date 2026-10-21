@@ -88,3 +88,15 @@ production controls. `?preview=story` shows the full static sequence in Storyboo
 `?frame=1` through `?frame=18` isolate each storyboard beat for visual comparison.
 Legacy hero/workflow/editorial templates remain as prior references, but are no
 longer composed into the active landing. Original brand assets are unchanged.
+
+## Reviewed refinement — 2026-10-21
+
+The gold remains the primary accent over almost-black navy surfaces. Marketing tokens own the palette; application theme tokens stay independent. Generated SVG supplies the translucent solar orb, luminous corona, filaments, bloom and particles without video or remote assets. Pause/reduced motion stop ambient loops. The original mascot bytes are unchanged.
+
+Scene 3 introduces Axiom with the revised intention/decisions/agents/code/Evidence copy. Scene 4 now presents the seven-component C4 view and a six-phase workflow (Intake, Specification, Planning, Implementation, Review, Completion), four distinct specialist roles, dependency-aware tests, explicit human authority and reconciliation. The diagrams remain conceptual target architecture. Only these two intervals receive extra reading time; all 18 beats and static equivalents remain.
+
+The final idea/possibilities cards are equal, centered squares with one direct connection and no stacked backdrop. A fixed 64×44px activation region prevents hover flicker in the chapter drawer. It expands as neutral acrylic without a decorative border; measured reserved space keeps captions and orchestration disclosures above it. Mobile chapters scroll horizontally. Keyboard, touch, Escape, PT/EN and static fallback remain supported.
+
+The footer has Product, Solutions and Resources, real repository/documentation links, synchronized PT/EN, copyright and GitHub only. Terms explicitly link to Apache-2.0. Privacy policy is disabled because no confirmed policy URL was found; configure privacyUrl in src/footer.links.json when one exists. Do not substitute SECURITY.md for privacy or imply terms of service.
+
+Registry patterns and Marketing stories expose the orb, C4, Execution Graph, chapter drawer, continuity and footer. Product integration must import a committed, pinned DS distribution; visual review, merge and production deployment remain separate decisions.

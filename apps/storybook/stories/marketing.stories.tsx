@@ -4,21 +4,27 @@ function LandingPreview({
   section = '',
   label = 'Landing completa',
   height = 760,
+  frame,
+  detail,
 }: {
   section?: string;
   label?: string;
   height?: number;
+  frame?: number;
+  detail?: number;
 }) {
   return (
     <iframe
       title={label}
       src={
         './landing/index.html' +
-        (section.startsWith('scene-')
-          ? '?scene=' + section.slice(-1)
-          : section
-            ? '?preview=' + section
-            : '')
+        (frame
+          ? `?frame=${frame}${detail ? '&detail=' + detail : ''}`
+          : section.startsWith('scene-')
+            ? '?scene=' + section.slice(-1)
+            : section
+              ? '?preview=' + section
+              : '')
       }
       style={{ width: '100%', height, border: 0 }}
     />
@@ -71,4 +77,21 @@ export const ProductStatus: Story = {
 export const Closing: Story = {
   args: { section: 'closing', label: 'Fechamento e chamadas para ação', height: 800 },
 };
-export const Footer: Story = { args: { section: 'footer', label: 'Rodapé e marca', height: 300 } };
+export const SolarIdea: Story = {
+  args: { frame: 2, label: 'Orbe solar com bloom e partículas', height: 900 },
+};
+export const Architecture: Story = {
+  args: { frame: 10, detail: 5, label: 'C4 do Lingo e seus limites externos', height: 900 },
+};
+export const ExecutionGraph: Story = {
+  args: { frame: 11, detail: 3, label: 'Execution Graph e agentes especializados', height: 900 },
+};
+export const ChapterNavigation: Story = {
+  args: { frame: 5, label: 'Triângulo de navegação e faixa de acrílico', height: 900 },
+};
+export const Continuity: Story = {
+  args: { frame: 18, label: 'Ideia e possibilidades em cards iguais', height: 900 },
+};
+export const Footer: Story = {
+  args: { section: 'footer', label: 'Rodapé, índices e idioma', height: 520 },
+};

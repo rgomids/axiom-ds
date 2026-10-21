@@ -14,24 +14,24 @@ story, and replaces radial connections with an orthogonal flowchart. Source:
 | 2.1  | Same six fronts plus four tool/context tiles                         | Múltiplas ferramentas. Múltiplos agentes.             |
 | 2.2  | Persistent cards at different depths, seven tool tiles               | O trabalho se dispersa.                               |
 | 2.3  | Dense field with nine tool tiles, still disconnected                 | Agentes aceleram tarefas. Quem mantém tudo conectado? |
-| 3.1  | Original octopus emerges; cards remain                               | O Axiom emerge.                                       |
+| 3.1  | Original octopus emerges; cards remain                               | Foi para resolver esse desafio que criamos o Axiom.   |
 | 3.2  | Straight connections organize the existing cards                     | O Axiom conecta o que estava disperso.                |
-| 4.1  | Five configurable stages, with Claude/Codex example assignments      | Um processo configurável.                             |
-| 4.2  | Five main stages, tests, documentation and integrations              | Dependências e contexto.                              |
+| 4.1  | Seven C4 components plus external/persistence boundaries             | Um processo configurável. Uma execução coordenada.    |
+| 4.2  | Six workflow phases, four specialist roles and human authority       | Cada etapa conectada. Cada decisão rastreável.        |
 | 4.3  | Two completed stages, review gate with four checks, pending delivery | Com controle humano.                                  |
 | 4.4  | Six execution rows, progress 3/6 and two Runtime activity rows       | Uma visão da execução.                                |
 | 5.1  | Five contributors converge into one result                           | O fluxo converge.                                     |
 | 5.2  | Code/PR, tests, diff, artifacts and Evidence                         | Trabalho verificável.                                 |
 | 5.3  | Five review checks and two human choices                             | Aceitar e seguir / solicitar retrabalho.              |
 | 5.4  | Delivered result and five artifact icons                             | Entregue. Com evidências.                             |
-| 5.5  | Idea linked to next possibilities                                    | O contexto permanece. Você segue em frente.           |
+| 5.5  | Two equal centered cards: idea and next possibilities                | O contexto permanece. Você segue em frente.           |
 
 ## Geometry and motion
 
 Scroll is native, deterministic and reversible. Public progress remains 0–4;
 beat anchors use `index * 4 / (frames.length - 1)`. Scene anchors derive from the
 actual chapter boundaries, including variable chapter lengths. Every beat has
-an anchor `#quadro-<scene>-<beat>`. Each transition spans 200svh, with the first
+an anchor `#quadro-<scene>-<beat>`. Each ordinary transition spans 200svh; the C4 and workflow intervals span four and nine units, respectively. The timeline maps scroll and chapter anchors in both directions, with the first
 28% reserved for reading, quintic easing and a short scroll follower.
 
 The six fronts retain their titles, identity and visibility through complexity
@@ -76,3 +76,19 @@ no premature connections, accessible fallbacks, translations and clipboard.
 Human review remains necessary for pacing and comprehension; Chromium checks do
 not establish Safari or real-device acceptance. Product imports pin the source
 Git revision and per-file hashes.
+
+## Reviewed refinement — 2026-10-21
+
+The gold remains the primary accent over almost-black navy surfaces. Marketing tokens own the palette; application theme tokens stay independent. Generated SVG supplies the translucent solar orb, luminous corona, filaments, bloom and particles without video or remote assets. Pause/reduced motion stop ambient loops. The original mascot bytes are unchanged.
+
+Scene 3 introduces Axiom with the revised intention/decisions/agents/code/Evidence copy. Scene 4 now presents the seven-component C4 view and a six-phase workflow (Intake, Specification, Planning, Implementation, Review, Completion), four distinct specialist roles, dependency-aware tests, explicit human authority and reconciliation. The diagrams remain conceptual target architecture. Only these two intervals receive extra reading time; all 18 beats and static equivalents remain.
+
+The final idea/possibilities cards are equal, centered squares with one direct connection and no stacked backdrop. A fixed 64×44px activation region prevents hover flicker in the chapter drawer. It expands as neutral acrylic without a decorative border; measured reserved space keeps captions and orchestration disclosures above it. Mobile chapters scroll horizontally. Keyboard, touch, Escape, PT/EN and static fallback remain supported.
+
+The footer has Product, Solutions and Resources, real repository/documentation links, synchronized PT/EN, copyright and GitHub only. Terms explicitly link to Apache-2.0. Privacy policy is disabled because no confirmed policy URL was found; configure privacyUrl in src/footer.links.json when one exists. Do not substitute SECURITY.md for privacy or imply terms of service.
+
+Registry patterns and Marketing stories expose the orb, C4, Execution Graph, chapter drawer, continuity and footer. Product integration must import a committed, pinned DS distribution; visual review, merge and production deployment remain separate decisions.
+
+## Local verification — 2026-10-21
+
+Node/npm installation and Chromium setup completed. npm run validate passed formatting, lint, types, build, 27 Node contracts, seven React tests and Storybook. npm run test:browser passed four viewports and nine component audits. The complete visual/navigation suite passed 75 tests while recording reviewed Windows references; after the title-handoff refinement, all 11 affected marketing/motion checks passed again, including the additional caption regression. Linux references and CI are verified separately. The lockfile is unchanged; npm ci reported six existing high-severity dependency advisories. The staged sensitive-file scanner passed. Human editorial acceptance, real-device Safari and production deployment are not established by these checks.

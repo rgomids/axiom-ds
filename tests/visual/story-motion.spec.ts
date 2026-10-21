@@ -8,9 +8,14 @@ for (const width of [1280, 390]) {
     await page.goto('/landing/index.html');
     const story = page.locator('.storytelling');
     const seek = async (q: number) => {
-      await story.evaluate((el, beat) => {
+      await story.evaluate(async (el, beat) => {
+        const url = '/landing/orchestration-timeline.mjs';
+        const { orchestrationFraction } = await import(url);
         const top = el.getBoundingClientRect().top + scrollY;
-        scrollTo({ top: top + ((el.clientHeight - innerHeight) * beat) / 17, behavior: 'instant' });
+        scrollTo({
+          top: top + (el.clientHeight - innerHeight) * orchestrationFraction(beat),
+          behavior: 'instant',
+        });
       }, q);
       await expect
         .poll(async () => Number(await story.getAttribute('data-story-progress')))
@@ -18,15 +23,15 @@ for (const width of [1280, 390]) {
       await expect(story).toHaveAttribute('data-story-settled', 'true');
     };
     expect(await story.evaluate((el) => (el.clientHeight - innerHeight) / innerHeight)).toBeCloseTo(
-      34,
+      56,
       1,
     );
     await seek(2.2);
     await expect(story).toHaveAttribute('data-story-frame', '3');
     await expect(page.locator('[data-story-copy="2"]')).toHaveCSS('opacity', '1');
-    await expect(page.locator('.live-world .orb-surface i')).toHaveCSS(
+    await expect(page.locator('.live-world .solar-corona')).toHaveCSS(
       'animation-name',
-      'idea-rotation',
+      'solar-turn',
     );
     await expect(page.locator('.live-world .ghost-light').first()).toHaveCSS(
       'animation-name',
@@ -144,7 +149,7 @@ for (const width of [1280, 390]) {
     await page.locator('#motion').click();
     await expect(page.locator('body')).toHaveClass(/static-motion/);
     await expect(page.locator('.live-world')).toHaveAttribute('data-ambient', 'false');
-    await expect(page.locator('.live-world .orb-surface i')).toHaveCSS('animation-name', 'none');
+    await expect(page.locator('.live-world .solar-corona')).toHaveCSS('animation-name', 'none');
     await expect(page.locator('.scene-static .ghost-light').first()).toHaveCSS('display', 'none');
   });
 }

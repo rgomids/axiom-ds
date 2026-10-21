@@ -1,3 +1,7 @@
+import { orbArt } from './orb-art.mjs';
+import { orchestrationOverlays, orchestrationStatic } from './orchestration-view.mjs';
+import { offsets } from './orchestration-timeline.mjs';
+import { chapterNavigation } from './chapter-navigation-view.mjs';
 import { frames, sceneNames, tools, workContent, text, sceneStarts } from './story-frames.js';
 import {
   frameState,
@@ -165,7 +169,7 @@ export function renderFigure(index, live = false) {
   ${s.ghosts.map((n, i) => `<span class="story-ghost entity" ${attr(live, 'ghost', i)} style="${position(n)}"><i class="ghost-light"></i></span>`).join('')}
   ${s.tools.map((n, i) => `<div class="story-tool entity" ${attr(live, 'tool', i)} style="${position(n)}">${i === 1 || i === 2 ? agentMark(i === 1 ? 'Claude' : 'Codex') : `<b>${['N', '', '', '◉', '▤', '◇', '>_', '☷', '◇'][i]}</b>`}${t(i === 5 ? text('Decisões', 'Decisions') : i === 8 ? text('Artefatos', 'Artifacts') : text(tools[i], tools[i]))}</div>`).join('')}
   ${s.contexts.map((n, i) => `<div class="story-context entity" ${attr(live, 'context', i)} style="${position(n)}">${icon(i ? 'database' : 'spec')}${t(i ? text('Integrações', 'Integrations') : text('Docs de referência', 'Reference docs'))}</div>`).join('')}
-  <div class="idea-core entity" ${attr(live, 'idea')} style="${position(s.idea)};--idea-card:${s.ideaCard}" data-card="${s.ideaCard}"><div class="orb-surface"><i></i></div><div class="orb-ring" style="opacity:${s.orbRing}"></div>${t(text('Ideia', 'Idea'), 'span', 'class="idea-label"')}</div>
+  <div class="idea-core entity" ${attr(live, 'idea')} style="${position(s.idea)};--idea-card:${s.ideaCard}" data-card="${s.ideaCard}"><div class="orb-surface">${orbArt(id)}</div><div class="orb-ring" style="opacity:${s.orbRing}"></div>${t(text('Ideia', 'Idea'), 'span', 'class="idea-label"')}</div>
   <div class="axiom-core entity" ${attr(live, 'axiom')} style="${position(s.hub)};border-radius:${s.hubRound ? 50 : 14}%">${mascot(id)}</div>
   ${works}
   <div class="story-decision" ${attr(live, 'decision')} style="opacity:${s.decision}"><header>${icon('person')}<span>Code Review<br />${t(text('Exemplo de revisão', 'Illustrative review'), 'small')}</span>${t(text('Aprovado · exemplo', 'Approved · example'), 'b')}</header><ul>${[text('Testes passando', 'Tests passing'), text('Diff revisado', 'Diff reviewed'), text('Evidence completa', 'Complete Evidence'), text('Alinhado à Specification', 'Aligned with Specification'), text('Pronto para merge', 'Ready for merge')].map((v) => `<li><span>✓</span>${t(v)}</li>`).join('')}</ul><div class="decision-choices">${t(text('✓ Aceitar e seguir', '✓ Accept and continue'), 'span')}${t(text('↻ Solicitar retrabalho', '↻ Request rework'), 'span')}</div></div>
@@ -175,18 +179,33 @@ export function renderFigure(index, live = false) {
  </div>`;
 }
 export function renderStorytelling() {
-  return `${defs}<nav class="story-navigation" aria-label="Cenas da história" data-en-aria="Story scenes">${sceneNames.map((n, i) => `<a href="#cena-${i + 1}"><span>0${i + 1}</span>${t(n)}</a>`).join('')}<span class="story-counter">01 — 05 · 01 / 04</span></nav>
- <div class="story-stage" aria-hidden="true"><div class="story-wash"></div>${renderFigure(0, true)}${frames.map((f, i) => `<div class="story-copy" data-story-copy="${i}" ${i === 0 ? 'data-opening="true"' : ''}>${t(f.title, i === 0 ? 'h1' : 'h2')}${t(f.lead, 'p', 'class="story-lead"')}</div>`).join('')}<p class="story-disclaimer" data-en="Conceptual illustration · sample agents, models and results">Ilustração conceitual · agentes, modelos e resultados ilustrativos</p><p class="story-scroll" data-en="SCROLL TO CONTINUE ↓">ROLE PARA CONTINUAR ↓</p></div>
+  return `${defs}${chapterNavigation(`<nav class="story-navigation" aria-label="Cenas da história" data-en-aria="Story scenes">${sceneNames.map((n, i) => `<a href="#cena-${i + 1}"><span>0${i + 1}</span>${t(n)}</a>`).join('')}<span class="story-counter">01 — 05 · 01 / 04</span></nav>`)}
+ <div class="story-stage"><div class="story-wash"></div>${renderFigure(0, true)}${orchestrationOverlays()}${frames.map((f, i) => `<div class="story-copy" aria-hidden="true" data-story-copy="${i}" ${i === 0 ? 'data-opening="true"' : ''}>${t(f.title, i === 0 ? 'h1' : 'h2')}${t(f.lead, 'p', 'class="story-lead"')}</div>`).join('')}<p class="story-disclaimer" aria-hidden="true" data-en="Conceptual illustration · sample agents, models and results">Ilustração conceitual · agentes, modelos e resultados ilustrativos</p><p class="story-scroll" aria-hidden="true" data-en="SCROLL TO CONTINUE ↓">ROLE PARA CONTINUAR ↓</p></div>
  ${t(text('Da ideia à entrega verificável', 'From idea to verifiable delivery'), 'h1', 'class="story-transcript-title"')}<div class="story-scenes">${sceneNames
    .map(
      (name, scene) =>
-       `<article data-story-scene="${scene + 1}" id="cena-${scene + 1}" style="--scene-start:${sceneStarts[scene]}">${scene === 2 ? '<span id="proposta" class="scene-anchor"></span>' : scene === 3 ? '<span id="fluxo" class="scene-anchor"></span>' : ''}${t(name, 'h2', 'class="scene-heading"')}${frames
+       `<article data-story-scene="${scene + 1}" id="cena-${scene + 1}" style="--scene-start:${offsets[sceneStarts[scene]]}">${scene === 2 ? '<span id="proposta" class="scene-anchor"></span>' : scene === 3 ? '<span id="fluxo" class="scene-anchor"></span>' : ''}${t(name, 'h2', 'class="scene-heading"')}${frames
          .filter((f) => f.scene === scene + 1)
          .map((f) => {
            const i = frames.indexOf(f);
-           return `<section class="story-beat" id="quadro-${f.scene}-${f.beat}" style="--beat-index:${f.beat - 1}"><p class="beat-number">0${f.scene} / 0${f.beat}</p>${t(f.title, 'h3')}${t(f.lead, 'p', 'class="static-lead"')}<figure aria-label="${esc(f.title.pt.replaceAll('\n', ' '))}" data-en-aria="${esc(f.title.en.replaceAll('\n', ' '))}">${renderFigure(i)}${t(transcript(i), 'figcaption', 'class="static-transcript"')}</figure></section>`;
+           return `<section class="story-beat" id="quadro-${f.scene}-${f.beat}" style="--beat-index:${offsets[i] - offsets[sceneStarts[scene]]}"><p class="beat-number">0${f.scene} / 0${f.beat}</p>${t(f.title, 'h3')}${t(f.lead, 'p', 'class="static-lead"')}${renderStaticBeat(i)}</section>`;
          })
          .join('')}</article>`,
    )
    .join('')}</div>`;
+}
+
+function renderStaticBeat(i) {
+  if (i === 9 || i === 10)
+    return orchestrationStatic(i === 9 ? 'architecture' : 'workflow').replace(
+      '<figcaption',
+      '<figcaption class="static-transcript"',
+    );
+  if (i === 17)
+    return `<figure class="continuity-static"><div class="continuity-pair"><div class="continuity-idea"><div class="continuity-static-orb"></div><strong data-en="Idea">Ideia</strong></div><span class="continuity-static-link" aria-hidden="true"></span><div class="continuity-next"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 12h18M13 4l8 8-8 8"/></svg><strong data-en="Next possibilities">Próximas\npossibilidades</strong></div></div><figcaption data-en="Idea and next possibilities: two equal cards, connected by a direct path.">Ideia e próximas possibilidades: dois cards do mesmo tamanho, conectados por um caminho direto.</figcaption></figure>`.replace(
+      '<figcaption',
+      '<figcaption class="static-transcript"',
+    );
+  const f = frames[i];
+  return `<figure aria-label="${esc(f.title.pt.replaceAll('\n', ' '))}" data-en-aria="${esc(f.title.en.replaceAll('\n', ' '))}">${renderFigure(i)}${t(transcript(i), 'figcaption', 'class="static-transcript"')}</figure>`;
 }

@@ -1,13 +1,15 @@
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 async function progress(page: Page, p: number) {
-  const y = await page
-    .locator('.storytelling')
-    .evaluate(
-      (el, value) =>
-        el.getBoundingClientRect().top + scrollY + ((el.clientHeight - innerHeight) * value) / 4,
-      p,
+  const y = await page.locator('.storytelling').evaluate(async (el, value) => {
+    const url = '/landing/orchestration-timeline.mjs';
+    const { orchestrationFraction } = await import(url);
+    return (
+      el.getBoundingClientRect().top +
+      scrollY +
+      (el.clientHeight - innerHeight) * orchestrationFraction((value * 17) / 4)
     );
+  }, p);
   await page.evaluate((value) => window.scrollTo({ top: value, behavior: 'instant' }), y);
   await page.waitForFunction((value) => {
     const story = document.querySelector<HTMLElement>('.storytelling')!;
