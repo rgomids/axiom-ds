@@ -1,0 +1,10 @@
+import * as React from 'react';
+import { NavigationMenu as Primitive } from 'radix-ui';
+declare function NavigationMenu({ className, children, ...props }: React.ComponentProps<typeof Primitive.Root>): React.JSX.Element;
+declare function NavigationMenuList({ className, ...props }: React.ComponentProps<typeof Primitive.List>): React.JSX.Element;
+declare function NavigationMenuItem({ className, ...props }: React.ComponentProps<typeof Primitive.Item>): React.JSX.Element;
+declare const navigationMenuTriggerStyle: string;
+declare function NavigationMenuTrigger({ className, children, ...props }: React.ComponentProps<typeof Primitive.Trigger>): React.JSX.Element;
+declare function NavigationMenuContent({ className, ...props }: React.ComponentProps<typeof Primitive.Content>): React.JSX.Element;
+declare function NavigationMenuLink({ className, ...props }: React.ComponentProps<typeof Primitive.Link>): React.JSX.Element;
+export { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink, navigationMenuTriggerStyle, };

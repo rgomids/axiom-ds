@@ -44,3 +44,24 @@ export function DocPage({
 export function TokenName({ children }: { children: ReactNode }) {
   return <code className="font-mono text-xs text-fg-secondary">{children}</code>;
 }
+
+/** Builds the component description shown on Docs pages. */
+export function describe(parts: {
+  purpose: string;
+  use?: string;
+  avoid?: string;
+  keyboard?: string;
+  a11y?: string;
+  code?: string;
+}) {
+  return [
+    parts.purpose,
+    parts.use && '**Quando usar:** ' + parts.use,
+    parts.avoid && '**Quando não usar:** ' + parts.avoid,
+    parts.keyboard && '**Teclado:** ' + parts.keyboard,
+    parts.a11y && '**Acessibilidade:** ' + parts.a11y,
+    parts.code && '```tsx\n' + parts.code + '\n```',
+  ]
+    .filter(Boolean)
+    .join('\n\n');
+}

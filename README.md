@@ -34,18 +34,18 @@ Atualize baselines apenas apos revisar as imagens: npm run test:visual:update.
 
 ## Estrutura
 
-| Caminho                    | Responsabilidade                                          |
-| -------------------------- | --------------------------------------------------------- |
-| packages/tokens/src        | DTCG: primitivos, semanticos, componentes e tema dark     |
-| packages/ui/src/react      | Button, Input, Badge, Card, Dialog, Tooltip e Tabs        |
-| packages/ui/src/lib        | Composicao de classes tipada                              |
-| packages/ui/src/components | Catalogo HTML anterior, mantido como compatibilidade      |
-| packages/brand/svg         | Marca aprovada em SVG, sem alteracao de desenho           |
-| apps/storybook             | Documentacao executavel, fundamentos, variantes e estados |
-| tests/components           | Interacoes e contratos React                              |
-| tests/visual               | Navegador, acessibilidade e baselines de regressao        |
-| docs/adr                   | Decisoes duraveis                                         |
-| .github/workflows          | Validacao e publicacao Pages                              |
+| Caminho                    | Responsabilidade                                                                |
+| -------------------------- | ------------------------------------------------------------------------------- |
+| packages/tokens/src        | DTCG: primitivos, semanticos, componentes e tema dark                           |
+| packages/ui/src/react      | Biblioteca React (Actions, Forms, Data Display, Navigation, Overlays, Feedback) |
+| packages/ui/src/lib        | Composicao de classes tipada                                                    |
+| packages/ui/src/components | Catalogo HTML anterior, mantido como compatibilidade                            |
+| packages/brand/svg         | Marca aprovada em SVG, sem alteracao de desenho                                 |
+| apps/storybook             | Documentacao executavel, fundamentos, variantes e estados                       |
+| tests/components           | Interacoes e contratos React                                                    |
+| tests/visual               | Navegador, acessibilidade e baselines de regressao                              |
+| docs/adr                   | Decisoes duraveis                                                               |
+| .github/workflows          | Validacao e publicacao Pages                                                    |
 
 ## Consumir
 

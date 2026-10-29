@@ -710,6 +710,7 @@ function Editor({ initialTheme = 'light', persist = false, brandSrc }: DiagramEd
                 return true;
               }}
               defaultEdgeOptions={edgeDefaults}
+              attributionPosition="top-right"
               fitView
               fitViewOptions={{ padding: 0.17, maxZoom: 1 }}
               minZoom={0.05}

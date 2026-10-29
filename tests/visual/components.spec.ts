@@ -13,6 +13,17 @@ const stories = [
   'components-data-display-tooltip--keyboard-and-pointer',
   'components-navigation-tabs--keyboard-navigation',
   'patterns-logs-commandsnippet--individual-commands',
+  'components-actions-toggle--group',
+  'components-forms-formfield--states',
+  'components-forms-checkbox--states',
+  'components-forms-switch--states',
+  'components-forms-fileupload--default',
+  'components-data-display-statusbadge--states',
+  'components-data-display-metriccard--grid',
+  'components-data-display-datatable--complete',
+  'components-navigation-stepper--horizontal',
+  'components-feedback-alert--variants',
+  'components-feedback-states--all',
 ];
 
 async function openStory(page: Page, story: string, theme: string) {

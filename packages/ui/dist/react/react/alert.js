@@ -1,0 +1,43 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { cva } from 'class-variance-authority';
+import { AlertTriangle, CheckCircle2, Info, OctagonAlert, X } from 'lucide-react';
+import { cn } from '../lib/utils';
+import { focusRing } from '../lib/control';
+const alertVariants = cva('relative grid w-full grid-cols-[0_1fr] items-start gap-y-0.5 rounded-card border px-4 py-3 text-sm has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] has-[>svg]:gap-x-3 [&>svg]:size-4 [&>svg]:translate-y-0.5', {
+    variants: {
+        variant: {
+            default: 'bg-card text-fg [&>svg]:text-fg-secondary',
+            info: 'border-info-border bg-info-subtle text-fg [&>svg]:text-info',
+            success: 'border-success-border bg-success-subtle text-fg [&>svg]:text-success',
+            warning: 'border-warning-border bg-warning-subtle text-fg [&>svg]:text-warning',
+            danger: 'border-danger-border bg-danger-subtle text-fg [&>svg]:text-danger',
+        },
+    },
+    defaultVariants: { variant: 'default' },
+});
+const icons = {
+    default: Info,
+    info: Info,
+    success: CheckCircle2,
+    warning: AlertTriangle,
+    danger: OctagonAlert,
+};
+/**
+ * Inline, contextual message. `danger`/`warning` use role="alert"; others role="status".
+ * Pass `icon={false}` to hide the default icon.
+ */
+function Alert({ className, variant = 'default', icon, children, ...props }) {
+    const Icon = icons[variant ?? 'default'];
+    return (_jsxs("div", { "data-slot": "alert", role: variant === 'danger' || variant === 'warning' ? 'alert' : 'status', className: cn(alertVariants({ variant }), className), ...props, children: [icon === false ? null : (icon ?? _jsx(Icon, { "aria-hidden": true })), children] }));
+}
+function AlertTitle({ className, ...props }) {
+    return (_jsx("div", { "data-slot": "alert-title", className: cn('col-start-2 font-medium tracking-tight', className), ...props }));
+}
+function AlertDescription({ className, ...props }) {
+    return (_jsx("div", { "data-slot": "alert-description", className: cn('col-start-2 grid gap-1 text-fg-secondary [&_p]:leading-relaxed', className), ...props }));
+}
+/** Full-width, page-level announcement with optional action and dismiss. */
+function Banner({ variant = 'info', action, onDismiss, dismissLabel = 'Dispensar aviso', className, children, ...props }) {
+    return (_jsxs("div", { "data-slot": "banner", "data-variant": variant, role: variant === 'danger' || variant === 'warning' ? 'alert' : 'status', className: cn('flex flex-wrap items-center gap-x-4 gap-y-2 border-b px-4 py-2.5 text-sm text-fg', variant === 'info' && 'border-info-border bg-info-subtle', variant === 'success' && 'border-success-border bg-success-subtle', variant === 'warning' && 'border-warning-border bg-warning-subtle', variant === 'danger' && 'border-danger-border bg-danger-subtle', variant === 'brand' && 'border-border bg-surface', className), ...props, children: [variant === 'brand' && _jsx("span", { "aria-hidden": true, className: "size-1.5 rotate-45 bg-brand-gold" }), _jsx("div", { className: "min-w-0 flex-1", children: children }), action, onDismiss && (_jsx("button", { type: "button", "aria-label": dismissLabel, onClick: onDismiss, className: cn('grid size-6 cursor-pointer place-items-center rounded-xs text-fg-secondary hover:bg-surface-muted hover:text-fg', focusRing), children: _jsx(X, { "aria-hidden": true, className: "size-4" }) }))] }));
+}
+export { Alert, AlertTitle, AlertDescription, Banner, alertVariants };
