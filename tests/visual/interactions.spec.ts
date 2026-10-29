@@ -25,12 +25,14 @@ test('dropdown menu: arrows, submenu, escape returns focus', async ({ page }) =>
   await page.keyboard.press('Enter');
   // Keyboard-opened menus focus the first item.
   await expect(page.getByRole('menuitem', { name: /Reexecutar/ })).toBeFocused();
+  // Assert after every key: chained presses raced Radix's focus move on slow CI runners.
   await page.keyboard.press('ArrowDown');
+  await expect(page.getByRole('menuitem', { name: /Copiar ID/ })).toBeFocused();
   await page.keyboard.press('ArrowDown');
   await expect(page.getByRole('menuitem', { name: /Exportar/ })).toBeFocused();
   await page.keyboard.press('ArrowRight');
   await expect(page.getByRole('menuitem', { name: 'JSON' })).toBeFocused();
-  await page.keyboard.press('Escape');
+  // Radix closes the whole menu tree on Escape and restores focus to the trigger.
   await page.keyboard.press('Escape');
   await expect(page.getByRole('menu')).toHaveCount(0);
   await expect(trigger).toBeFocused();
