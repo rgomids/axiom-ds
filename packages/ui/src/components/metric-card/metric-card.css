@@ -33,7 +33,7 @@
   place-items: center;
   width: 56px;
   height: 56px;
-  border-radius: var(--radius-md);
+  border-radius: var(--axion-component-icon-radius);
 }
 .icon-soft svg {
   width: 28px;

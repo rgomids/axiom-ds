@@ -43,6 +43,7 @@
 }
 .icon-btn {
   width: 38px;
+  border-radius: var(--axion-component-icon-radius);
   padding: 0;
   border-color: var(--border);
   background: #fff;

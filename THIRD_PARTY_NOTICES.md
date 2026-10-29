@@ -2,6 +2,10 @@
 
 A licenca Apache-2.0 existente do projeto foi preservada.
 
+O Diagram Kit utiliza React Flow (@xyflow/react) e Dagre (@dagrejs/dagre),
+ambos MIT. Avisos sao copiados para packages/ui/dist durante o build.
+O exemplo de diagramas inclui Inter localmente, com o aviso SIL OFL no mesmo diretório.
+
 Os sete componentes React em packages/ui/src/react derivam do registro
 new-york-v4 do shadcn/ui, consultado em 2026-09-27. O aviso MIT esta em
 packages/ui/SHADCN-LICENSE. Radix Primitives fornece comportamento acessivel.
