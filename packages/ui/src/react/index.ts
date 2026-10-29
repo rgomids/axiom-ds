@@ -59,3 +59,4 @@ export * from './toast';
 export * from './empty-state';
 // Patterns
 export * from './command-snippet';
+export * from './patterns';

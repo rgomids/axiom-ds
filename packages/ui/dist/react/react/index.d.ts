@@ -52,3 +52,4 @@ export * from './alert';
 export * from './toast';
 export * from './empty-state';
 export * from './command-snippet';
+export * from './patterns';

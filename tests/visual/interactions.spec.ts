@@ -116,3 +116,34 @@ test('reduced motion disables animations', async ({ page }) => {
     .evaluate((el) => getComputedStyle(el).animationName);
   expect(animation).toBe('none');
 });
+
+test('complete form reports errors, focuses the first invalid field and submits', async ({
+  page,
+}) => {
+  await open(page, 'examples-complete-form--default');
+  await page.getByRole('button', { name: 'Criar projeto' }).click();
+  await expect(page.getByRole('alert')).toContainText('Revise 5 campo(s)');
+  await expect(page.getByRole('textbox', { name: /Identificador/ })).toBeFocused();
+  await expect(page.getByRole('textbox', { name: /Identificador/ })).toHaveAttribute(
+    'aria-invalid',
+    'true',
+  );
+  await page.getByRole('textbox', { name: /Identificador/ }).fill('orion');
+  await page.getByRole('textbox', { name: /E-mail/ }).fill('dev@example.com');
+  await page.getByRole('combobox', { name: /Repositório/ }).click();
+  await page.getByRole('option', { name: 'axiom/lyra' }).click();
+  await page.getByRole('combobox', { name: /Runtime/ }).click();
+  await page.getByRole('option', { name: 'Claude' }).click();
+  await page.getByRole('checkbox', { name: /aprovação humana/ }).click();
+  await page.getByRole('button', { name: 'Criar projeto' }).click();
+  await expect(page.getByRole('status')).toContainText('Projeto criado');
+});
+
+test('dashboard shell opens mobile navigation in a sheet', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 800 });
+  await open(page, 'examples-dashboard-overview--default');
+  await page.getByRole('button', { name: 'Abrir navegação' }).click();
+  await expect(page.getByRole('dialog', { name: 'Navegação' })).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('button', { name: 'Abrir navegação' })).toBeFocused();
+});

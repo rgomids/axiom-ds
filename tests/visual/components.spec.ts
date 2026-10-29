@@ -24,6 +24,15 @@ const stories = [
   'components-navigation-stepper--horizontal',
   'components-feedback-alert--variants',
   'components-feedback-states--all',
+  'patterns-workflow-executiontimeline--stepper',
+  'patterns-logs-logviewer--default',
+  'patterns-evidence-evidencepanel--panel',
+  'patterns-evidence-evidencepanel--details',
+  'examples-dashboard-overview--default',
+  'examples-execution-details--default',
+  'examples-project-settings--default',
+  'examples-data-management--default',
+  'examples-complete-form--default',
 ];
 
 async function openStory(page: Page, story: string, theme: string) {

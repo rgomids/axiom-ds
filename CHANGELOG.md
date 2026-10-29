@@ -4,6 +4,12 @@
 
 ### Added
 
+- Presentational patterns: DashboardShell/PageHeader, Toolbar/ActiveFilters/
+  DataTableToolbar, MetricOverview, EmptyDashboard, ExecutionTimeline,
+  WorkflowStepper, LogViewer, EvidencePanel, ResourceDetails, SettingsSection.
+- Storybook Examples: Dashboard Overview, Execution Details, Project Settings,
+  Data Management and Complete Form, with local simulated data.
+
 - 40+ React components across Actions, Forms, Data Display, Navigation,
   Overlays and Feedback (see docs/redesign-geist.md), with documented stories.
 - `useDataTable` headless model; dependencies cmdk, sonner, react-day-picker.
