@@ -3,101 +3,227 @@
     "surface": {
       "canvas": {
         "$type": "color",
-        "$value": "{color.canvas}"
+        "$value": "{color.neutral-25}"
       },
       "default": {
         "$type": "color",
-        "$value": "{color.white}"
+        "$value": "{color.neutral-0}"
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.neutral-50}"
       },
       "muted": {
         "$type": "color",
-        "$value": "{color.surface-muted}"
+        "$value": "{color.neutral-100}"
+      },
+      "raised": {
+        "$type": "color",
+        "$value": "{color.neutral-0}"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.neutral-900}"
+      },
+      "selected": {
+        "$type": "color",
+        "$value": "{color.navy-50}"
       }
     },
     "text": {
       "primary": {
         "$type": "color",
-        "$value": "{color.ink-900}"
+        "$value": "{color.neutral-900}"
       },
       "secondary": {
         "$type": "color",
-        "$value": "{color.slate-600}"
+        "$value": "{color.neutral-700}"
+      },
+      "tertiary": {
+        "$type": "color",
+        "$value": "{color.neutral-600}"
       },
       "muted": {
         "$type": "color",
-        "$value": "{color.slate-500}"
+        "$value": "{color.neutral-600}"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{color.neutral-400}"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.neutral-0}"
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{color.navy-700}"
+      }
+    },
+    "border": {
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.neutral-100}"
+      },
+      "default": {
+        "$type": "color",
+        "$value": "{color.neutral-150}"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.neutral-300}"
+      },
+      "control": {
+        "$type": "color",
+        "$value": "{color.neutral-500}"
+      },
+      "interactive": {
+        "$type": "color",
+        "$value": "{color.neutral-600}"
       }
     },
     "action": {
       "primary": {
         "$type": "color",
-        "$value": "{color.blue}"
+        "$value": "{color.navy-700}"
       },
       "hover": {
         "$type": "color",
-        "$value": "{color.blue-hover}"
+        "$value": "{color.navy-800}"
+      },
+      "active": {
+        "$type": "color",
+        "$value": "{color.navy-900}"
       },
       "onPrimary": {
         "$type": "color",
-        "$value": "{color.white}"
+        "$value": "{color.neutral-0}"
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.navy-50}"
+      },
+      "subtleHover": {
+        "$type": "color",
+        "$value": "{color.navy-100}"
+      },
+      "onSubtle": {
+        "$type": "color",
+        "$value": "{color.navy-700}"
+      }
+    },
+    "brand": {
+      "navy": {
+        "$type": "color",
+        "$value": "{color.navy-800}"
+      },
+      "deepBlue": {
+        "$type": "color",
+        "$value": "{color.navy-700}"
+      },
+      "gold": {
+        "$type": "color",
+        "$value": "{color.gold-500}"
+      },
+      "onGold": {
+        "$type": "color",
+        "$value": "{color.neutral-900}"
       }
     },
     "focus": {
       "ring": {
         "$type": "color",
-        "$value": "{color.blue}"
+        "$value": "{color.navy-600}"
       }
     },
-    "border": {
-      "default": {
+    "selection": {
+      "background": {
         "$type": "color",
-        "$value": "{color.border}"
-      },
-      "strong": {
-        "$type": "color",
-        "$value": "{color.border-strong}"
-      },
-      "control": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [0.4823529411764706, 0.5176470588235295, 0.5764705882352941],
-          "alpha": 1
-        }
+        "$value": "{color.navy-100}"
       }
     },
     "status": {
+      "success": {
+        "$type": "color",
+        "$value": "{color.green-700}"
+      },
+      "successSubtle": {
+        "$type": "color",
+        "$value": "{color.green-50}"
+      },
+      "successBorder": {
+        "$type": "color",
+        "$value": "{color.green-200}"
+      },
+      "onSuccess": {
+        "$type": "color",
+        "$value": "{color.neutral-0}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.amber-700}"
+      },
+      "warningSubtle": {
+        "$type": "color",
+        "$value": "{color.amber-50}"
+      },
+      "warningBorder": {
+        "$type": "color",
+        "$value": "{color.amber-200}"
+      },
+      "onWarning": {
+        "$type": "color",
+        "$value": "{color.neutral-0}"
+      },
       "danger": {
         "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [0.7058823529411765, 0.13725490196078433, 0.09411764705882353],
-          "alpha": 1
-        }
+        "$value": "{color.red-700}"
+      },
+      "dangerSubtle": {
+        "$type": "color",
+        "$value": "{color.red-50}"
+      },
+      "dangerBorder": {
+        "$type": "color",
+        "$value": "{color.red-200}"
       },
       "onDanger": {
         "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [1, 1, 1],
-          "alpha": 1
-        }
+        "$value": "{color.neutral-0}"
       },
-      "success": {
+      "info": {
         "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [0.023529411764705882, 0.4627450980392157, 0.2784313725490196],
-          "alpha": 1
-        }
+        "$value": "{color.blue-700}"
+      },
+      "infoSubtle": {
+        "$type": "color",
+        "$value": "{color.blue-50}"
+      },
+      "infoBorder": {
+        "$type": "color",
+        "$value": "{color.blue-200}"
+      },
+      "onInfo": {
+        "$type": "color",
+        "$value": "{color.neutral-0}"
       }
     },
     "overlay": {
       "$type": "color",
-      "$value": {
-        "colorSpace": "srgb",
-        "components": [0.06274509803921569, 0.09411764705882353, 0.1568627450980392],
-        "alpha": 0.65
+      "$value": "{color.black-alpha-40}"
+    },
+    "elevation": {
+      "raised": {
+        "$type": "shadow",
+        "$value": "{shadow.xs}"
+      },
+      "floating": {
+        "$type": "shadow",
+        "$value": "{shadow.md}"
+      },
+      "modal": {
+        "$type": "shadow",
+        "$value": "{shadow.lg}"
       }
     }
   }

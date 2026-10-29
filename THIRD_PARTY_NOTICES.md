@@ -13,9 +13,11 @@ packages/ui/SHADCN-LICENSE. Radix Primitives fornece comportamento acessivel.
 Lucide e distribuido sob ISC. A versao esta fixada no package-lock.json.
 O aviso original e copiado para docs/site/vendor/LUCIDE-LICENSE.
 
-Inter e referenciada via Google Fonts no catalogo legado. O Storybook utiliza
-@fontsource/inter localmente, sob SIL Open Font License, com o aviso incluido
-na distribuicao estaticamente gerada.
+Geist Sans e Geist Mono (The Geist Project Authors, SIL Open Font License 1.1)
+sao distribuidas localmente via @fontsource-variable/geist e
+@fontsource-variable/geist-mono, sem CDN. Os avisos OFL sao copiados para
+apps/storybook/public/licenses durante o build. Inter permanece apenas no
+catalogo legado e no exemplo de diagramas.
 As imagens Unsplash dos prototipos sao URLs de referencia, nao ativos do
 pacote da marca. Esses recursos conservam suas respectivas licencas.
 

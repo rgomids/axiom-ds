@@ -10,8 +10,12 @@ const write = async (path, content) => {
 const tokens = await loadTokens();
 await mkdir('apps/storybook/public/licenses', { recursive: true });
 await copyFile(
-  'node_modules/@fontsource/inter/LICENSE',
-  'apps/storybook/public/licenses/Inter.txt',
+  'node_modules/@fontsource-variable/geist/LICENSE',
+  'apps/storybook/public/licenses/Geist.txt',
+);
+await copyFile(
+  'node_modules/@fontsource-variable/geist-mono/LICENSE',
+  'apps/storybook/public/licenses/GeistMono.txt',
 );
 await copyFile('packages/ui/SHADCN-LICENSE', 'apps/storybook/public/licenses/shadcn-ui.txt');
 for (const name of ['brand', 'tokens', 'ui']) {

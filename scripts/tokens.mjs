@@ -62,6 +62,10 @@ export function cssValue(type, value) {
     case 'number':
       if (!Number.isFinite(value)) throw new Error('Invalid number');
       return String(value);
+    case 'cubicBezier':
+      if (!Array.isArray(value) || value.length !== 4 || !value.every(Number.isFinite))
+        throw new Error('Invalid cubicBezier');
+      return 'cubic-bezier(' + value.join(', ') + ')';
     case 'shadow':
       return (
         ['offsetX', 'offsetY', 'blur', 'spread']
