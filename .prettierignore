@@ -15,5 +15,3 @@ styles.css
 package-lock.json
 LICENSE
 
-packages/landing/dist
-apps/storybook/public/landing

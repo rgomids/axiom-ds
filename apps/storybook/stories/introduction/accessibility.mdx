@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction/Accessibility" />
+
+# Acessibilidade
+
+Meta: **WCAG 2.2 AA** nos dois temas.
+
+- **Contraste:** texto ≥ 4.5:1, componentes de UI e foco ≥ 3:1. Os pares de
+  tokens são verificados em `tests/tokens.test.mjs`.
+- **Teclado:** todo controle é alcançável por `Tab`; widgets compostos (Tabs,
+  RadioGroup, Menu, Select, Calendar) usam setas, `Home`/`End` e `Escape`
+  conforme os padrões ARIA implementados pelo Radix.
+- **Foco visível:** anel de 2px com o token `focus.ring`, nunca removido.
+- **Nomes acessíveis:** botões só com ícone exigem `aria-label`; campos usam
+  `Label` ou `FormField`; erros são associados via `aria-describedby` e
+  `aria-invalid`.
+- **Gerenciamento de foco:** overlays prendem e devolvem o foco ao gatilho.
+- **Estados:** `disabled`, `readonly`, `invalid` e `loading` (`aria-busy`) têm
+  representação visual e semântica.
+- **Movimento:** `prefers-reduced-motion: reduce` remove animações e transições.
+- **Alto contraste:** `forced-colors` preserva bordas de controles.
+
+Cada story é auditada com axe (addon a11y) e os testes visuais executam axe
+nos temas Light e Dark, em 1280px e 390px.

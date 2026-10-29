@@ -1,11 +1,19 @@
 # Changelog
 
+## Unreleased
+
+### Removed
+
+- Landing imersiva (`packages/landing`), padrões de marketing, tokens
+  `semantic.marketing.*`, Manrope e stories Marketing. A landing continua em
+  rgomids/axiom, fixada na revisão `d5c3dc4` (ADR 0005).
+
 ## 0.3.0 - em revisão
 
-- Landing imersiva beta em pacote est�tico, com dez padr�es documentados no Storybook.
-- Tokens sem�nticos de marketing, Manrope local e mascote original com dourado preservado.
+- Landing imersiva beta em pacote estático, com dez padrões documentados no Storybook.
+- Tokens semânticos de marketing, Manrope local e mascote original com dourado preservado.
 - CommandSnippet React: copiar por comando, estados de sucesso, erro e desabilitado.
-- Build reproduz�vel para integra��o separada no produto, sem publica��o nesta branch.
+- Build reproduzível para integração separada no produto, sem publicação nesta branch.
 
 ## 0.2.0 - 2026-09-27
 

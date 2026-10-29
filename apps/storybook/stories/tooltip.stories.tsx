@@ -22,7 +22,7 @@ function Example() {
   );
 }
 const meta = {
-  title: 'Components/Tooltip',
+  title: 'Components/Data Display/Tooltip',
   component: Example,
   parameters: {
     docs: {

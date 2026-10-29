@@ -1,3 +1,0 @@
-export function chapterNavigation(chapterNav) {
-  return `<div class="story-navigation-dock"><div class="story-dock-frame"><button hidden type="button" class="story-dock-toggle" aria-expanded="false" aria-controls="story-chapters"><span data-en="Navigate chapters">Navegar entre capítulos</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg></button><div class="story-dock-content"><div class="story-dock-clip">${chapterNav.replace('class="story-navigation"', 'class="story-navigation" id="story-chapters"')}</div></div></div></div>`;
-}

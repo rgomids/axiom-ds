@@ -14,7 +14,7 @@ jobs:
       - run: npm ci
       - run: npm run validate
       - name: Check all committed generated artifacts
-        run: git diff --exit-code -- styles.css packages/tokens/dist packages/ui/dist docs/site/vendor examples resources.html 'packages/*/LICENSE' apps/storybook/public/licenses packages/landing/dist apps/storybook/public/landing
+        run: git diff --exit-code -- styles.css packages/tokens/dist packages/ui/dist docs/site/vendor examples resources.html 'packages/*/LICENSE' apps/storybook/public/licenses
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
       - run: npm run test:visual
@@ -28,10 +28,3 @@ jobs:
         with:
           name: storybook
           path: storybook-static/
-
-      - uses: actions/upload-artifact@v4
-        if: success()
-        with:
-          name: axiom-landing
-          path: packages/landing/dist/
-          include-hidden-files: true

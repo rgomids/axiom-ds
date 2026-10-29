@@ -11,7 +11,6 @@ export default tseslint.config(
       'test-results/**',
       'playwright-report/**',
       'docs/site/vendor/**',
-      'apps/storybook/public/landing/**',
       '.qa/**',
     ],
   },

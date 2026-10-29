@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { CommandSnippet } from '../../../packages/ui/src/react';
 
 const meta = {
-  title: 'Components/CommandSnippet',
+  title: 'Patterns/Logs/CommandSnippet',
   component: CommandSnippet,
   args: { command: 'axiom version', language: 'pt' },
   parameters: {

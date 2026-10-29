@@ -10,9 +10,6 @@
   .topology {
     grid-column: 1 / -1;
   }
-  .landing-preview {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 860px) {
@@ -53,8 +50,7 @@
     grid-template-columns: 1fr;
   }
   .hero,
-  .panel,
-  .landing-preview {
+  .panel {
     padding: 16px;
   }
   .brand-story {

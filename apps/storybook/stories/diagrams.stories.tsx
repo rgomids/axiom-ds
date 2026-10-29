@@ -3,7 +3,7 @@ import { DiagramEditor } from '../../../packages/ui/src/diagrams/editor';
 import { DiagramKit } from '../../../packages/ui/src/diagrams/catalog';
 
 const meta = {
-  title: 'Patterns/Diagrams',
+  title: 'Patterns/Execution Graph/Diagram Kit',
   component: DiagramEditor,
   parameters: { layout: 'fullscreen' },
   args: { persist: false },

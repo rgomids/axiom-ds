@@ -78,13 +78,12 @@ de fluxos. Abra o [catálogo](examples/diagram-kit.html) ou o
 Os controles e os contêineres de ícones usam o token `component.icon.radius`
 para manter o formato quadrado sem alterar os desenhos da marca ou dos ícones.
 
-## Landing page imersiva
+## Landing page
 
-A nova landing est� em [packages/landing](packages/landing/README.md), com fontes
-por se��o, tokens de marketing e documenta��o execut�vel em Marketing no Storybook.
-`npm run build:landing` gera o site completo em `packages/landing/dist`.
-O reposit�rio do produto integra o snapshot em um PR separado; esta branch n�o publica.
-O cat�logo anterior continua dispon�vel para compatibilidade.
+A landing do Axiom pertence a [rgomids/axiom](https://github.com/rgomids/axiom),
+que mantém uma cópia fixada da última revisão publicada aqui (`d5c3dc4`).
+Este repositório publica apenas o Storybook do Design System; veja
+[ADR 0005](docs/adr/0005-remove-landing-from-design-system.md).
 
 ## Regras e entrega
 

@@ -58,7 +58,7 @@ function ProjectDialog() {
   );
 }
 const meta = {
-  title: 'Components/Dialog',
+  title: 'Components/Overlays/Dialog',
   component: ProjectDialog,
   parameters: {
     docs: {
