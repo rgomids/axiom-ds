@@ -1,5 +1,6 @@
 import { useLayoutEffect, type ReactNode } from 'react';
 import type { Preview } from '@storybook/react-vite';
+import { themes } from 'storybook/theming';
 import '../../../packages/ui/src/react/theme.css';
 import '../../../packages/ui/src/react/fonts.css';
 
@@ -18,13 +19,23 @@ function Theme({
     document.documentElement.style.colorScheme = theme;
   }, [theme]);
   // Full-page examples render their own landmarks (DashboardShell has <main>).
-  if (fullBleed) return <div data-testid="story-surface">{children}</div>;
+  // Paint the story's own surface so it stays legible inside docs pages,
+  // whose chrome follows the OS scheme instead of the Theme toolbar.
+  if (fullBleed)
+    return (
+      <div className="bg-canvas text-fg" data-testid="story-surface">
+        {children}
+      </div>
+    );
   return (
-    <main className="mx-auto max-w-6xl p-4 sm:p-8" data-testid="story-surface">
+    <main className="mx-auto max-w-6xl bg-canvas p-4 text-fg sm:p-8" data-testid="story-surface">
       {children}
     </main>
   );
 }
+
+// Docs pages share the Storybook chrome's OS-driven scheme (see manager.ts).
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 const preview: Preview = {
   tags: ['autodocs'],
@@ -45,6 +56,7 @@ const preview: Preview = {
   parameters: {
     layout: 'fullscreen',
     a11y: { test: 'error' },
+    docs: { theme: prefersDark ? themes.dark : themes.light },
     options: {
       storySort: {
         order: [
