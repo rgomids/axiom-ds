@@ -33,8 +33,8 @@ Status: accepted by maintainer brief (2026-10-28); human visual approval pending
 - `font.tracking.*` are unitless numbers multiplied by `1em` in Tailwind,
   because DTCG dimensions allow only px/rem.
 
-## Pending human decision
+## Icon buttons
 
-Icon buttons keep `component.icon.radius = 0` (square), approved in PR #9,
-while v0.2 sets 6px for controls. Changing the single token to `{radius.sm}`
-aligns them; the legacy catalog test that enforces square icons would change too.
+Decided by the maintainer (2026-10-29): icon buttons stay square
+(`component.icon.radius = 0`), preserving the PR #9 decision. Text controls use
+6px (`radius.sm`). The single token remains the switch if this is revisited.
