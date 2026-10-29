@@ -2,6 +2,7 @@
 @import '../../../tokens/dist/tokens.css';
 @source "./*.tsx";
 @source "../lib/*.ts";
+@source "./patterns/*.tsx";
 @source "../../../../apps/storybook/stories";
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));

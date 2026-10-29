@@ -3,12 +3,22 @@ import type { Preview } from '@storybook/react-vite';
 import '../../../packages/ui/src/react/theme.css';
 import '../../../packages/ui/src/react/fonts.css';
 
-function Theme({ theme, children }: { theme: string; children: ReactNode }) {
+function Theme({
+  theme,
+  fullBleed,
+  children,
+}: {
+  theme: string;
+  fullBleed?: boolean;
+  children: ReactNode;
+}) {
   useLayoutEffect(() => {
     document.documentElement.dataset.theme = theme;
     document.documentElement.lang = 'pt-BR';
     document.documentElement.style.colorScheme = theme;
   }, [theme]);
+  // Full-page examples render their own landmarks (DashboardShell has <main>).
+  if (fullBleed) return <div data-testid="story-surface">{children}</div>;
   return (
     <main className="mx-auto max-w-6xl p-4 sm:p-8" data-testid="story-surface">
       {children}
@@ -27,7 +37,7 @@ const preview: Preview = {
   initialGlobals: { theme: 'light', a11y: { manual: true } },
   decorators: [
     (Story, context) => (
-      <Theme theme={context.globals.theme ?? 'light'}>
+      <Theme theme={context.globals.theme ?? 'light'} fullBleed={context.parameters.fullBleed}>
         <Story />
       </Theme>
     ),

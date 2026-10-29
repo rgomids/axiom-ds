@@ -27,6 +27,8 @@ Codex e Cloud compartilham AGENTS.md e comandos npm. CI roda os mesmos checks.
 Storybook e estatico, usa fontes locais e nao requer servico pago.
 ADR 0001 descreve o limite do repositorio; ADR 0002 registra a stack.
 
-Dashboard e landing antigos continuam prototipos de referencia, fora da API
-inicial dos sete componentes. O compilador implementa o subconjunto DTCG usado,
-nao uma ferramenta generica de conversao.
+O dashboard HTML antigo continua prototipo de referencia. A landing pertence ao
+produto (ADR 0005). A biblioteca React segue a direcao Geist v0.2 (ADR 0006):
+componentes em packages/ui/src/react, padroes de apresentacao em
+packages/ui/src/react/patterns, sem regras de negocio do produto. O compilador
+implementa o subconjunto DTCG usado, nao uma ferramenta generica de conversao.

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { DiagramEditor } from '../../../packages/ui/src/diagrams/editor';
-import { DiagramKit } from '../../../packages/ui/src/diagrams/catalog';
+import { DiagramEditor } from '../../../../packages/ui/src/diagrams/editor';
+import { DiagramKit } from '../../../../packages/ui/src/diagrams/catalog';
 
 const meta = {
   title: 'Patterns/Execution Graph/Diagram Kit',

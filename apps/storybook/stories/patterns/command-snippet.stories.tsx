@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { CommandSnippet } from '../../../packages/ui/src/react';
+import { CommandSnippet } from '../../../../packages/ui/src/react';
 
 const meta = {
   title: 'Patterns/Logs/CommandSnippet',
