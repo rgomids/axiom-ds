@@ -15,7 +15,7 @@
   "scripts": {
     "build": "node scripts/build.mjs && tsc -p packages/ui/tsconfig.build.json && tailwindcss -i packages/ui/src/react/theme.css -o packages/ui/dist/theme.css --minify",
     "test": "node --test tests/*.test.mjs",
-    "test:browser": "node tests/browser.mjs",
+    "test:browser": "node tests/browser.mjs && node tests/diagrams.mjs",
     "check": "npm run build && npm test",
     "prepack": "npm run check",
     "test:unit": "vitest run",

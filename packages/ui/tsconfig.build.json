@@ -7,5 +7,11 @@
     "rootDir": "src",
     "types": ["react"]
   },
-  "include": ["src/react/**/*.ts", "src/react/**/*.tsx", "src/lib/**/*.ts"]
+  "include": [
+    "src/react/**/*.ts",
+    "src/react/**/*.tsx",
+    "src/lib/**/*.ts",
+    "src/diagrams/**/*.ts",
+    "src/diagrams/**/*.tsx"
+  ]
 }

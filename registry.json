@@ -2,6 +2,28 @@
   "version": "0.2.0",
   "resources": [
     {
+      "id": "diagram-editor",
+      "name": "Axiom Diagram Editor",
+      "kind": "patterns",
+      "summary": "Editor de fluxos com conexões múltiplas, código, zoom e temas claro/escuro.",
+      "source": "packages/ui/src/diagrams/editor.html",
+      "documentation": "packages/ui/src/diagrams/README.md",
+      "example": "examples/diagram-editor.html",
+      "presentation": "diagram",
+      "status": "prototype"
+    },
+    {
+      "id": "diagram-kit",
+      "name": "Axiom Diagram Kit",
+      "kind": "patterns",
+      "summary": "Catálogo dedicado: blocos, conectores, ferramentas, toggles e estados.",
+      "source": "packages/ui/src/diagrams/catalog.html",
+      "documentation": "packages/ui/src/diagrams/README.md",
+      "example": "examples/diagram-kit.html",
+      "presentation": "diagram",
+      "status": "prototype"
+    },
+    {
       "id": "button",
       "name": "Botoes",
       "kind": "components",

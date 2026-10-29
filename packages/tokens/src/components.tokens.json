@@ -1,5 +1,16 @@
 {
   "component": {
+    "diagram": {
+      "muted": { "$type": "color", "$value": "{semantic.surface.muted}" },
+      "canvas": { "$type": "color", "$value": "{semantic.surface.canvas}" },
+      "panel": { "$type": "color", "$value": "{semantic.surface.default}" },
+      "line": { "$type": "color", "$value": "{semantic.border.default}" },
+      "connector": { "$type": "color", "$value": "{semantic.text.muted}" },
+      "selection": { "$type": "color", "$value": "{semantic.action.primary}" },
+      "radius": { "$type": "dimension", "$value": { "value": 0, "unit": "px" } },
+      "controlSize": { "$type": "dimension", "$value": "{space.32}" },
+      "nodeWidth": { "$type": "dimension", "$value": { "value": 208, "unit": "px" } }
+    },
     "button": {
       "height": {
         "$type": "dimension",
@@ -39,6 +50,10 @@
       }
     },
     "icon": {
+      "radius": {
+        "$type": "dimension",
+        "$value": { "value": 0, "unit": "px" }
+      },
       "size": {
         "$type": "dimension",
         "$value": {

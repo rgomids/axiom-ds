@@ -67,6 +67,15 @@
   --axion-semantic-status-onDanger: rgb(255 255 255 / 1);
   --axion-semantic-status-success: rgb(6 118 71 / 1);
   --axion-semantic-overlay: rgb(16 24 40 / 0.65);
+  --axion-component-diagram-muted: var(--axion-semantic-surface-muted);
+  --axion-component-diagram-canvas: var(--axion-semantic-surface-canvas);
+  --axion-component-diagram-panel: var(--axion-semantic-surface-default);
+  --axion-component-diagram-line: var(--axion-semantic-border-default);
+  --axion-component-diagram-connector: var(--axion-semantic-text-muted);
+  --axion-component-diagram-selection: var(--axion-semantic-action-primary);
+  --axion-component-diagram-radius: 0px;
+  --axion-component-diagram-controlSize: var(--axion-space-32);
+  --axion-component-diagram-nodeWidth: 208px;
   --axion-component-button-height: 38px;
   --axion-component-button-radius: var(--axion-radius-sm);
   --axion-component-button-gap: var(--axion-space-8);
@@ -74,6 +83,7 @@
   --axion-component-button-text: var(--axion-semantic-action-onPrimary);
   --axion-component-field-height: 40px;
   --axion-component-field-radius: var(--axion-radius-sm);
+  --axion-component-icon-radius: 0px;
   --axion-component-icon-size: 18px;
   --axion-component-icon-stroke: 2;
 }
@@ -176,6 +186,15 @@
   --axion-semantic-status-onDanger: rgb(70 17 12 / 1);
   --axion-semantic-status-success: rgb(121 223 169 / 1);
   --axion-semantic-overlay: rgb(16 24 40 / 0.65);
+  --axion-component-diagram-muted: rgb(41 44 50 / 1);
+  --axion-component-diagram-canvas: rgb(23 25 29 / 1);
+  --axion-component-diagram-panel: rgb(32 34 39 / 1);
+  --axion-component-diagram-line: rgb(53 57 64 / 1);
+  --axion-component-diagram-connector: var(--axion-semantic-text-muted);
+  --axion-component-diagram-selection: var(--axion-semantic-action-primary);
+  --axion-component-diagram-radius: 0px;
+  --axion-component-diagram-controlSize: var(--axion-space-32);
+  --axion-component-diagram-nodeWidth: 208px;
   --axion-component-button-height: 38px;
   --axion-component-button-radius: var(--axion-radius-sm);
   --axion-component-button-gap: var(--axion-space-8);
@@ -183,6 +202,7 @@
   --axion-component-button-text: var(--axion-semantic-action-onPrimary);
   --axion-component-field-height: 40px;
   --axion-component-field-radius: var(--axion-radius-sm);
+  --axion-component-icon-radius: 0px;
   --axion-component-icon-size: 18px;
   --axion-component-icon-stroke: 2;
 }
@@ -739,7 +759,7 @@
   place-items: center;
   width: 56px;
   height: 56px;
-  border-radius: var(--radius-md);
+  border-radius: var(--axion-component-icon-radius);
 }
 :where(.axion) .icon-soft svg {
   width: 28px;
@@ -843,6 +863,7 @@
 }
 :where(.axion) .icon-btn {
   width: 38px;
+  border-radius: var(--axion-component-icon-radius);
   padding: 0;
   border-color: var(--border);
   background: #fff;
@@ -1332,9 +1353,14 @@
 :where(.axion) .btn,
 :where(.axion) .icon-btn {
   min-height: var(--axion-component-button-height);
-  border-radius: var(--axion-component-button-radius);
   gap: var(--axion-component-button-gap);
   transition-duration: var(--axion-motion-fast);
+}
+:where(.axion) .btn {
+  border-radius: var(--axion-component-button-radius);
+}
+:where(.axion) .icon-btn {
+  border-radius: var(--axion-component-icon-radius);
 }
 :where(.axion) .btn.primary {
   background: var(--axion-component-button-background);
@@ -1582,7 +1608,7 @@
   min-height: 58px;
   padding: 0 14px;
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--axion-component-icon-radius);
   color: var(--ink-700);
   font-weight: 750;
 }

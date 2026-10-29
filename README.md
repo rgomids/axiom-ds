@@ -70,6 +70,14 @@ O catalogo [index.html](index.html) e o [indice HTML](resources.html) preservam
 os modelos aprovados anteriores. Nao substituem o Storybook na aceitacao da issue #2.
 A grafia AXIOM dos SVGs foi preservada; o namespace @axion permanece por compatibilidade.
 
+O [Diagram Kit](packages/ui/src/diagrams/README.md) reúne os componentes do editor
+de fluxos. Abra o [catálogo](examples/diagram-kit.html) ou o
+[exemplo funcional](examples/diagram-editor.html), também disponíveis com
+`?theme=dark`. No Storybook: `Patterns/Diagrams`.
+
+Os controles e os contêineres de ícones usam o token `component.icon.radius`
+para manter o formato quadrado sem alterar os desenhos da marca ou dos ícones.
+
 ## Regras e entrega
 
 O [PR de bootstrap #4](https://github.com/rgomids/axiom-ds/pull/4) atende apenas
