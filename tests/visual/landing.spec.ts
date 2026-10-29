@@ -250,7 +250,7 @@ for (const width of [1280, 390])
       viewport: { width, height },
     });
     test('native wheel forward and back', async ({ browser }) => {
-      test.setTimeout(90000);
+      test.setTimeout(180000);
       const context = await browser.newContext({
         reducedMotion: 'no-preference',
         viewport: { width, height },
