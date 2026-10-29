@@ -20,7 +20,7 @@ function Example() {
   );
 }
 const meta = {
-  title: 'Components/Tabs',
+  title: 'Components/Navigation/Tabs',
   component: Example,
   parameters: {
     docs: {

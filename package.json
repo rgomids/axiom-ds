@@ -13,7 +13,7 @@
     "apps/*"
   ],
   "scripts": {
-    "build": "node scripts/build.mjs && tsc -p packages/ui/tsconfig.build.json && tailwindcss -i packages/ui/src/react/theme.css -o packages/ui/dist/theme.css --minify && npm run build:landing",
+    "build": "node scripts/build.mjs && tsc -p packages/ui/tsconfig.build.json && tailwindcss -i packages/ui/src/react/theme.css -o packages/ui/dist/theme.css --minify",
     "test": "node --test tests/*.test.mjs",
     "test:browser": "node tests/browser.mjs && node tests/diagrams.mjs",
     "check": "npm run build && npm test",
@@ -28,8 +28,7 @@
     "serve:storybook": "node scripts/serve-storybook.mjs",
     "test:visual": "playwright test",
     "test:visual:update": "playwright test --update-snapshots",
-    "validate": "npm run format:check && npm run lint && npm run typecheck && npm run check && npm run test:unit && npm run build:storybook",
-    "build:landing": "node scripts/build-landing.mjs"
+    "validate": "npm run format:check && npm run lint && npm run typecheck && npm run check && npm run test:unit && npm run build:storybook"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",

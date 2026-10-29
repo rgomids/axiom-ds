@@ -3,14 +3,15 @@ import AxeBuilder from '@axe-core/playwright';
 
 const stories = [
   'foundations-tokens--overview',
-  'components-button--variants',
-  'components-button--states',
-  'components-input--states',
-  'components-badge--variants',
-  'components-card--project',
-  'components-dialog--playground',
-  'components-tooltip--keyboard-and-pointer',
-  'components-tabs--keyboard-navigation',
+  'components-actions-button--variants',
+  'components-actions-button--states',
+  'components-forms-input--states',
+  'components-data-display-badge--variants',
+  'components-data-display-card--project',
+  'components-overlays-dialog--playground',
+  'components-data-display-tooltip--keyboard-and-pointer',
+  'components-navigation-tabs--keyboard-navigation',
+  'patterns-logs-commandsnippet--individual-commands',
 ];
 
 async function openStory(page: Page, story: string, theme: string) {
@@ -42,7 +43,7 @@ for (const theme of ['light', 'dark']) {
     }
   }
   test('dialog keyboard and submission ' + theme, async ({ page }) => {
-    await openStory(page, 'components-dialog--playground', theme);
+    await openStory(page, 'components-overlays-dialog--playground', theme);
     const trigger = page.getByRole('button', { name: 'Novo projeto' });
     await trigger.click();
     await expect(page.getByRole('dialog', { name: 'Criar projeto' })).toBeVisible();
@@ -65,14 +66,14 @@ for (const theme of ['light', 'dark']) {
     await expect(trigger).toBeFocused();
   });
   test('tabs and tooltip keyboard ' + theme, async ({ page }) => {
-    await openStory(page, 'components-tabs--keyboard-navigation', theme);
+    await openStory(page, 'components-navigation-tabs--keyboard-navigation', theme);
     await page.getByRole('tab', { name: 'Resumo' }).focus();
     await page.keyboard.press('ArrowRight');
     await expect(page.getByRole('tab', { name: 'Atividade' })).toBeFocused();
     await expect(page.getByRole('tabpanel')).toHaveText('Ultima execucao concluida');
     await page.keyboard.press('Home');
     await expect(page.getByRole('tab', { name: 'Resumo' })).toBeFocused();
-    await openStory(page, 'components-tooltip--keyboard-and-pointer', theme);
+    await openStory(page, 'components-data-display-tooltip--keyboard-and-pointer', theme);
     await page.getByRole('button').focus();
     await expect(page.getByRole('tooltip')).toBeVisible();
     await expect(page).toHaveScreenshot('tooltip-open-' + theme + '.png');

@@ -9,7 +9,7 @@ import {
 } from '../../../packages/ui/src/react/card';
 import { Button } from '../../../packages/ui/src/react/button';
 const meta = {
-  title: 'Components/Card',
+  title: 'Components/Data Display/Card',
   component: Card,
   parameters: {
     docs: {

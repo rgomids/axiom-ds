@@ -1,6 +1,6 @@
 # ADR 0004: portable immersive landing and marketing patterns
 
-Status: proposed for maintainer review.
+Status: superseded by [ADR 0005](0005-remove-landing-from-design-system.md).
 
 The approved landing adds native-scroll storytelling, an organic control-plane
 diagram and per-command copying. The design system must own its visual sources

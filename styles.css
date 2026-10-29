@@ -86,85 +86,6 @@
   --axion-component-icon-radius: 0px;
   --axion-component-icon-size: 18px;
   --axion-component-icon-stroke: 2;
-  --axion-semantic-marketing-surface-canvas: rgb(4 6 13 / 1);
-  --axion-semantic-marketing-surface-panel: rgb(9 15 30 / 1);
-  --axion-semantic-marketing-surface-inverseAction: rgb(16 16 16 / 1);
-  --axion-semantic-marketing-surface-card: rgb(7 11 22 / 1);
-  --axion-semantic-marketing-surface-terminalStart: rgb(11 18 37 / 1);
-  --axion-semantic-marketing-surface-terminalEnd: rgb(5 7 16 / 1);
-  --axion-semantic-marketing-surface-white: rgb(255 255 255 / 1);
-  --axion-semantic-marketing-surface-map: rgb(4 6 13 / 1);
-  --axion-semantic-marketing-surface-core: rgb(7 11 22 / 1);
-  --axion-semantic-marketing-surface-nodeStart: rgb(8 14 28 / 1);
-  --axion-semantic-marketing-surface-nodeEnd: rgb(4 6 13 / 1);
-  --axion-semantic-marketing-text-primary: rgb(245 245 247 / 1);
-  --axion-semantic-marketing-text-secondary: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-navigation: rgb(245 245 247 / 1);
-  --axion-semantic-marketing-text-onAccent: rgb(16 16 16 / 1);
-  --axion-semantic-marketing-text-onIntro: rgb(16 16 16 / 1);
-  --axion-semantic-marketing-text-navigationOnIntro: rgb(16 16 16 / 1);
-  --axion-semantic-marketing-text-inverseAction: rgb(255 217 143 / 1);
-  --axion-semantic-marketing-text-intro: rgb(16 16 16 / 1);
-  --axion-semantic-marketing-text-progress: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-progressOnIntro: rgb(16 16 16 / 1);
-  --axion-semantic-marketing-text-gradientStart: rgb(255 217 143 / 1);
-  --axion-semantic-marketing-text-gradientEnd: rgb(237 179 81 / 1);
-  --axion-semantic-marketing-text-terminalChrome: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-terminalComment: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-command: rgb(255 217 143 / 1);
-  --axion-semantic-marketing-text-terminalFoot: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-note: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-copy: rgb(245 245 247 / 1);
-  --axion-semantic-marketing-text-coreRole: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-coreContext: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-nodeNumber: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-nodeIcon: rgb(237 179 81 / 1);
-  --axion-semantic-marketing-text-nodeNote: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-mapNote: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-narrativeCount: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-narrativeHint: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-narrativeLink: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-pathIndex: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-pathIndexActive: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-action-accent: rgb(237 179 81 / 1);
-  --axion-semantic-marketing-action-hover: rgb(255 217 143 / 1);
-  --axion-semantic-marketing-action-linkHover: rgb(255 217 143 / 1);
-  --axion-semantic-marketing-status-success: rgb(125 199 110 / 1);
-  --axion-semantic-marketing-status-available: rgb(237 179 81 / 1);
-  --axion-semantic-marketing-decoration-terminalDot: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-decoration-terminalAccent: rgb(210 160 71 / 1);
-  --axion-semantic-marketing-decoration-mapGlow: rgb(237 179 81 / 1);
-  --axion-semantic-marketing-decoration-pathRing: rgb(237 179 81 / 1);
-  --axion-semantic-marketing-decoration-pathSecondary: rgb(210 160 71 / 1);
-  --axion-semantic-marketing-decoration-pathStart: rgb(210 160 71 / 1);
-  --axion-semantic-marketing-decoration-pathMiddle: rgb(255 217 143 / 1);
-  --axion-semantic-marketing-decoration-pathEnd: rgb(237 179 81 / 1);
-  --axion-semantic-marketing-decoration-orbRim: rgb(255 208 105 / 1);
-  --axion-semantic-marketing-decoration-orbEmber: rgb(232 148 38 / 1);
-  --axion-semantic-marketing-decoration-orbLight: rgb(255 241 182 / 1);
-  --axion-semantic-marketing-decoration-orbDepth: rgb(72 44 16 / 1);
-  --axion-semantic-marketing-typography-family: Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --axion-semantic-marketing-typography-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
-  --axion-semantic-marketing-radius-terminal: 20px;
-  --axion-semantic-marketing-radius-command: 10px;
-  --axion-semantic-marketing-radius-copy: 7px;
-  --axion-semantic-marketing-radius-pill: 30px;
-  --axion-semantic-marketing-radius-mobileTerminal: 15px;
-  --axion-semantic-marketing-motion-theme: 200ms;
-  --axion-semantic-marketing-palette-sand: rgb(225 197 130 / 1);
-  --axion-semantic-marketing-palette-gold: rgb(210 160 71 / 1);
-  --axion-semantic-marketing-palette-blue: rgb(40 69 116 / 1);
-  --axion-semantic-marketing-palette-navy: rgb(28 46 93 / 1);
-  --axion-semantic-marketing-palette-midnight: rgb(22 31 72 / 1);
-  --axion-semantic-marketing-palette-luminousGold: rgb(237 179 81 / 1);
-  --axion-semantic-marketing-palette-goldLight: rgb(255 217 143 / 1);
-  --axion-semantic-marketing-palette-ink: rgb(16 16 16 / 1);
-  --axion-semantic-marketing-palette-paper: rgb(245 245 247 / 1);
-  --axion-semantic-marketing-palette-neutral: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-palette-orbEmber: rgb(232 148 38 / 1);
-  --axion-semantic-marketing-palette-orbRim: rgb(255 208 105 / 1);
-  --axion-semantic-marketing-palette-orbLight: rgb(255 241 182 / 1);
-  --axion-semantic-marketing-palette-orbDepth: rgb(72 44 16 / 1);
 }
 
 .axion {
@@ -284,85 +205,6 @@
   --axion-component-icon-radius: 0px;
   --axion-component-icon-size: 18px;
   --axion-component-icon-stroke: 2;
-  --axion-semantic-marketing-surface-canvas: rgb(4 6 13 / 1);
-  --axion-semantic-marketing-surface-panel: rgb(9 15 30 / 1);
-  --axion-semantic-marketing-surface-inverseAction: rgb(16 16 16 / 1);
-  --axion-semantic-marketing-surface-card: rgb(7 11 22 / 1);
-  --axion-semantic-marketing-surface-terminalStart: rgb(11 18 37 / 1);
-  --axion-semantic-marketing-surface-terminalEnd: rgb(5 7 16 / 1);
-  --axion-semantic-marketing-surface-white: rgb(255 255 255 / 1);
-  --axion-semantic-marketing-surface-map: rgb(4 6 13 / 1);
-  --axion-semantic-marketing-surface-core: rgb(7 11 22 / 1);
-  --axion-semantic-marketing-surface-nodeStart: rgb(8 14 28 / 1);
-  --axion-semantic-marketing-surface-nodeEnd: rgb(4 6 13 / 1);
-  --axion-semantic-marketing-text-primary: rgb(245 245 247 / 1);
-  --axion-semantic-marketing-text-secondary: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-navigation: rgb(245 245 247 / 1);
-  --axion-semantic-marketing-text-onAccent: rgb(16 16 16 / 1);
-  --axion-semantic-marketing-text-onIntro: rgb(16 16 16 / 1);
-  --axion-semantic-marketing-text-navigationOnIntro: rgb(16 16 16 / 1);
-  --axion-semantic-marketing-text-inverseAction: rgb(255 217 143 / 1);
-  --axion-semantic-marketing-text-intro: rgb(16 16 16 / 1);
-  --axion-semantic-marketing-text-progress: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-progressOnIntro: rgb(16 16 16 / 1);
-  --axion-semantic-marketing-text-gradientStart: rgb(255 217 143 / 1);
-  --axion-semantic-marketing-text-gradientEnd: rgb(237 179 81 / 1);
-  --axion-semantic-marketing-text-terminalChrome: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-terminalComment: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-command: rgb(255 217 143 / 1);
-  --axion-semantic-marketing-text-terminalFoot: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-note: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-copy: rgb(245 245 247 / 1);
-  --axion-semantic-marketing-text-coreRole: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-coreContext: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-nodeNumber: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-nodeIcon: rgb(237 179 81 / 1);
-  --axion-semantic-marketing-text-nodeNote: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-mapNote: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-narrativeCount: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-narrativeHint: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-narrativeLink: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-pathIndex: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-text-pathIndexActive: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-action-accent: rgb(237 179 81 / 1);
-  --axion-semantic-marketing-action-hover: rgb(255 217 143 / 1);
-  --axion-semantic-marketing-action-linkHover: rgb(255 217 143 / 1);
-  --axion-semantic-marketing-status-success: rgb(125 199 110 / 1);
-  --axion-semantic-marketing-status-available: rgb(237 179 81 / 1);
-  --axion-semantic-marketing-decoration-terminalDot: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-decoration-terminalAccent: rgb(210 160 71 / 1);
-  --axion-semantic-marketing-decoration-mapGlow: rgb(237 179 81 / 1);
-  --axion-semantic-marketing-decoration-pathRing: rgb(237 179 81 / 1);
-  --axion-semantic-marketing-decoration-pathSecondary: rgb(210 160 71 / 1);
-  --axion-semantic-marketing-decoration-pathStart: rgb(210 160 71 / 1);
-  --axion-semantic-marketing-decoration-pathMiddle: rgb(255 217 143 / 1);
-  --axion-semantic-marketing-decoration-pathEnd: rgb(237 179 81 / 1);
-  --axion-semantic-marketing-decoration-orbRim: rgb(255 208 105 / 1);
-  --axion-semantic-marketing-decoration-orbEmber: rgb(232 148 38 / 1);
-  --axion-semantic-marketing-decoration-orbLight: rgb(255 241 182 / 1);
-  --axion-semantic-marketing-decoration-orbDepth: rgb(72 44 16 / 1);
-  --axion-semantic-marketing-typography-family: Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --axion-semantic-marketing-typography-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
-  --axion-semantic-marketing-radius-terminal: 20px;
-  --axion-semantic-marketing-radius-command: 10px;
-  --axion-semantic-marketing-radius-copy: 7px;
-  --axion-semantic-marketing-radius-pill: 30px;
-  --axion-semantic-marketing-radius-mobileTerminal: 15px;
-  --axion-semantic-marketing-motion-theme: 200ms;
-  --axion-semantic-marketing-palette-sand: rgb(225 197 130 / 1);
-  --axion-semantic-marketing-palette-gold: rgb(210 160 71 / 1);
-  --axion-semantic-marketing-palette-blue: rgb(40 69 116 / 1);
-  --axion-semantic-marketing-palette-navy: rgb(28 46 93 / 1);
-  --axion-semantic-marketing-palette-midnight: rgb(22 31 72 / 1);
-  --axion-semantic-marketing-palette-luminousGold: rgb(237 179 81 / 1);
-  --axion-semantic-marketing-palette-goldLight: rgb(255 217 143 / 1);
-  --axion-semantic-marketing-palette-ink: rgb(16 16 16 / 1);
-  --axion-semantic-marketing-palette-paper: rgb(245 245 247 / 1);
-  --axion-semantic-marketing-palette-neutral: rgb(166 166 172 / 1);
-  --axion-semantic-marketing-palette-orbEmber: rgb(232 148 38 / 1);
-  --axion-semantic-marketing-palette-orbRim: rgb(255 208 105 / 1);
-  --axion-semantic-marketing-palette-orbLight: rgb(255 241 182 / 1);
-  --axion-semantic-marketing-palette-orbDepth: rgb(72 44 16 / 1);
 }
 
 [data-theme="dark"].axion, [data-theme="dark"] .axion {
@@ -1364,60 +1206,6 @@
   line-height: 1.6;
 }
 
-/* packages/ui/src/patterns/landing/landing.css */
-:where(.axion) .landing-preview {
-  display: grid;
-  grid-template-columns: 1fr 440px;
-  gap: 24px;
-  align-items: center;
-  min-height: 380px;
-  padding: 30px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background:
-    linear-gradient(120deg, rgba(255, 255, 255, 0.9), rgba(241, 247, 255, 0.84)),
-    url('https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1400&q=78')
-      center/cover;
-  box-shadow: var(--shadow-card);
-}
-:where(.axion) .landing-preview h2 {
-  max-width: 760px;
-  font-size: clamp(30px, 4vw, 48px);
-  line-height: 1.08;
-  margin-top: 8px;
-}
-:where(.axion) .landing-preview p:not(.eyebrow) {
-  max-width: 560px;
-  margin: 12px 0 20px;
-  color: var(--slate-600);
-  font-size: 16px;
-  line-height: 25px;
-}
-:where(.axion) .landing-visual {
-  display: grid;
-  gap: 12px;
-  padding: 18px;
-  border: 1px solid rgba(230, 235, 242, 0.9);
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(12px);
-}
-:where(.axion) .landing-visual span {
-  height: 48px;
-  border-radius: var(--radius-sm);
-  background: linear-gradient(90deg, #e9f2ff, #e8fbf2);
-  border: 1px solid var(--border);
-}
-:where(.axion) .landing-visual span:nth-child(2) {
-  width: 82%;
-}
-:where(.axion) .landing-visual span:nth-child(3) {
-  width: 68%;
-}
-:where(.axion) .landing-visual span:nth-child(4) {
-  width: 92%;
-}
-
 /* packages/ui/src/foundations/responsive.css */
 @media (max-width: 1180px) {
   :where(.axion) .topbar {
@@ -1430,9 +1218,6 @@
   }
   :where(.axion) .topology {
     grid-column: 1 / -1;
-  }
-  :where(.axion) .landing-preview {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -1474,8 +1259,7 @@
     grid-template-columns: 1fr;
   }
   :where(.axion) .hero,
-  :where(.axion) .panel,
-  :where(.axion) .landing-preview {
+  :where(.axion) .panel {
     padding: 16px;
   }
   :where(.axion) .brand-story {

@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction/Installation" />
+
+# Instalação
+
+Os pacotes são privados (versão `0.x`, API ainda não estável) e consumidos do
+repositório via npm workspaces ou `npm pack`.
+
+```sh
+npm pack --workspace @axion/ui
+npm install ./axion-ui-<versão>.tgz
+```
+
+React 19 é peer dependency. Importe o tema compilado uma única vez:
+
+```tsx
+import '@axion/ui/theme.css';
+import { Button } from '@axion/ui';
+
+export function Save() {
+  return <Button>Salvar projeto</Button>;
+}
+```
+
+## Tema
+
+Defina `data-theme="light"` ou `data-theme="dark"` no elemento `html`. Portais
+(Dialog, Popover, Menu, Toast) herdam o tema do documento. Ilhas de tema
+aninhadas não são suportadas.
+
+## Desenvolvimento local
+
+```sh
+npm ci
+npx playwright install chromium
+npm run storybook
+npm run validate
+npm run test:visual
+```

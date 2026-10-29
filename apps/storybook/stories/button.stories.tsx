@@ -3,7 +3,7 @@ import { Download } from 'lucide-react';
 import { Button } from '../../../packages/ui/src/react/button';
 
 const meta = {
-  title: 'Components/Button',
+  title: 'Components/Actions/Button',
   component: Button,
   args: { children: 'Salvar projeto' },
   parameters: {

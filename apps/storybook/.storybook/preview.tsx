@@ -38,7 +38,21 @@ const preview: Preview = {
   parameters: {
     layout: 'fullscreen',
     a11y: { test: 'error' },
-    options: { storySort: { order: ['Foundations', 'Components'] } },
+    options: {
+      storySort: {
+        order: [
+          'Introduction',
+          ['Getting Started', 'Installation', 'Principles', 'Accessibility'],
+          'Foundations',
+          ['Colors', 'Typography', 'Spacing', 'Radius', 'Shadows', 'Motion', 'Icons'],
+          'Components',
+          ['Actions', 'Forms', 'Data Display', 'Navigation', 'Overlays', 'Feedback'],
+          'Patterns',
+          ['Dashboard', 'Execution Graph', 'Workflow', 'Logs', 'Evidence'],
+          'Examples',
+        ],
+      },
+    },
   },
 };
 export default preview;

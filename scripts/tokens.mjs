@@ -77,7 +77,7 @@ export function cssValue(type, value) {
 
 export async function loadTokens() {
   const tokens = {};
-  for (const name of ['primitives', 'semantic', 'components', 'marketing']) {
+  for (const name of ['primitives', 'semantic', 'components']) {
     flatten(
       JSON.parse(await readFile('packages/tokens/src/' + name + '.tokens.json', 'utf8')),
       [],

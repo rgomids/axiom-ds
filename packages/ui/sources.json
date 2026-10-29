@@ -16,6 +16,5 @@
   "packages/ui/src/patterns/dashboard/dashboard.css",
   "packages/ui/src/components/table/table.css",
   "packages/ui/src/components/terminal/terminal.css",
-  "packages/ui/src/patterns/landing/landing.css",
   "packages/ui/src/foundations/responsive.css"
 ]
