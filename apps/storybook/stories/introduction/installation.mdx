@@ -12,9 +12,11 @@ npm pack --workspace @axion/ui
 npm install ./axion-ui-<versão>.tgz
 ```
 
-React 19 é peer dependency. Importe o tema compilado uma única vez:
+React 19 é peer dependency. Importe as fontes (Geist Sans/Mono, locais) e o tema
+compilado uma única vez:
 
 ```tsx
+import '@axion/ui/fonts.css';
 import '@axion/ui/theme.css';
 import { Button } from '@axion/ui';
 
@@ -22,6 +24,9 @@ export function Save() {
   return <Button>Salvar projeto</Button>;
 }
 ```
+
+Renderize `<Toaster />` uma vez se usar `toast()`. Padrões técnicos
+(`DashboardShell`, `LogViewer`, `EvidencePanel`...) são exportados pelo mesmo pacote.
 
 ## Tema
 
