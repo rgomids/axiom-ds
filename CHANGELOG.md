@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+### Changed
+
+- Geist v0.2 foundation (ADR 0006): Geist Sans/Mono, expanded light/dark
+  semantic roles, status palettes, typography, motion, elevation, z-index,
+  breakpoints and control heights; WCAG AA contrast proven by tests.
+- Button gains `loading`; Badge gains status, subtle, brand and `mono` variants;
+  all existing components restyled with tokens.
+- Storybook Foundations: Colors, Typography, Spacing, Radius, Shadows, Motion, Icons.
+
 ### Removed
 
 - Landing imersiva (`packages/landing`), padrões de marketing, tokens

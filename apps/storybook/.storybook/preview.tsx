@@ -1,10 +1,7 @@
 import { useLayoutEffect, type ReactNode } from 'react';
 import type { Preview } from '@storybook/react-vite';
 import '../../../packages/ui/src/react/theme.css';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/500.css';
-import '@fontsource/inter/600.css';
-import '@fontsource/inter/700.css';
+import '../../../packages/ui/src/react/fonts.css';
 
 function Theme({ theme, children }: { theme: string; children: ReactNode }) {
   useLayoutEffect(() => {
@@ -13,7 +10,7 @@ function Theme({ theme, children }: { theme: string; children: ReactNode }) {
     document.documentElement.style.colorScheme = theme;
   }, [theme]);
   return (
-    <main className="mx-auto max-w-5xl p-6" data-testid="story-surface">
+    <main className="mx-auto max-w-6xl p-4 sm:p-8" data-testid="story-surface">
       {children}
     </main>
   );

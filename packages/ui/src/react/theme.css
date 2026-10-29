@@ -1,24 +1,30 @@
 @import 'tailwindcss';
 @import '../../../tokens/dist/tokens.css';
 @source "./*.tsx";
+@source "../lib/*.ts";
 @source "../../../../apps/storybook/stories";
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 @theme inline {
+  /* shadcn/ui role names, kept for compatibility with owned component code */
   --color-background: var(--axion-semantic-surface-default);
   --color-foreground: var(--axion-semantic-text-primary);
   --color-card: var(--axion-semantic-surface-default);
   --color-card-foreground: var(--axion-semantic-text-primary);
-  --color-popover: var(--axion-semantic-surface-default);
+  --color-popover: var(--axion-semantic-surface-raised);
   --color-popover-foreground: var(--axion-semantic-text-primary);
   --color-primary: var(--axion-semantic-action-primary);
   --color-primary-hover: var(--axion-semantic-action-hover);
+  --color-primary-active: var(--axion-semantic-action-active);
   --color-primary-foreground: var(--axion-semantic-action-onPrimary);
-  --color-secondary: var(--axion-semantic-surface-muted);
+  --color-primary-subtle: var(--axion-semantic-action-subtle);
+  --color-primary-subtle-hover: var(--axion-semantic-action-subtleHover);
+  --color-primary-subtle-foreground: var(--axion-semantic-action-onSubtle);
+  --color-secondary: var(--axion-semantic-surface-subtle);
   --color-secondary-foreground: var(--axion-semantic-text-primary);
   --color-muted: var(--axion-semantic-surface-muted);
-  --color-muted-foreground: var(--axion-semantic-text-muted);
-  --color-accent: var(--axion-semantic-surface-muted);
+  --color-muted-foreground: var(--axion-semantic-text-tertiary);
+  --color-accent: var(--axion-semantic-surface-subtle);
   --color-accent-foreground: var(--axion-semantic-text-primary);
   --color-destructive: var(--axion-semantic-status-danger);
   --color-destructive-foreground: var(--axion-semantic-status-onDanger);
@@ -26,43 +32,139 @@
   --color-input: var(--axion-semantic-border-control);
   --color-ring: var(--axion-semantic-focus-ring);
   --color-overlay: var(--axion-semantic-overlay);
-  --radius-xs: var(--axion-radius-sm);
+
+  /* Axiom roles */
+  --color-canvas: var(--axion-semantic-surface-canvas);
+  --color-surface: var(--axion-semantic-surface-default);
+  --color-surface-subtle: var(--axion-semantic-surface-subtle);
+  --color-surface-muted: var(--axion-semantic-surface-muted);
+  --color-surface-raised: var(--axion-semantic-surface-raised);
+  --color-surface-selected: var(--axion-semantic-surface-selected);
+  --color-surface-inverse: var(--axion-semantic-surface-inverse);
+  --color-fg: var(--axion-semantic-text-primary);
+  --color-fg-secondary: var(--axion-semantic-text-secondary);
+  --color-fg-tertiary: var(--axion-semantic-text-tertiary);
+  --color-fg-disabled: var(--axion-semantic-text-disabled);
+  --color-fg-inverse: var(--axion-semantic-text-inverse);
+  --color-link: var(--axion-semantic-text-link);
+  --color-border-subtle: var(--axion-semantic-border-subtle);
+  --color-border-strong: var(--axion-semantic-border-strong);
+  --color-border-control: var(--axion-semantic-border-control);
+  --color-border-interactive: var(--axion-semantic-border-interactive);
+  --color-brand-navy: var(--axion-semantic-brand-navy);
+  --color-brand-deep-blue: var(--axion-semantic-brand-deepBlue);
+  --color-brand-gold: var(--axion-semantic-brand-gold);
+  --color-brand-on-gold: var(--axion-semantic-brand-onGold);
+  --color-selection: var(--axion-semantic-selection-background);
+  --color-success: var(--axion-semantic-status-success);
+  --color-success-subtle: var(--axion-semantic-status-successSubtle);
+  --color-success-border: var(--axion-semantic-status-successBorder);
+  --color-success-foreground: var(--axion-semantic-status-onSuccess);
+  --color-warning: var(--axion-semantic-status-warning);
+  --color-warning-subtle: var(--axion-semantic-status-warningSubtle);
+  --color-warning-border: var(--axion-semantic-status-warningBorder);
+  --color-warning-foreground: var(--axion-semantic-status-onWarning);
+  --color-danger: var(--axion-semantic-status-danger);
+  --color-danger-subtle: var(--axion-semantic-status-dangerSubtle);
+  --color-danger-border: var(--axion-semantic-status-dangerBorder);
+  --color-danger-foreground: var(--axion-semantic-status-onDanger);
+  --color-info: var(--axion-semantic-status-info);
+  --color-info-subtle: var(--axion-semantic-status-infoSubtle);
+  --color-info-border: var(--axion-semantic-status-infoBorder);
+  --color-info-foreground: var(--axion-semantic-status-onInfo);
+
+  --radius-xs: var(--axion-radius-xs);
   --radius-sm: var(--axion-radius-sm);
   --radius-md: var(--axion-radius-sm);
   --radius-lg: var(--axion-radius-md);
-  --radius-xl: var(--axion-radius-md);
+  --radius-xl: var(--axion-radius-lg);
+  --radius-control: var(--axion-radius-sm);
+  --radius-card: var(--axion-radius-md);
+  --radius-dialog: var(--axion-radius-lg);
   --spacing: var(--axion-space-4);
-  --font-sans: var(--axion-font-family);
+
+  --font-sans: var(--axion-font-sans);
+  --font-mono: var(--axion-font-mono);
+  --text-2xs: var(--axion-font-size-11);
+  --text-2xs--line-height: 1rem;
   --text-xs: var(--axion-font-size-12);
+  --text-xs--line-height: 1rem;
+  --text-13: var(--axion-font-size-13);
+  --text-13--line-height: 1.125rem;
   --text-sm: var(--axion-font-size-14);
+  --text-sm--line-height: 1.25rem;
   --text-base: var(--axion-font-size-16);
+  --text-base--line-height: 1.5rem;
+  --text-lg: var(--axion-font-size-18);
+  --text-lg--line-height: 1.75rem;
   --text-xl: var(--axion-font-size-20);
+  --text-xl--line-height: 1.75rem;
   --text-2xl: var(--axion-font-size-24);
-  --shadow-sm: var(--axion-shadow-soft);
-  --shadow-lg: var(--axion-shadow-card);
+  --text-2xl--line-height: 2rem;
+  --text-3xl: var(--axion-font-size-32);
+  --text-3xl--line-height: 2.5rem;
+  --text-4xl: var(--axion-font-size-40);
+  --text-4xl--line-height: 3rem;
+  --text-5xl: var(--axion-font-size-48);
+  --text-5xl--line-height: 3.5rem;
+  --font-weight-normal: var(--axion-font-weight-regular);
+  --font-weight-medium: var(--axion-font-weight-medium);
+  --font-weight-semibold: var(--axion-font-weight-semibold);
+  --font-weight-bold: var(--axion-font-weight-bold);
+  --tracking-tighter: calc(var(--axion-font-tracking-tighter) * 1em);
+  --tracking-tight: calc(var(--axion-font-tracking-tight) * 1em);
+  --tracking-normal: 0em;
+  --tracking-wide: calc(var(--axion-font-tracking-wide) * 1em);
+  --tracking-caps: calc(var(--axion-font-tracking-caps) * 1em);
+
+  --shadow-xs: var(--axion-semantic-elevation-raised);
+  --shadow-sm: var(--axion-semantic-elevation-raised);
+  --shadow-md: var(--axion-semantic-elevation-floating);
+  --shadow-lg: var(--axion-semantic-elevation-modal);
+  --shadow-xl: var(--axion-semantic-elevation-modal);
   --default-transition-duration: var(--axion-motion-fast);
+  --default-transition-timing-function: var(--axion-motion-ease);
+  --ease-standard: var(--axion-motion-ease);
+  --ease-out: var(--axion-motion-ease-out);
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
 }
 @layer base {
   * {
     border-color: var(--axion-semantic-border-default);
-    letter-spacing: 0;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   body {
     margin: 0;
     background: var(--axion-semantic-surface-canvas);
     color: var(--axion-semantic-text-primary);
-    font-family: var(--axion-font-family);
+    font-family: var(--axion-font-sans);
+    font-size: var(--axion-font-size-14);
+    line-height: var(--axion-font-leading-normal);
+  }
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(--axion-font-mono);
+  }
+  ::selection {
+    background: var(--axion-semantic-selection-background);
+    color: var(--axion-semantic-text-primary);
   }
   :focus-visible {
     outline: 2px solid var(--axion-semantic-focus-ring);
-    outline-offset: 3px;
+    outline-offset: 2px;
   }
   [data-slot='button'] {
     white-space: normal;
-    min-height: var(--axion-component-button-height);
-  }
-  [data-slot='input'] {
-    min-height: var(--axion-component-field-height);
   }
   [data-slot='dialog-content'] {
     color: var(--axion-semantic-text-primary);
@@ -80,7 +182,87 @@
 @media (forced-colors: active) {
   [data-slot='button'],
   [data-slot='badge'],
-  [data-slot='tabs-trigger'] {
+  [data-slot='tabs-trigger'],
+  [data-slot='switch'],
+  [data-slot='checkbox'] {
     border: 1px solid ButtonText;
+  }
+}
+
+@theme {
+  --animate-in: axion-in var(--axion-motion-base) var(--axion-motion-ease-out);
+  --animate-out: axion-out var(--axion-motion-fast) var(--axion-motion-ease) forwards;
+  --animate-fade-in: axion-fade-in var(--axion-motion-base) var(--axion-motion-ease-out);
+  --animate-fade-out: axion-fade-out var(--axion-motion-fast) var(--axion-motion-ease) forwards;
+  --animate-sheet-in-right: axion-sheet-right var(--axion-motion-slow) var(--axion-motion-ease-out);
+  --animate-sheet-in-left: axion-sheet-left var(--axion-motion-slow) var(--axion-motion-ease-out);
+  --animate-sheet-in-bottom: axion-sheet-bottom var(--axion-motion-slow)
+    var(--axion-motion-ease-out);
+  --animate-accordion-down: axion-accordion-down var(--axion-motion-base)
+    var(--axion-motion-ease-out);
+  --animate-accordion-up: axion-accordion-up var(--axion-motion-fast) var(--axion-motion-ease);
+  --animate-shimmer: axion-shimmer 1.6s linear infinite;
+  --animate-spin: spin 0.8s linear infinite;
+
+  @keyframes axion-in {
+    from {
+      opacity: 0;
+      transform: translateY(2px) scale(0.98);
+    }
+  }
+  @keyframes axion-out {
+    to {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+  }
+  @keyframes axion-fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes axion-fade-out {
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes axion-sheet-right {
+    from {
+      transform: translateX(100%);
+    }
+  }
+  @keyframes axion-sheet-left {
+    from {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes axion-sheet-bottom {
+    from {
+      transform: translateY(100%);
+    }
+  }
+  @keyframes axion-accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes axion-accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  @keyframes axion-shimmer {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
   }
 }

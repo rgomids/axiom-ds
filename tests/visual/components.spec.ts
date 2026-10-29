@@ -2,7 +2,8 @@ import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 const stories = [
-  'foundations-tokens--overview',
+  'foundations-colors--palette',
+  'foundations-typography--scale',
   'components-actions-button--variants',
   'components-actions-button--states',
   'components-forms-input--states',

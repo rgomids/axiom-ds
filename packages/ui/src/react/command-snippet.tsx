@@ -65,11 +65,14 @@ function CommandSnippet({
   return (
     <div
       data-slot="command-snippet"
-      className={cn('rounded-lg border bg-card p-4 text-card-foreground', className)}
+      className={cn('rounded-card border bg-surface-subtle p-3 text-card-foreground', className)}
       {...props}
     >
-      <div className="flex items-start gap-4">
-        <pre className="min-w-0 flex-1 whitespace-pre-wrap break-all font-mono text-sm">
+      <div className="flex items-start gap-3">
+        <pre className="min-w-0 flex-1 py-1.5 pl-1 font-mono text-13 break-all whitespace-pre-wrap text-fg">
+          <span aria-hidden className="mr-2 text-fg-tertiary select-none">
+            $
+          </span>
           <code ref={code}>{command}</code>
         </pre>
         <Button
@@ -83,7 +86,7 @@ function CommandSnippet({
           {labels[state]}
         </Button>
       </div>
-      <p role="status" className="mt-2 text-sm text-muted-foreground">
+      <p role="status" className="mt-1 pl-1 text-xs text-fg-tertiary empty:mt-0 empty:h-0">
         {state === 'copied' ? labels.copied : state === 'error' ? labels.manual : ''}
       </p>
     </div>
