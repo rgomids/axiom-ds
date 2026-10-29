@@ -1,0 +1,18 @@
+'use client';
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { Accordion as AccordionPrimitive } from 'radix-ui';
+import { ChevronDown } from 'lucide-react';
+import { cn } from '../lib/utils';
+function Accordion(props) {
+    return _jsx(AccordionPrimitive.Root, { "data-slot": "accordion", ...props });
+}
+function AccordionItem({ className, ...props }) {
+    return (_jsx(AccordionPrimitive.Item, { "data-slot": "accordion-item", className: cn('border-b last:border-b-0', className), ...props }));
+}
+function AccordionTrigger({ className, children, ...props }) {
+    return (_jsx(AccordionPrimitive.Header, { className: "flex", children: _jsxs(AccordionPrimitive.Trigger, { "data-slot": "accordion-trigger", className: cn('flex flex-1 cursor-pointer items-center justify-between gap-4 rounded-xs py-3 text-left text-sm font-medium text-fg transition-colors outline-none hover:text-fg-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:pointer-events-none disabled:text-fg-disabled [&[data-state=open]>svg]:rotate-180', className), ...props, children: [children, _jsx(ChevronDown, { "aria-hidden": true, className: "size-4 shrink-0 text-fg-tertiary transition-transform" })] }) }));
+}
+function AccordionContent({ className, children, ...props }) {
+    return (_jsx(AccordionPrimitive.Content, { "data-slot": "accordion-content", className: "overflow-hidden text-sm text-fg-secondary data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down", ...props, children: _jsx("div", { className: cn('pb-4', className), children: children }) }));
+}
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };

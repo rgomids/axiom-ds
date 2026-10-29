@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Added
+
+- 40+ React components across Actions, Forms, Data Display, Navigation,
+  Overlays and Feedback (see docs/redesign-geist.md), with documented stories.
+- `useDataTable` headless model; dependencies cmdk, sonner, react-day-picker.
+- Accessibility sweep (axe, WCAG 2.2 AA tags) over every story in both themes,
+  browser keyboard tests for overlays, and new visual baselines.
+
 ### Changed
 
 - Geist v0.2 foundation (ADR 0006): Geist Sans/Mono, expanded light/dark

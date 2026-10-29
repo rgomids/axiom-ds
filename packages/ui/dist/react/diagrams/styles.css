@@ -657,6 +657,13 @@
   font-size: 8px;
   color: var(--dg-muted);
 }
+/* WCAG 2.2 target size (2.5.8): keep the attribution link at least 24px tall. */
+.dg-app .react-flow__attribution a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 4px;
+}
 .dg-app .react-flow__minimap {
   bottom: 70px;
   width: 160px;

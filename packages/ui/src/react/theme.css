@@ -203,6 +203,7 @@
   --animate-accordion-up: axion-accordion-up var(--axion-motion-fast) var(--axion-motion-ease);
   --animate-shimmer: axion-shimmer 1.6s linear infinite;
   --animate-spin: spin 0.8s linear infinite;
+  --animate-indeterminate: axion-indeterminate 1.2s var(--axion-motion-ease) infinite;
 
   @keyframes axion-in {
     from {
@@ -255,6 +256,14 @@
     }
     to {
       height: 0;
+    }
+  }
+  @keyframes axion-indeterminate {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(300%);
     }
   }
   @keyframes axion-shimmer {
