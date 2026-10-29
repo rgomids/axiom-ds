@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Axiom — Toda intenção merece um caminho.</title>
+    <meta
+      name="description"
+      content="Intenção, decisões, código e evidências conectados. Conheça o Axiom: o control plane de desenvolvimento para pessoas e agentes de IA."
+    />
+    <link rel="canonical" href="https://rgomids.github.io/axiom/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Axiom — Development control plane" />
+    <meta property="og:url" content="https://rgomids.github.io/axiom/" />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/rgomids/axiom/main/docs/assets/axiom-logo-black.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://raw.githubusercontent.com/rgomids/axiom/main/docs/assets/axiom-logo-black.png"
+    />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="assets/axiom-logo.png" />
+    <link rel="preload" href="assets/Manrope.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="stylesheet" href="tokens.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="storytelling.css" />
+    <link rel="stylesheet" href="effects.css" />
+    <link rel="stylesheet" href="orchestration.css" />
+    <link rel="stylesheet" href="chapter-navigation.css" />
+    <link rel="stylesheet" href="footer.css" />
+  </head>
+  <body>
+    <svg
+      width="0"
+      height="0"
+      aria-hidden="true"
+      focusable="false"
+      style="position: absolute; overflow: hidden"
+    >
+      <defs>
+        <filter id="logo-dark-gold" color-interpolation-filters="sRGB">
+          <feColorMatrix
+            in="SourceGraphic"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -1 0 0"
+            result="gold-mask"
+          />
+          <feComposite in="SourceGraphic" in2="gold-mask" operator="in" result="gold" />
+          <feFlood flood-color="var(--axion-semantic-marketing-surface-canvas)" result="black" />
+          <feComposite in="black" in2="SourceAlpha" operator="in" result="silhouette" />
+          <feMerge>
+            <feMergeNode in="silhouette" />
+            <feMergeNode in="gold" />
+          </feMerge>
+        </filter>
+      </defs></svg
+    ><a class="skip" href="#proposta" data-en="Skip introduction">Pular apresentação</a
+    >{{navigation}}
+    <main>{{storytelling}} {{product-status}} {{installation}} {{closing}}</main>
+    {{footer}}
+    <script src="preview.js"></script>
+    <script src="app.js"></script>
+    <script type="module" src="storytelling.js"></script>
+  </body>
+</html>
